@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.649" height="29.838" viewBox="0 0 18.649 29.838">
+  <g id="phone" transform="translate(-36)">
+    <g id="Group_87" data-name="Group 87" transform="translate(36)">
+      <path id="Path_71" data-name="Path 71" d="M50.919,1.865A1.865,1.865,0,0,1,52.784,3.73V26.109a1.865,1.865,0,0,1-1.865,1.865H39.73a1.865,1.865,0,0,1-1.865-1.865V3.73A1.865,1.865,0,0,1,39.73,1.865ZM39.73,0A3.73,3.73,0,0,0,36,3.73V26.109a3.73,3.73,0,0,0,3.73,3.73H50.919a3.73,3.73,0,0,0,3.73-3.73V3.73A3.73,3.73,0,0,0,50.919,0Z" transform="translate(-36)" fill="#fff"/>
+      <path id="Path_72" data-name="Path 72" d="M85.865,147.73A1.865,1.865,0,1,0,84,145.865,1.865,1.865,0,0,0,85.865,147.73Z" transform="translate(-76.54 -121.621)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
