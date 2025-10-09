@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+:root {
+  --dark-blue: #041548;
+  --text-clr: #54e691;
+}
+.wp-link {
+  text-align: center;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--dark-blue);
+  scroll-behavior: smooth;
+  font-family: "Playfair Display", serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair Display", serif;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+.keep-ltr,
+.keep-ltr *,
+#container_phone_number * {
+  direction: ltr;
+  unicode-bidi: normal;
+}
+html[lang="ar"] {
+  unicode-bidi: embed;
+}
+html[lang="ar"] .swiper-button-next {
+  right: 0;
+}
+html[lang="ar"] .keep-rtl.wp-link {
+  direction: rtl;
+}
+html[lang="en"] #advantage div div div p {
+  margin-left: 8px;
+}
+html[lang="ar"] .keep-rtl,
+html[lang="ar"] .keep-rtl * {
+  direction: rtl;
+  unicode-bidi: embed;
+}
+.keep-ltr {
+  direction: ltr !important;
+  unicode-bidi: normal !important;
+}
+html[lang="ar"] footer div > div:first-child div p {
+  direction: rtl;
+}
+html[lang="ar"] #whatsapp-fab span.visible {
+  margin-right: 10px;
+  margin-left: 0;
+}
+html[lang="ar"] #fb-form form#contactForm {
+  direction: ltr !important;
+}
+html[lang="ar"] #fb-form form#contactForm .iti__selected-dial-code {
+  margin-right: 6px !important;
+}
+html[lang="ar"] .iti__flag-container {
+  right: inherit !important;
+}
+.swiper[dir="rtl"] > div:nth-child(2) {
+  left: 0;
+  right: inherit !important;
+}
+
+html[lang="ar"] #faq > div div:last-child {
+  right: inherit;
+  left: 0;
+}
+html[lang="ar"] #Phone {
+  padding-right: 0;
+  padding-left: 50px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+button:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+.submit.disabled{
+  cursor: not-allowed;
+}
+#whatsapp-fab.wp-link {
+  z-index: 99999999999999999999999999!important;
+  min-width: 50px;
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  font-size: 25px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  background-color: #2acc19;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  z-index: 1999;
+  animation: buttonAnimation 2s linear infinite;
+}
+@keyframes buttonAnimation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.before-after .slick-dots li button:before {
+  display: none;
+}
+
+.thank-you{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  text-align: center;
+
+}
+.thank-you h1{
+  color: #54e691;
+}
+.thank-you p{
+  color: white;
+}

@@ -1,0 +1,230 @@
+{
+  "lang": "sr",
+  "meta": {
+    "title": "Lifting lica i vrata – Baris Cin",
+    "description": "Dr. Barış Çin je plastični i estetski hirurg poznat po svojoj ekspertizi i iskustvu u oblasti. Posvećen je prioritetizovanju sigurnosti i zadovoljstva svojih pacijenata, koristeći najinovativnije tehnike za lepotu i zdravlje. Izaberite Dr. Barış Çin kako biste poboljšali svoj estetski izgled i podigli samopouzdanje.",
+    "keywords": "Lifting lica i vrata – Baris Cin, Lifting lica i vrata"
+  },
+  "variant": "face",
+  "wp": {
+    "wp_message": "Zdravo, želeo bih da saznam informacije o uslugama i cenama koje se nude za Face + Neck Lift!"
+  },
+  "header": {
+    "links": {
+      "about": "O nama",
+      "step": "Korak po korak",
+      "beforeAfter": "Pre i posle",
+      "reviews": "Utisci pacijenata",
+      "package": "Detalji paketa",
+      "procedures": "Procedure",
+      "faq": "Česta pitanja"
+    }
+  },
+  "hero": {
+    "title": "<span>Lifting lica i vrata</span> <span>u Turskoj</span>",
+    "reviews": "5.000+ Utisaka"
+  },
+  "certificates": {
+    "title": "Međunarodni sertifikati dr. Barış Çin-a"
+  },
+  "form": {
+    "title": "Spremni da okrenete kazaljku i zauvek izgledate mlađe?",
+    "title2": "Zakažite besplatnu konsultaciju",
+    "subtitle": "Postignite zatezanje i mlađi izgled lica!",
+    "privacy": "Posvećeni smo zaštiti vaše privatnosti.",
+    "button": "Krenite danas",
+    "placeholder_phone": "Telefon",
+    "placeholder_name": "Ime",
+    "placeholder_mail": "Email (opciono)",
+    "placeholder_mail_require": "Email",
+    "form_phone_validation": "Molimo popunite ispravan broj telefona."
+  },
+  "about": {
+    "title": "Dr. Baris Cin",
+    "subtitle": "Sertifikovani plastični i rekonstruktivni hirurg",
+    "description": "Dr. Cin je evropski sertifikovani plastični hirurg sa obimnom obukom i iskustvom u oblasti plastične, rekonstruktivne i estetske hirurgije.<br><br> Završio je svoju kliničku posmatračku praksu na Univerzitetu Oksford, Engleska i Univerzitetu Hamburg, Nemačka. Nekoliko godina kasnije, stekao je specijalne sertifikate od vodećih evropskih institucija u Briselu, Belgija i Ankari, Turska.",
+    "button": "Više informacija o Baris Cin-u",
+    "video": "<span>Raspored</span> <br> <b>video poziva</b> <br> <b>sa njim sada uz medicinskog konsultanta!</b>"
+  },
+  "steps": {
+    "title": "4 Koraka do novog sebe!",
+    "all_steps": [
+      {
+        "title": "Popunite formu",
+        "description": "Naši medicinski konsultanti će vas kontaktirati putem WhatsApp-a što je pre moguće."
+      },
+      {
+        "title": "Sačekajte naš poziv i dobijte personalizovani tretman",
+        "description": "Dr. Cin će analizirati vaše fotografije i pripremiti personalizovani tretman plan za vas."
+      },
+      {
+        "title": "Rezervišite svoj termin",
+        "description": "Rezervišite svoj termin i dozvolite našem stručnom timu da vas prati tokom vašeg medicinskog putovanja."
+      },
+      {
+        "title": "Upoznajte novog sebe!",
+        "description": "Spremite se da upoznate novog sebe i uživate u svom novom izgledu!"
+      }
+    ]
+  },
+  "before_after": {
+    "title": "Pre i posle <br> Liftinga lica i vrata <br> Slike",
+    "subtitle": "Apsolutno volimo da vidimo ove transformacije pacijenata pred našim očima!",
+    "button": "Ovo možete biti vi!",
+    "images": [
+      "/images/face/before-after-1.webp",
+      "/images/face/before-after-2.webp"
+    ],
+    "link": "kliknite da vidite slike",
+    "privacy": "*Zbog politike, ne možemo prikazati slike pre i posle. Molimo kontaktirajte nas i pogledajte slike."
+  },
+  "price": {
+    "title": "Cenovnik",
+    "subtitle": "Ne propustite naše ekskluzivne pakete plastične hirurgije!",
+    "prices": [
+      {
+        "title": "LIFTING LICA",
+        "subtitle": "2 Noći bolničkog boravka<br>7 Noći boravka u hotelu",
+        "price": "€ 4.500",
+        "button": "Saznajte više"
+      },
+      {
+        "title": "SREDNJI LIFTING LICA",
+        "subtitle": "2 Noći bolničkog boravka<br>7 Noći boravka u hotelu",
+        "price": "€ 4.000",
+        "button": "Saznajte više"
+      },
+      {
+        "title": "LIFTING VRATA",
+        "subtitle": "2 Noći bolničkog boravka<br>7 Noći boravka u hotelu",
+        "price": "€ 3.300",
+        "button": "Saznajte više"
+      },
+      {
+        "title": "LIFTING LICA + VRATA",
+        "subtitle": "2 Noći bolničkog boravka<br>7 Noći boravka u hotelu",
+        "price": "€ 6.250",
+        "button": "Saznajte više"
+      },
+      {
+        "title": "SREDNJI LIFTING LICA + LIFTING VRATA",
+        "subtitle": "1 Noć bolničkog boravka<br>7 Noći boravka u hotelu",
+        "price": "€ 5.000",
+        "button": "Saznajte više"
+      },
+      {
+        "title": "LIFTING LICA + LIFTING VRATA + INJEKCIJA MASTI",
+        "subtitle": "2 Noći bolničkog boravka<br>7 Noći boravka u hotelu",
+        "price": "€ 7.000",
+        "button": "Saznajte više"
+      }
+    ]
+  },
+  "reviews": {
+    "title": "Utisci pacijenata",
+    "description": "Volimo naše pacijente, ali nemojte samo uzeti našu reč za to. Pogledajte šta oni kažu o nama!",
+    "all_reviews": [
+      {
+        "name": "Jennifer T./SAD",
+        "review": "Prezadovoljna sam rezultatima mog liftinga lica koji je izveo dr. Baris Cin. Veština i ekspertiza dr. Cina su neuporedivi. Od inicijalne konsultacije do procesa oporavka, ceo put je bio bez problema. Ceo tim me je učinio da se osećam udobno i podržano tokom celog procesa. Pažnja dr. Cina prema detaljima dala mi je prirodan i osvežavajući izgled. Toplo preporučujem!",
+        "date": "16 Feb. 2023"
+      },
+      {
+        "name": "Maria R./SAD",
+        "review": "Oduševljena sam izuzetnim rezultatima mog liftinga lica i vrata, izvedenog od strane dr. Baris Cina. Ekspertiza i umetnost dr. Cina su zaista izvanredni. Čitav proces, od konsultacije do oporavka, bio je glatko vođen od strane tima. Moje samopouzdanje je poraslo zahvaljujući veštima dr. Cina. Toplo preporučeno!",
+        "date": "20 Dec. 2021"
+      },
+      {
+        "name": "Igor Gordasevych/Rusija",
+        "review": "Nedavno sam imao lifting lica i operaciju gornjih kapaka kod dr. Baris Cina i potpuno sam zadovoljan rezultatom. Takođe želim da zahvalim Gulnur i Josephu na njihovoj pomoći u komunikaciji sa doktorom. Preporučujem doktora svima.",
+        "date": "6 Novembar 2022"
+      }
+    ],
+    "button": "Napravite prvi korak"
+  },
+  "iconsGroup": {
+    "all_icons": [
+      "Vrhunske <br>Medicinske usluge",
+      "Transparentno Cenovnik<br> Bez skrivenih troškova",
+      "Visoke stope<br> Zadovoljstva pacijenata",
+      "Konkurentne <br>Cene"
+    ]
+  },
+  "services": {
+    "title": "Ekskluzivne usluge <br> za međunarodne pacijente",
+    "button": "Započnite svoje putovanje",
+    "all_services": [
+      {
+        "title": "Usluge prevoda",
+        "description": "Naši kvalifikovani prevodioci koji govore preko 11 jezika pratiće vas tokom vašeg boravka, čineći da se osećate kao kod kuće!"
+      },
+      {
+        "title": "Transport",
+        "description": "Kada stignete u Istanbul, naš saosećajni tim će se pobrinuti za preuzimanje sa aerodroma i sve lokalne transfere, nudeći flotu luksuznih minivanova za vašu udobnost i praktičnost."
+      },
+      {
+        "title": "Smeštaj",
+        "description": "Doživite ekskluzivnost u našem hotelu sa 5 zvezdica u Istanbulu. Uživajte u neprocenjivoj podršci sa našim uslugama postoperativne nege koje se nude u hotelu."
+      },
+      {
+        "title": "Nega nakon operacije",
+        "description": "Ponosimo se što pružamo najviše nivoe nege pre i posle vaše procedure. Naš posvećeni tim nege biće sa vama na svakom koraku kako bi se osiguralo da imate glatku obnovu."
+      }
+    ]
+  },
+  "procedures": {
+    "title": "Vrste procedura",
+    "all_procedures": [
+      {
+        "title": "Potpuni lifting lica",
+        "description": "Potpuni lifting lica dizajniran je da reši opuštene obraze i regiju srednjeg lica, kao i donje lice, brade i liniju vilice. Procedura je generalno preporučljiva za pacijente sa umerenim do naprednim znacima starenja."
+      },
+      {
+        "title": "Srednji lifting lica",
+        "description": "Srednji lifting lica se fokusira uglavnom na regiju obraza, poboljšavajući probleme poput viška masnoće, opuštene kože i linija u srednjem licu. Procedura je generalno preporučljiva za pacijente čije su kozmetičke brige ograničene na obraze i srednje lice."
+      },
+      {
+        "title": "Lifting vrata",
+        "description": "Lifting vrata je hirurška procedura koja zateže opuštenu kožu i uklanja višak masnoće na vratu. Ova procedura može biti veoma efikasan način za poboljšanje izgleda tzv. 'pilećeg vrata'.      "
+      }
+    ]
+  },
+  "hospital": {
+    "title": "Naša bolnica"
+  },
+  "faq": {
+    "title": "Često postavljana pitanja",
+    "all_questions": [
+      {
+        "question": "Koja je razlika između liftinga lica, srednjeg liftinga i liftinga vrata?",
+        "answer": "Lifting lica tretira opuštenu i labavu kožu u donjoj trećini lica i vratu. Srednji lifting lica tretira srednju trećinu lica, područje obraza i slepoočja. Lifting vrata rešava opuštanje u liniji vilice i vratu odvojeno od gornjeg dela lica. Dr. Baris Cin može detaljnije objasniti različite vrste liftinga tokom vaše konsultacije i odrediti koji lifting ili liftingovi su najbolji za vaše specifične anti-aging potrebe.      "
+      },
+      {
+        "question": "Da li će me lifting lica učiniti mlađim?",
+        "answer": "Lifting lica može ukloniti godine sa vašeg lica. Zapravo, prosečno, pacijenti su izjavili da su imali osećaj kao da izgledaju preko deceniju mlađe. Lifting lica je veoma efikasan u zatezanju, iscrtavanju i zatezanju vaše kože. To je zato što lifting lica uključuje ponovno uspostavljanje opuštenih mišića lica i uklanjanje viška kože koja je postala opuštenija tokom godina."
+      },
+      {
+        "question": "Kako se lifting lica razlikuje od liftinga vrata?",
+        "answer": "Lifting lica je dizajniran da osveži donji i srednji deo lica, koji uključuju liniju vilice i obraze. Lifting vrata je specifično dizajniran za zatezanje labave kože i mišića vrata za svežiji izgled."
+      },
+      {
+        "question": "Da li će ljudi primetiti da sam imao lifting vrata?",
+        "answer": "Kada ga izvede stručni hirurg poput dr. Baris Cina, lifting vrata je dizajniran da pruži prirodne rezultate. Dobro izveden lifting vrata rezultiraće incizijama koje su dobro prikrivene u kosi i iza ušiju."
+      },
+      {
+        "question": "Kako se obraćate suvišnoj masnoći na vratu?",
+        "answer": "Liposukcija uspešno može rešiti masnoće na vratu. Međutim, neki pacijenti imaju puno difuznih masnoća na vratu - ponekad čak i dublje nego što to može rešiti lifting lica. U tom slučaju, dr. Baris Cin se brine da postavlja odgovarajuća očekivanja pre operacije. Postoje slučajevi kada vrat ne može biti potpuno podmlađen operacijom."
+      },
+      {
+        "question": "Da li lifting vrata može zategnuti opuštenu kožu?",
+        "answer": "Lifting vrata je veoma efikasan u rešavanju labave kože na vratu i postizanju zategnutijeg izgleda vrata."
+      }
+    ],
+    "button": "Pitajte nas bilo šta!"
+  },
+  "footer": {
+    "address": "Caddebostan Mah. Cemil Topuzlu Cad. <br>Park Palas Apt. D: 59/8 Kadıköy / Istanbul",
+    "email": "info@bariscin.com",
+    "copy": "Sva prava zadržana © 2024 - Baris Cin"
+  }
+}

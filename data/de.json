@@ -1,0 +1,192 @@
+{
+    "lang": "de",
+    "meta": {
+      "title": "Sercan Aslan Haartransplantationsklinik in der Türkei",
+      "description": "Erhalten Sie die beste Haartransplantation in der Türkei",
+      "keywords": "Haartransplantationsklinik, Haartransplantation Türkei, Haartransplantationszentrum"
+    },
+    "variant": "hair",
+    "wp": {
+      "wp_message": "Hallo, ich möchte mich über die angebotenen Leistungen und Preise für die Haartransplantation informieren!"
+    },
+    "header": {
+      "links": {
+        "about": "Über uns",
+        "step": "Schritt für Schritt",
+        "beforeAfter": "Vorher & Nachher",
+        "reviews": "Patientenbewertungen",
+        "faq": "FAQ"
+      }
+    },
+    "hero": {
+      "title": "<span>Haartransplantation</span> <span>in der Türkei</span>",
+      "subtitle": "Haartransplantationspakete ab nur <b>1.700€</b>",
+      "reviews": "5.000+ Bewertungen"
+    },
+    "form": {
+      "title": "Erhalten Sie das Haar, das Sie verdienen",
+      "title2": "Vereinbaren Sie ein kostenloses Beratungsgespräch",
+      "subtitle": "Füllen Sie das untenstehende Formular aus, um eine kostenlose Beratung zu erhalten.",
+      "privacy": "Wir verpflichten uns, Ihre Privatsphäre zu schützen.",
+      "button": "Nächster Schritt",
+      "placeholder_phone": "Telefonnummer",
+      "placeholder_name": "Name",
+      "placeholder_mail": "E-Mail (optional)",
+      "placeholder_mail_require": "E-Mail",
+      "form_phone_validation": "Bitte geben Sie eine gültige Telefonnummer ein."
+    },
+    "about": {
+      "title": "Sercan Aslan Haartransplantationsklinik",
+      "description": "In der Sercan Aslan Haartransplantationsklinik steht Exzellenz in jedem Schritt Ihrer Reise im Mittelpunkt:<br><br>• <b>Natürliche Ergebnisse:</b> Unsere Experten verwenden Techniken und einen künstlerischen Ansatz, um Haarlinien zu schaffen, die völlig natürlich aussehen.<br>• <b>Individuelle Betreuung:</b> Von der ersten Beratung bis zur Nachsorge – jeder Schritt wird auf Ihre Bedürfnisse abgestimmt.<br>• <b>Erschwingliche Preise:</b> Weltklasse-Transplantationen zu wettbewerbsfähigen Preisen – ohne Kompromisse bei Qualität oder Sicherheit.<br>• <b>Internationale Unterstützung:</b> Wir bieten umfassende Hilfe für internationale Patienten – inklusive Flughafentransfer, Hotelunterkunft und mehrsprachigem Support.",
+      "button": "Mehr über die Sercan Aslan Klinik",
+      "video": "<span>Vereinbaren Sie</span> <br> <b>ein Videoberatungsgespräch</b> <br> <b>mit der Sercan Aslan Klinik</b> <br> <b>und unserem medizinischen Berater!</b>"
+    },
+    "steps": {
+      "title": "4 Schritte zu einem neuen Ich!",
+      "all_steps": [
+        {
+          "title": "Formular ausfüllen",
+          "description": "Unsere medizinischen Berater <br> kontaktieren Sie so schnell wie möglich <br> per WhatsApp."
+        },
+        {
+          "title": "Warten Sie auf unseren Anruf <br> und erhalten Sie <br> Ihren individuellen Behandlungsplan",
+          "description": "Unser Expertenteam analysiert <br> Ihre Fotos und erstellt einen <br> maßgeschneiderten Behandlungsplan <br> für Sie."
+        },
+        {
+          "title": "Termin buchen",
+          "description": "Buchen Sie Ihren Termin und lassen Sie sich <br> während Ihrer gesamten medizinischen Reise <br> von unserem Expertenteam begleiten."
+        },
+        {
+          "title": "Begrüßen Sie Ihr neues Ich!",
+          "description": "Freuen Sie sich auf Ihr neues Aussehen <br> und genießen Sie Ihre neue Haarpracht!"
+        }
+      ]
+    },
+    "before_after": {
+      "title": "Haartransplantation <br> Vorher & Nachher <br> Fotos",
+      "subtitle": "Wir lieben es, diese <br> Patientenverwandlungen zu sehen!",
+      "button": "Das könnten Sie sein!",
+      "images": [
+        "/images/b1.jpeg",
+        "/images/b2.jpeg",
+        "/images/b3.jpeg",
+        "/images/b4.jpeg",
+        "/images/b5.jpeg",
+        "/images/b6.jpeg",
+        "/images/b7.jpeg",
+        "/images/b8.jpeg"
+      ],
+      "link": "Klicken Sie, um die Fotos zu sehen",
+      "privacy": "*Aus Datenschutzgründen können wir keine Vorher-Nachher-Fotos anzeigen. Bitte kontaktieren Sie uns, um die Fotos zu sehen."
+    },
+    "reviews": {
+      "title": "Patientenbewertungen",
+      "subtitle": "Erfahren Sie, was unsere zufriedenen Patienten über ihre Erfahrung in der Sercan Aslan Klinik sagen.",
+      "button": "Kostenlose Haaranalyse anfordern",
+      "all_reviews": [
+        {
+          "country": "de",
+          "name": "Samet Temel",
+          "date": "2021-12-12",
+          "review": "Sie sind sehr professionell in ihrem Fachgebiet. Sie haben mir vor der Operation viel Vertrauen gegeben. Es sind 10 Tage vergangen und sie kümmern sich immer noch um mich. Ich bin zuversichtlich, dass das Ergebnis gut wird. Vielen Dank an das gesamte Team, sie waren sehr freundlich."
+        },
+        {
+          "country": "gb",
+          "name": "Emily Carter",
+          "date": "2023-06-22",
+          "review": "Ich bin aus London für meine Haartransplantation angereist und es hat sich definitiv gelohnt. Das Klinikpersonal war sehr freundlich und professionell. Alles wurde mir vor dem Eingriff genau erklärt und die Nachsorge war hervorragend. Sehr empfehlenswert!"
+        },
+        {
+          "country": "ıt",
+          "name": "Luca Bianchi",
+          "date": "2020-04-06",
+          "review": "Ich muss sagen, die Erfahrung war ausgezeichnet. Das Personal war sehr freundlich und professionell. Sie haben mich in jedem Schritt unterstützt – vor und nach dem Eingriff. Ich kann diese Klinik jedem empfehlen, der eine Transplantation in Erwägung zieht!"
+        },
+        {
+          "country": "gb",
+          "name": "James Thompson",
+          "date": "2020-12-24",
+          "review": "Vom Flughafentransfer bis zum Eingriff verlief alles reibungslos und gut organisiert. Der Dolmetscher war sehr hilfreich und hat alles verständlich erklärt. Die Klinik war sauber und modern, ich habe mich sehr sicher gefühlt. Insgesamt eine tolle Erfahrung!"
+        },
+        {
+          "country": "gb",
+          "name": "Ollie Eli",
+          "date": "2024-08-15",
+          "review": "Ich habe meine Haartransplantation im Januar in dieser Klinik machen lassen und eine Woche in Istanbul verbracht. Mahmud hat dafür gesorgt, dass ich auch bei Hotelwechsel zurück zum Flughafen gebracht wurde. Das Klinikpersonal war großartig. Ich kann diesen Ort nur empfehlen. Der Spenderbereich heilt gut und ich warte noch auf das vollständige Wachstum im Empfängerbereich."
+        }
+      ]
+    },
+    "iconsGroup": {
+      "all_icons": [
+        "Hochwertige <br> medizinische Leistungen",
+        "Transparente Preise <br> Keine versteckten Kosten",
+        "Hohe <br> Patientenzufriedenheit",
+        "Wettbewerbsfähige <br> Preise"
+      ]
+    },
+    "services": {
+      "title": "Exklusive Leistungen <br> für internationale Patienten",
+      "button": "Starten Sie Ihre Reise",
+      "all_services": [
+        {
+          "title": "Übersetzungsdienste",
+          "description": "Unsere qualifizierten Dolmetscher begleiten Sie in über 11 Sprachen während Ihres gesamten Aufenthalts – damit Sie sich wie zu Hause fühlen!"
+        },
+        {
+          "title": "Transport",
+          "description": "Nach Ihrer Ankunft in Istanbul kümmert sich unser Team um Ihren Flughafentransfer und alle lokalen Fahrten – mit einer Flotte komfortabler Minivans."
+        },
+        {
+          "title": "Unterkunft",
+          "description": "Wir bieten eine Auswahl an Unterkünften – von 5-Sterne-Hotels bis hin zu gemütlichen Apartments – passend zu Ihrem Budget und Ihren Wünschen."
+        },
+        {
+          "title": "Nachsorge",
+          "description": "Wir bieten höchste Pflegequalität vor und nach dem Eingriff. Unser engagiertes Team steht Ihnen bei jedem Schritt zur Seite für eine reibungslose Genesung."
+        }
+      ]
+    },
+    "hospital": {
+      "title": "Unsere Klinik"
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "all_questions": [
+        {
+          "question": "Wie lange dauert eine Haartransplantation?",
+          "answer": "Eine Haartransplantation dauert in der Regel 6 bis 8 Stunden – abhängig von der Anzahl der benötigten Grafts."
+        },
+        {
+          "question": "Ist der Eingriff schmerzhaft?",
+          "answer": "Die Behandlung erfolgt unter lokaler Betäubung – Sie verspüren währenddessen keine Schmerzen. Nach dem Eingriff kann es zu leichten Beschwerden kommen, die mit Medikamenten gut behandelbar sind."
+        },
+        {
+          "question": "Wann sehe ich das Endergebnis?",
+          "answer": "Erste Ergebnisse sind nach ca. 3 bis 4 Monaten sichtbar. Das endgültige Ergebnis ist meist nach 9 bis 12 Monaten zu sehen."
+        },
+        {
+          "question": "Fallen die transplantierten Haare wieder aus?",
+          "answer": "Die transplantierten Haare fallen nach 2–3 Wochen zunächst aus – das ist völlig normal. Danach beginnt das permanente Haarwachstum."
+        },
+        {
+          "question": "Ist das Ergebnis dauerhaft?",
+          "answer": "Ja, die transplantierten Haare stammen aus dem Spenderbereich (meist Hinterkopf), der genetisch gegen Haarausfall resistent ist. Das Ergebnis ist dauerhaft."
+        },
+        {
+          "question": "Bieten Sie Unterkunft und Transfers an?",
+          "answer": "Ja, wir bieten VIP-Flughafentransfer, Hotelunterkunft und umfassende Unterstützung für unsere internationalen Patienten."
+        },
+        {
+          "question": "Kann ich nach dem Eingriff wieder arbeiten?",
+          "answer": "Die meisten Patienten können nach 3 bis 5 Tagen wieder arbeiten – je nach Tätigkeit. Sie erhalten detaillierte Anweisungen für eine reibungslose Genesung."
+        }
+      ],
+      "button": "Stellen Sie uns Ihre Fragen!"
+    },
+    "footer": {
+      "address": "Şükür İş Merkezi, Fulya, Akıncı Bayırı Sk. Etage:2 Nr:10, 34394 Şişli / Istanbul",
+      "email": "info@sercanaslanhair.com",
+      "copy": "Alle Rechte vorbehalten © 2025 - Sercan Aslan Hair"
+    }
+  }
+  

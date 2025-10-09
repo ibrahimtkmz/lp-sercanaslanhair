@@ -1,0 +1,26 @@
+.certificates {
+     padding: 20px 0;
+     background-color: #041548;
+}
+.certificates-inner {
+     max-width: 1440px;
+     width: 95%;
+     margin: 0 auto;
+}
+.certificates-inner h2 {
+     margin-bottom: 34px;
+     font-size: 34px;
+     color: white;
+     font-weight: bold;
+     text-align: center;
+}
+.marquee-item {
+     margin: 0 40px;
+}
+
+@media screen and (max-width: 600px) {
+     .marquee-item img {
+          width: 130px;
+          height: auto;
+     }
+}

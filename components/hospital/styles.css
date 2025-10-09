@@ -1,0 +1,18 @@
+.hospital {
+     background: linear-gradient(#071d60 0%, #062da3 100%);
+     padding: 40px 0;
+}
+.hospital h2 {
+     font-size: 34px;
+     color: var(--text-clr);
+     margin-bottom: 50px;
+     max-width: 1440px;
+     margin: 0 auto;
+     margin-bottom: 40px;
+     width: 95%;
+}
+
+.hospital-card img {
+     width: 100%;
+     height: 100%;
+}

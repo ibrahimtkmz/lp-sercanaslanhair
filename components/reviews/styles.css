@@ -1,0 +1,117 @@
+.reviews {
+     background: url('/images/path.png');
+     background-size: cover;
+     padding: 60px 0 74px 0;
+     background-color: #071d60;
+}
+.reviews-inner {
+     max-width: 1020px;
+     margin: 0 auto;
+     width: 95%;
+     text-align: center;
+     position: relative;
+}
+
+.reviews-inner header {
+     position: relative;
+     margin-bottom: 60px;
+}
+.reviews-inner h2 {
+     font-size: 32px;
+     font-weight: bold;
+     color: var(--text-clr);
+     margin-top: 70px;
+     margin-bottom: 20px;
+}
+.reviews-inner span {
+     font-size: 18px;
+     font-weight: 400;
+     color: white;
+     font-family: 'Helvetica Neue', sans-serif;
+}
+.review-slider-card {
+     display: flex !important;
+     align-items: center;
+     justify-content: center;
+}
+.review-slider-card .review-image {
+     min-width: 300px;
+}
+.review-slider-card .review-image img {
+     width: 100%;
+     height: auto;
+}
+.review-slider-card article {
+     border-radius: 5px;
+     background: #0000001e;
+     border: 1px solid #fff;
+     padding: 20px;
+     max-width: 600px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+.review-slider-card article h3 {
+     font-size: 25px;
+     color: var(--text-clr);
+     font-weight: bold;
+     margin-bottom: 10px;
+}
+
+.review-slider-card article p {
+     font-size: 16px;
+     font-family: 'Helvetica ', sans-serif;
+     color: whitesmoke;
+     margin-top: 40px;
+     margin-bottom: 20px;
+     line-height: 1.4;
+}
+.review-slider-card article span {
+     font-size: 14px;
+     color: whitesmoke;
+}
+.review-slider-card article a {
+     margin-top: 20px;
+}
+.review-slider-card article a span {
+     font-size: 17px;
+}
+.review-slider-card article a img {
+     display: none;
+}
+.reviews .slick-dots {
+     display: none !important;
+}
+
+@media screen and (max-width: 1050px) {
+     .reviews-inner header {
+          position: static;
+     }
+}
+@media screen and (max-width: 769px) {
+     .review-slider-card {
+          flex-direction: column;
+     }
+     .review-slider-card .review-image {
+          min-width: auto;
+          width: 57%;
+     }
+     .slick-prev {
+          left: 0;
+     }
+     .slick-next {
+          right: 0;
+     }
+     .reviews-inner header {
+          margin-bottom: 32px;
+     }
+     .reviews-inner h2 {
+          margin-top: 0;
+     }
+     .reviews {
+          padding-top: 12px;
+     }
+     .review-slider-card .review-image {
+          margin-bottom: -44px;
+     }
+}

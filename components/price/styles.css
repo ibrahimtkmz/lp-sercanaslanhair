@@ -1,0 +1,107 @@
+.price {
+     padding-bottom: 74px;
+     background-color: #071d60;
+     padding-top: 30px;
+}
+.price-inner {
+     max-width: 1440px;
+     margin: 0 auto;
+     width: 95%;
+}
+.price-inner h2 {
+     font-size: 34px;
+     color: var(--text-clr);
+     text-align: center;
+}
+.bbl-card {
+     max-width: 800px;
+     margin: 0 auto;
+}
+.slick-next {
+     right: 0 !important;
+}
+.slick-prev {
+     left: 0 !important;
+}
+.price .slick-dots {
+     bottom: -50px !important;
+}
+.price-inner span {
+     font-size: 18px;
+     text-align: center;
+     display: block;
+     margin-bottom: 34px;
+     color: whitesmoke;
+     font-family: 'Helvetica Neue', sans-serif;
+     letter-spacing: 0.3px;
+     margin-top: 10px;
+     text-align: center;
+}
+.price .slick-slide > div:first-child {
+     display: flex;
+     justify-content: center;
+     min-height: 300px;
+}
+.price-item {
+     padding: 20px;
+     box-sizing: border-box;
+     border-radius: 20px;
+     border: 1px solid #274fc9;
+     background-color: #001157;
+     width: 360px;
+     gap: 10px;
+     max-width: 360px;
+}
+.price-item {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+     font-family: 'Helvetica', sans-serif;
+     position: relative;
+}
+.price-item h3 {
+     font-size: 22px;
+     color: whitesmoke;
+     text-transform: uppercase;
+     text-align: center;
+     margin-bottom: 20px;
+}
+.price-item p {
+     color: #a0b7fc;
+     margin-top: 20px;
+     font-size: 16px;
+     margin-top: auto;
+}
+.price-item div {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-top: 50px;
+     width: 100%;
+     background-color: #1c48ce;
+     border-radius: 11px 11px 11px 11px;
+     padding: 10px;
+     position: relative;
+     font-size: 30px;
+     color: whitesmoke;
+     font-family: 'Helvetica Neue', sans-serif;
+}
+.price-item a {
+     color: var(--text-clr);
+     font-weight: 400;
+     margin: 0 auto;
+     padding-bottom: 2px;
+     border-bottom: 1px solid var(--text-clr);
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     margin-top: 30px !important;
+     width: max-content;
+}
+
+@media screen and (max-width: 800px) {
+}
+
+@media screen and (max-width: 440px) {
+}

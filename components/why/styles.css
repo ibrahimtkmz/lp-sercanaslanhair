@@ -1,0 +1,129 @@
+.why {
+     background: linear-gradient(180deg, rgb(32, 38, 57) 11.4%, #120f0f 70.2%);
+     padding: 16px 0;
+     position: relative;
+}
+.why-inner {
+     display: flex;
+     max-width: 1440px;
+     margin: 0 auto;
+     width: 96%;
+}
+.why-inner h2 {
+     color: var(--primary-text);
+     font-size: 30px;
+     font-weight: 500;
+     margin-bottom: 10px;
+}
+.why-inner p {
+     color: var(--secondary-text);
+     font-size: 16px;
+     font-weight: 300;
+     line-height: 1.5;
+     letter-spacing: 0.4px;
+     opacity: 0.8;
+}
+.why-content {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     width: 100%;
+     margin-top: 20px;
+}
+.why-content li {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     color: var(--secondary-text);
+}
+.why-content li p {
+     font-weight: bold;
+     letter-spacing: 0.2px;
+}
+.why .wp-link {
+     padding: 8px 12px;
+     min-height: 50px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
+     border-radius: 10px;
+     max-width: 330px;
+     background-color: var(--primary-text);
+     font-weight: 700;
+     font-size: 17px;
+     letter-spacing: 0.3px;
+     animation: buttonAnimation 2s linear infinite;
+     border: 7px solid #0c0a08bf;
+     margin: 0 auto;
+     margin-top: 30px;
+     color: #120f0f;
+}
+
+@media screen and (min-width: 900px) {
+     .why .wp-link {
+          display: none;
+     }
+     .why-left {
+          max-width: 50%;
+     }
+     .why-inner {
+          justify-content: space-between;
+          gap: 40px;
+     }
+     .why-inner h2 {
+          font-size: 40px;
+     }
+     .why-form {
+          height: max-content;
+          position: sticky;
+          top: 0;
+          padding: 50px 40px;
+          box-sizing: border-box;
+          border: 2px solid rgb(118, 118, 118);
+          max-width: 550px;
+          border-bottom-left-radius: 10px;
+     }
+     .why-content {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+     }
+     .why-form h2 {
+          font-size: 26px;
+          text-align: center;
+     }
+     .why-form p {
+          text-align: center;
+          margin-bottom: 20px;
+     }
+     .why-form form {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+     }
+     .why-form form input {
+          max-height: 44px;
+          padding: 20px;
+          color: var(--secondary-text);
+          outline: none;
+     }
+     .why-form form button[type='submit'] {
+          padding: 20px;
+          background-color: rgb(32 38 57);
+          font-weight: 700;
+          font-size: 20px;
+          letter-spacing: 0.3px;
+          cursor: pointer;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          max-height: 50px;
+          border: 2px solid;
+          border-right-color: #293449;
+          border-bottom-color: #293449;
+          border-top-color: transparent;
+          border-left-color: transparent;
+          color: var(--secondary-text);
+     }
+}

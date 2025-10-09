@@ -1,0 +1,49 @@
+.wp-link:not(
+    .about-content .wp-link,
+    .ba-overlay .wp-link,
+    .price-item .wp-link,
+    .about-cta .wp-link,
+    .wp-link#whatsapp-fab
+  ) {
+  min-width: 261px;
+  height: 60px;
+  border-radius: 30px;
+  background: linear-gradient(#01015f 0%, #14ce95 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.wp-link:not(
+    .about-content .wp-link,
+    .ba-overlay .wp-link,
+    .price-item .wp-link,
+    .about-cta .wp-link
+  ):hover
+  img {
+  left: -10px;
+}
+.wp-link:not(
+    .about-content .wp-link,
+    .ba-overlay .wp-link,
+    .price-item .wp-link,
+    .about-cta .wp-link
+  )
+  span {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Helvetica Neue", sans-serif;
+}
+.wp-link:not(
+    .about-content .wp-link,
+    .ba-overlay .wp-link,
+    .price-item .wp-link,
+    .about-cta .wp-link
+  )
+  img {
+  position: absolute;
+  left: -25px;
+  transition: all 0.3s ease;
+}

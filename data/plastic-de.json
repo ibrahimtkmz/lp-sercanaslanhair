@@ -1,0 +1,205 @@
+{
+  "lang": "de",
+  "meta": {
+    "title": "Plastische Chirurgie in der Türkei - Dr. Barış Cin",
+    "description": "Dr. Barış Cin ist ein renommierter plastischer und ästhetischer Chirurg, der für seine Fachkenntnis und Erfahrung bekannt ist. Er setzt auf innovative Techniken, um Schönheit und Gesundheit zu fördern, wobei die Sicherheit und Zufriedenheit seiner Patienten an erster Stelle stehen. Wählen Sie Dr. Barış Cin, um Ihr ästhetisches Erscheinungsbild zu verbessern und Ihr Selbstvertrauen zu stärken.",
+    "keywords": "Plastische Chirurgie in der Türkei"
+  },
+  "variant": "plastic",
+  "wp": {
+    "wp_message": "Hallo, ich möchte Informationen zu den angebotenen Leistungen und Preisen für plastische Chirurgie erhalten."
+  },
+  "header": {
+    "links": {
+      "about": "Über uns",
+      "step": "Schritt für Schritt",
+      "beforeAfter": "Vorher & Nachher",
+      "reviews": "Patientenbewertungen",
+      "package": "Paketdetails",
+      "procedures": "Eingriffe",
+      "faq": "FAQ"
+    }
+  },
+  "hero": {
+    "title": "<span>Plastische Chirurgie</span><br> <span>in der Türkei</span>",
+    "reviews": "5.000+ Bewertungen"
+  },
+  "certificates": {
+    "title": "Internationale Zertifikate von Dr. Barış Cin"
+  },
+  "form": {
+    "title": "Sind Sie bereit für Ihre Reise?",
+    "title2": "Vereinbaren Sie ein kostenloses Beratungsgespräch",
+    "subtitle": "Füllen Sie das untenstehende Formular aus, und einer unserer medizinischen Berater wird sich so schnell wie möglich mit Ihnen in Verbindung setzen.",
+    "privacy": "Wir sind verpflichtet, Ihre Privatsphäre zu schützen.",
+    "button": "Den nächsten Schritt machen",
+    "placeholder_phone": "Telefonnummer",
+    "placeholder_name": "Name",
+    "placeholder_mail": "E-Mail (optional)",
+    "placeholder_mail_require": "E-Mail",
+    "form_phone_validation": "Bitte geben Sie eine gültige Telefonnummer ein."
+  },
+  "about": {
+    "title": "Dr. Barış Cin",
+    "subtitle": "Zertifizierter Facharzt für Plastische & Rekonstruktive Chirurgie",
+    "description": "Dr. Cin ist ein von der Europäischen Gesellschaft für Plastische Chirurgie zertifizierter Facharzt mit umfangreicher Ausbildung und Erfahrung in der plastischen, rekonstruktiven und ästhetischen Chirurgie.<br><br>Er absolvierte klinische Hospitationen an der Universität Oxford in England und der Universität Hamburg in Deutschland. Einige Jahre später erhielt er seine Facharztzertifikate von führenden europäischen Institutionen in Brüssel, Belgien, und Ankara, Türkei.",
+    "button": "Mehr Informationen über Barış Cin",
+    "video": "<span>Dr. Cins</span> <br> <b>Vereinbaren Sie</b> <br> <b>ein Video-Call</b> <br> <b>mit ihm und einem medizinischen Berater!</b>"
+  },
+  "steps": {
+    "title": "4 Schritte zu einem neuen Ich!",
+    "all_steps": [
+      {
+        "title": "Füllen Sie das Formular aus",
+        "description": "Unsere medizinischen Berater <br> kontaktieren Sie so schnell <br> wie möglich über WhatsApp."
+      },
+      {
+        "title": "Warten Sie auf unseren Anruf & <br> erhalten Sie Ihren <br> persönlichen Behandlungsplan",
+        "description": "Dr. Cin wird Ihre <br> Fotos analysieren und <br> einen individuellen <br> Behandlungsplan erstellen."
+      },
+      {
+        "title": "Buchen Sie Ihren Termin",
+        "description": "Buchen Sie Ihren Termin und <br> lassen Sie sich von unserem <br> Expertenteam während <br> Ihrer medizinischen Reise begleiten."
+      },
+      {
+        "title": "Treffen Sie Ihr neues Ich!",
+        "description": "Freuen Sie sich darauf, <br> Ihr neues Ich kennenzulernen <br> und Ihr neues Aussehen zu genießen!"
+      }
+    ]
+  },
+  "before_after": {
+    "title": " Vorher & Nachher Fotos",
+    "subtitle": "Wir lieben es, diese <br> Verwandlungen unserer Patienten zu sehen!",
+    "button": "Das könnte Sie sein!",
+    "images": [
+      "/images/bbl/before-after-1.webp",
+      "/images/bbl/before-after-2.webp",
+      "/images/bbl/before-after-3.webp"
+    ],
+    "link": "Klicken Sie hier, um die Fotos zu sehen",
+    "privacy": "*Aus Datenschutzgründen können wir keine Vorher-Nachher-Fotos anzeigen. Bitte kontaktieren Sie uns, um die Fotos zu sehen."
+  },
+"procedures": {
+  "title": "Behandlungen",
+  "all_procedures": [
+    {
+      "title": "Gesichts- und Halslifting",
+      "description": "Ein chirurgischer Eingriff, der schlaffe Haut und Muskeln im Gesicht und am Hals strafft, um ein jugendlicheres und frischeres Aussehen zu erzielen."
+    },
+    {
+      "title": "Brustvergrößerung",
+      "description": "Erhöht die Brustgröße und verbessert die Form durch Implantate oder Fetttransfer, um ein volleres und harmonisches Erscheinungsbild zu erreichen."
+    },
+    {
+      "title": "Brustverkleinerung",
+      "description": "Entfernt überschüssiges Brustgewebe und formt die Brüste neu, um Beschwerden zu lindern und das Körpergleichgewicht zu verbessern."
+    },
+    {
+      "title": "Brustimplantate",
+      "description": "Ein ästhetischer Eingriff zur Vergrößerung der Brust mit Silikon- oder Kochsalzimplantaten für mehr Volumen und eine verbesserte Kontur."
+    },
+    {
+      "title": "Fettabsaugung",
+      "description": "Ein Verfahren zur Entfernung von Fettdepots, das den Körper formt und konturiert, indem hartnäckige Fettansammlungen gezielt beseitigt werden."
+    },
+    {
+      "title": "Bauchdeckenstraffung",
+      "description": "Entfernt überschüssige Haut und Fett im Bauchbereich und strafft die darunterliegenden Muskeln für einen festeren, flacheren Bauch."
+    },
+    {
+      "title": "Brazilian Butt Lift",
+      "description": "Verbessert die Form und das Volumen des Gesäßes durch Fetttransfer und sorgt für eine vollere, straffere und natürliche Kontur."
+    }
+  ]
+},
+  "reviews": {
+    "title": "Patientenbewertungen",
+    "description": "Wir lieben unsere Patienten, aber nehmen Sie nicht nur unser Wort dafür.<br> Sehen Sie sich an, was sie über uns sagen!",
+    "all_reviews": [
+      {
+        "name": "Xena Nettleingham/Großbritannien",
+        "review": "Ich habe kürzlich eine Bauchdeckenstraffung mit Muskelstraffung und eine Oberarmstraffung bei Dr. Barış Cin durchführen lassen. Ich bin mit meiner bisherigen Reise sehr zufrieden und habe großartige Unterstützung von Dr. Barış und seinem wunderbaren Team erhalten. Seine Assistentin war rund um die Uhr erreichbar und hat mir in jeder Phase ein sicheres Gefühl gegeben. Die Betreuung, die ich erhalten habe, war erstklassig. Ich bin noch keine vier Wochen nach der Operation, aber ich heile gut und freue mich auf das Endergebnis.",
+        "date": "16. Feb. 2023"
+      },
+      {
+        "name": "Emily M./Türkei",
+        "review": "Die Entscheidung für Dr. Barış Cin für meine Bauchdeckenstraffung war die beste, die ich getroffen habe. Die Klinik für ästhetische Chirurgie strahlt Professionalität und eine einladende Atmosphäre aus. Dr. Cins Liebe zum Detail und seine Kunstfertigkeit in der ästhetischen Chirurgie sind wirklich bewundernswert. Das Ergebnis meiner Bauchdeckenstraffung hat meine Erwartungen übertroffen, und ich fühle mich selbstbewusster als je zuvor. Vielen Dank an Dr. Cin und sein Team für diese großartige Erfahrung!",
+        "date": "20. Dez. 2021"
+      },
+      {
+        "name": "Luiz/USA",
+        "review": "Dr. Barış Cin ist ein wahrer Künstler. Er liebt seinen Beruf wirklich und ist der Beste. Ich habe mich einer Bauchdeckenstraffung unterzogen, und die Ergebnisse haben meine Erwartungen übertroffen. Dr. Barış und sein Team haben mich besonders während meiner Genesungszeit unterstützt. Dr. Cins Präzision und Können sind in jeder Hinsicht spürbar. Die Atmosphäre in der Klinik ist ruhig und angenehm, und das Personal ist herzlich und freundlich. Von meiner ersten Beratung bis zur letzten Nachuntersuchung war der gesamte Prozess reibungslos. Ich empfehle Dr. Barış Cin jedem, der ästhetische Eingriffe in Erwägung zieht.",
+        "date": "6. Nov. 2022"
+      }
+    ],
+    "button": "Den ersten Schritt machen"
+  },
+  "iconsGroup": {
+    "all_icons": [
+      "Hochwertige <br>medizinische Leistungen",
+      "Transparente Preise<br> Keine versteckten Kosten",
+      "Hohe Patientenzufriedenheit",
+      "Konkurrenzfähige <br>Preise"
+    ]
+  },
+  "services": {
+    "title": "Exklusive Dienstleistungen <br> für internationale Patienten",
+    "button": "Starten Sie Ihre Reise",
+    "all_services": [
+      {
+        "title": "Übersetzungsdienste",
+        "description": "Unsere qualifizierten Dolmetscher, die über 11 Sprachen sprechen, begleiten Sie während Ihres gesamten Aufenthalts und sorgen dafür, dass Sie sich wie zu Hause fühlen!"
+      },
+      {
+        "title": "Transport",
+        "description": "Sobald Sie in Istanbul ankommen, kümmert sich unser fürsorgliches Team um Ihren Flughafentransfer und alle lokalen Fahrten, mit einer Flotte luxuriöser Minivans für Ihren Komfort."
+      },
+      {
+        "title": "Unterkunft",
+        "description": "Erleben Sie Exklusivität in unserem 5-Sterne-Hotel in Istanbul. Genießen Sie unvergleichliche Unterstützung mit unserer postoperativen Pflege direkt im Hotel."
+      },
+      {
+        "title": "Nachsorge",
+        "description": "Wir sind stolz darauf, die höchste Pflege vor und nach Ihrer Operation zu bieten. Unser engagiertes Betreuungsteam begleitet Sie auf jedem Schritt Ihrer Genesung."
+      }
+    ]
+  },
+  "hospital": {
+    "title": "Unser Krankenhaus"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "all_questions": [
+      {
+        "question": "Welches Gewicht ist ideal für eine plastische Operation?",
+        "answer": "Es gibt kein spezifisches 'ideales' Gewicht für plastische Operationen. Eingriffe wie Facelifts, Halsstraffungen, Brazilian Butt Lifts (BBL) und Brustoperationen dienen der Verbesserung von Konturen und des Erscheinungsbildes, nicht der Gewichtsabnahme. Es wird empfohlen, ein stabiles Gewicht und eine gute allgemeine Gesundheit zu haben, bevor eine kosmetische Operation durchgeführt wird. Eine Beratung mit Dr. Barış Cin hilft dabei, festzustellen, ob Sie ein geeigneter Kandidat sind und wann der beste Zeitpunkt für Ihre Operation ist."
+      },
+      {
+        "question": "Wie lange dauert es, bis man Ergebnisse sieht?",
+        "answer": "Die ersten Ergebnisse plastischer Operationen sind oft schon nach einigen Wochen sichtbar, wenn die Schwellung abklingt. Das endgültige Ergebnis kann jedoch mehrere Monate dauern. Bei Eingriffen wie Facelifts und Halsstraffungen können Verbesserungen innerhalb von 2–3 Wochen sichtbar werden, während Körperformungsoperationen wie BBL oder Brustoperationen länger dauern können, bis das endgültige Ergebnis erreicht ist."
+      },
+      {
+        "question": "Kann Fett nach einem BBL oder einer Körperkonturierung zurückkehren?",
+        "answer": "Ein Brazilian Butt Lift (BBL) und andere körperformende Eingriffe helfen, die Körperform zu verbessern, aber das Ergebnis hängt von einem stabilen Gewicht, einer gesunden Ernährung und Bewegung ab. Starke Gewichtszunahme oder -abnahme kann die Fettverteilung verändern und die Ergebnisse beeinflussen. Ein gesunder Lebensstil ist entscheidend für langfristige Ergebnisse."
+      },
+      {
+        "question": "Kann ich mehrere plastische Eingriffe kombinieren?",
+        "answer": "Ja, es ist üblich, Eingriffe wie ein Facelift mit einer Halsstraffung oder eine Bauchdeckenstraffung mit Fettabsaugung und Brustvergrößerung zu kombinieren. Dies kann helfen, umfassendere Ergebnisse zu erzielen und die gesamte Erholungszeit zu verkürzen. Dr. Barış Cin berät Sie zur besten Kombination basierend auf Ihren ästhetischen Zielen und Ihrer medizinischen Vorgeschichte."
+      },
+      {
+        "question": "Werde ich nach der plastischen Operation sichtbare Narben haben?",
+        "answer": "Narben sind ein natürlicher Teil jeder Operation, aber durch fortschrittliche chirurgische Techniken können sie minimiert werden. Mit der Zeit verblassen Narben in der Regel und werden weniger auffällig. Eine richtige Nachsorge und spezielle Narbenbehandlungen können das Erscheinungsbild weiter verbessern."
+      },
+      {
+        "question": "Ist plastische Chirurgie nach einer Schwangerschaft möglich? Falls ja, wann?",
+        "answer": "Ja, viele Frauen entscheiden sich nach einer Schwangerschaft für Eingriffe wie Bauchdeckenstraffung, Bruststraffung oder Mommy Makeover, um ihren Körper wieder in Form zu bringen. Es wird empfohlen, mindestens sechs Monate nach der Geburt zu warten, bevor eine größere plastische Operation durchgeführt wird. Falls Sie stillen, sollten Sie einige Monate nach dem Abstillen warten, um optimale Heilung und Ergebnisse zu gewährleisten."
+      }
+    ],
+    "button": "Fragen Sie uns alles!"
+  },
+  "footer": {
+    "address": "Caddebostan Mah. Cemil Topuzlu Cad. <br>Park Palas Apt. D: 59/8 Kadıköy / İstanbul",
+    "email": "info@bariscin.com",
+    "copy": "Alle Rechte vorbehalten © 2024 - Baris Cin"
+  }
+}

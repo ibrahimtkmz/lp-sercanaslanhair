@@ -1,0 +1,107 @@
+.before-after {
+  padding: 60px 0;
+  background-color: #071d60 !important;
+  background: url(/images/path.png);
+  background-size: cover;
+  background-position-y: 2%;
+  background-position: bottom;
+}
+.before-after-inner {
+  max-width: 1440px;
+  width: 95%;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.before-after-inner article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.before-after-inner article h2 {
+  font-size: 34px;
+  color: var(--text-clr);
+}
+.before-after-inner article p {
+  font-size: 18px;
+  margin-top: 30px;
+  color: whitesmoke;
+  font-family: "Helvetica Neue", sans-serif;
+  letter-spacing: 0.3px;
+}
+.before-after-inner article a {
+  margin-top: 30px;
+}
+.before-after-inner .ba-slider {
+  width: 750px;
+}
+
+
+.before-after-inner .ba-slider .before-after-card img {
+  max-width: 100%;
+  width: 100%;
+}
+.ba-privacy {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+}
+.before-after-card.show{
+  padding:  0 10px;
+}
+.before-after-card.show img {
+  filter: blur(0) !important;
+}
+.before-after-card.show .ba-overlay {
+  display: none !important;
+}
+@media screen and (max-width: 1100px) {
+  .before-after-inner .ba-slider {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .before-after-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .before-after .slick-slide div:first-child {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .before-after-inner article h2 {
+    font-size: 30px;
+  }
+  .before-after-inner article p {
+    font-size: 16px;
+  }
+  .before-after-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .before-after .ba-slider .before-after-card {
+    width: 340px !important;
+    height: 340px;
+  }
+  .before-after-inner .ba-slider {
+    max-width: 100%;
+  }
+  .slick-prev {
+    left: 0;
+    z-index: 123;
+  }
+  .slick-next {
+    right: 0;
+    z-index: 123;
+  }
+  .before-after-inner article a {
+    left: 30px;
+  }
+}

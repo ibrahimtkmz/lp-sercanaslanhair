@@ -1,0 +1,192 @@
+{
+    "lang": "it",
+    "meta": {
+      "title": "Clinica di Trapianto di Capelli Sercan Aslan in Turchia",
+      "description": "Ottieni il miglior trapianto di capelli in Turchia",
+      "keywords": "Clinica di Trapianto di Capelli, Trapianto di Capelli in Turchia, Centro Trapianto Capelli"
+    },
+    "variant": "hair",
+    "wp": {
+      "wp_message": "Ciao, vorrei sapere di più sui servizi e sui prezzi offerti per il trapianto di capelli!"
+    },
+    "header": {
+      "links": {
+        "about": "Chi siamo",
+        "step": "Passo dopo passo",
+        "beforeAfter": "Prima & Dopo",
+        "reviews": "Recensioni dei Pazienti",
+        "faq": "FAQ"
+      }
+    },
+    "hero": {
+      "title": "<span>Trapianto di Capelli</span> <span>in Turchia</span>",
+      "subtitle": "",
+      "reviews": "Oltre 5.000 recensioni"
+    },
+    "form": {
+      "title": "Ottieni i capelli che meriti",
+      "title2": "Prenota una consulenza gratuita",
+      "subtitle": "Compila il modulo qui sotto per ricevere una consulenza gratuita.",
+      "privacy": "Ci impegniamo a proteggere la tua privacy.",
+      "button": "Fai il prossimo passo",
+      "placeholder_phone": "Telefono",
+      "placeholder_name": "Nome",
+      "placeholder_mail": "Email (facoltativo)",
+      "placeholder_mail_require": "Email",
+      "form_phone_validation": "Inserisci un numero di telefono valido."
+    },
+    "about": {
+      "title": "Clinica di Trapianto di Capelli Sercan Aslan",
+      "description": "Alla Clinica di Trapianto di Capelli Sercan Aslan, diamo priorità all’eccellenza in ogni fase del tuo percorso:<br><br>• <b>Risultati Naturali:</b> Le nostre tecniche avanzate e l’approccio artistico assicurano un’attaccatura naturale e indistinguibile dalla crescita dei capelli reali.<br>• <b>Assistenza Personalizzata:</b> Dalla prima consulenza fino al follow-up post-operatorio, ogni fase è personalizzata in base alle tue esigenze e aspettative.<br>• <b>Prezzi Accessibili:</b> Offriamo servizi di trapianto di capelli di livello mondiale a prezzi competitivi — senza compromessi su qualità, sicurezza o risultati.<br>• <b>Supporto Internazionale:</b> Offriamo assistenza completa per i pazienti internazionali, incluso il trasferimento dall’aeroporto, alloggio in hotel e supporto multilingue.",
+      "button": "Scopri di più sulla Clinica Sercan Aslan",
+      "video": "<span>Prenota</span> <br> <b>una consulenza video</b> <br> <b>con la Clinica Sercan Aslan</b> <br> <b>e il nostro consulente medico!</b>"
+    },
+    "steps": {
+      "title": "4 Passi per un Nuovo Te!",
+      "all_steps": [
+        {
+          "title": "Compila il modulo",
+          "description": "I nostri consulenti medici <br> ti contatteranno su <br> WhatsApp il prima possibile."
+        },
+        {
+          "title": "Attendi la nostra chiamata <br> e ricevi <br> il tuo piano di trattamento personalizzato",
+          "description": "Il nostro team analizzerà le tue <br> foto e preparerà un <br> piano di trattamento <br> su misura per te."
+        },
+        {
+          "title": "Prenota la tua data",
+          "description": "Prenota la tua data e lascia che <br> il nostro team di esperti ti assista <br> durante tutto il tuo <br> percorso medico."
+        },
+        {
+          "title": "Incontra il Nuovo Te!",
+          "description": "Preparati a conoscere <br> il nuovo te e goditi <br> il tuo nuovo look!"
+        }
+      ]
+    },
+    "before_after": {
+      "title": "Trapianto di Capelli <br> Foto Prima & Dopo",
+      "subtitle": "Adoriamo vedere queste <br> trasformazioni dei pazienti con i nostri occhi!",
+      "button": "Potresti essere tu!",
+      "images": [
+        "/images/b1.jpeg",
+        "/images/b2.jpeg",
+        "/images/b3.jpeg",
+        "/images/b4.jpeg",
+        "/images/b5.jpeg",
+        "/images/b6.jpeg",
+        "/images/b7.jpeg",
+        "/images/b8.jpeg"
+      ],
+      "link": "clicca per vedere le foto",
+      "privacy": "*A causa della nostra policy, non possiamo mostrare le foto prima e dopo. Contattaci per vederle."
+    },
+    "reviews": {
+      "title": "Recensioni dei Pazienti",
+      "subtitle": "Ascolta l’esperienza dei nostri pazienti soddisfatti presso la Clinica Sercan Aslan.",
+      "button": "Ottieni un'analisi gratuita dei capelli",
+      "all_reviews": [
+        {
+          "country": "de",
+          "name": "Samet Temel",
+          "date": "2021-12-12",
+          "review": "Sono davvero professionali nel loro campo. Mi hanno trasmesso molta fiducia prima dell’intervento. Sono passati 10 giorni e si prendono ancora cura di me. Credo che il risultato sarà positivo. Grazie a tutti in clinica, sono stati molto gentili."
+        },
+        {
+          "country": "gb",
+          "name": "Emily Carter",
+          "date": "2023-06-22",
+          "review": "Sono volata da Londra per il mio trapianto di capelli ed è stata assolutamente la scelta giusta. Il personale della clinica è stato molto accogliente e professionale. Mi hanno spiegato tutto prima dell’intervento e la cura post-operatoria è stata eccellente. Altamente raccomandato!"
+        },
+        {
+          "country": "ıt",
+          "name": "Luca Bianchi",
+          "date": "2020-04-06",
+          "review": "Devo dire che l’esperienza è stata eccellente. Lo staff è molto gentile e professionale. Mi hanno supportato in ogni fase, prima e dopo la procedura. Consiglio vivamente questa clinica a chiunque stia considerando un trapianto!"
+        },
+        {
+          "country": "gb",
+          "name": "James Thompson",
+          "date": "2020-12-24",
+          "review": "Dal trasferimento aeroportuale fino alla procedura vera e propria, tutto è stato ben organizzato e fluido. Il traduttore è stato molto utile e mi ha spiegato ogni passaggio. La clinica era pulita e moderna, e mi sono sentito molto sicuro. Esperienza fantastica nel complesso!"
+        },
+        {
+          "country": "gb",
+          "name": "Ollie Eli",
+          "date": "2024-08-15",
+          "review": "Ho fatto il trapianto in questa clinica a gennaio e sono rimasto una settimana a Istanbul. Mahmud si è assicurato che avessi un passaggio per l’aeroporto anche se ho cambiato hotel. Il personale della clinica è fantastico. La consiglio assolutamente. L’area donatrice sta guarendo bene e sto aspettando la crescita definitiva nell’area ricevente."
+        }
+      ]
+    },
+    "iconsGroup": {
+      "all_icons": [
+        "Servizi Medici <br> di Alta Qualità",
+        "Prezzi Trasparenti <br> Nessun Costo Nascosto",
+        "Alti Tassi di <br> Soddisfazione del Paziente",
+        "Prezzi <br> Competitivi"
+      ]
+    },
+    "services": {
+      "title": "Servizi Esclusivi <br> per Pazienti Internazionali",
+      "button": "Inizia il tuo percorso",
+      "all_services": [
+        {
+          "title": "Servizi di Traduzione",
+          "description": "I nostri interpreti qualificati che parlano oltre 11 lingue ti accompagneranno per tutta la durata del soggiorno, facendoti sentire come a casa!"
+        },
+        {
+          "title": "Trasporto",
+          "description": "Una volta arrivato a Istanbul, il nostro team si prenderà cura del tuo trasferimento dall’aeroporto e di tutti gli spostamenti locali, offrendoti comodi minivan di lusso."
+        },
+        {
+          "title": "Alloggio",
+          "description": "Offriamo varie soluzioni di alloggio in base alle tue preferenze e al tuo budget, dagli hotel a 5 stelle agli appartamenti accoglienti, per garantirti il massimo comfort."
+        },
+        {
+          "title": "Cura Post-Operatoria",
+          "description": "Siamo orgogliosi di offrire un’assistenza eccellente prima e dopo l’intervento. Il nostro team sarà con te in ogni fase per garantirti un recupero tranquillo."
+        }
+      ]
+    },
+    "hospital": {
+      "title": "La Nostra Clinica"
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "all_questions": [
+        {
+          "question": "Quanto dura una procedura di trapianto di capelli?",
+          "answer": "Un trapianto di capelli dura solitamente tra le 6 e le 8 ore, a seconda del numero di innesti necessari."
+        },
+        {
+          "question": "Il trapianto di capelli è doloroso?",
+          "answer": "La procedura viene eseguita in anestesia locale, quindi non sentirai dolore durante l’intervento. Potresti avvertire un leggero fastidio successivamente, gestibile con farmaci."
+        },
+        {
+          "question": "Quando vedrò i risultati finali?",
+          "answer": "La crescita iniziale dei capelli comincia circa 3-4 mesi dopo l’intervento. I risultati completi sono visibili entro 9-12 mesi."
+        },
+        {
+          "question": "I capelli trapiantati cadranno?",
+          "answer": "I capelli trapiantati cadono inizialmente dopo 2–3 settimane — è assolutamente normale. La nuova crescita permanente inizia nei mesi successivi."
+        },
+        {
+          "question": "Il trapianto di capelli è permanente?",
+          "answer": "Sì, i capelli trapiantati provengono dall’area donatrice (di solito la parte posteriore della testa), geneticamente resistente alla caduta. I risultati sono permanenti."
+        },
+        {
+          "question": "Offrite alloggio e trasferimento aeroportuale?",
+          "answer": "Sì, offriamo trasferimenti VIP dall’aeroporto, alloggio in hotel e supporto completo per i nostri pazienti internazionali."
+        },
+        {
+          "question": "Posso tornare al lavoro dopo la procedura?",
+          "answer": "La maggior parte dei pazienti può tornare al lavoro entro 3-5 giorni, a seconda del tipo di attività. Riceverai istruzioni dettagliate per una buona guarigione."
+        }
+      ],
+      "button": "Chiedici qualsiasi cosa!"
+    },
+    "footer": {
+      "address": "Şükür İş Merkezi, Fulya, Akıncı Bayırı Sk. piano:2 n°:10, 34394 Şişli / Istanbul",
+      "email": "info@sercanaslanhair.com",
+      "copy": "Tutti i diritti riservati © 2025 - Sercan Aslan Hair"
+    }
+  }
+  

@@ -1,0 +1,192 @@
+{
+    "lang": "ro",
+    "meta": {
+      "title": "Clinica de Transplant de Păr Sercan Aslan în Turcia",
+      "description": "Obține cel mai bun transplant de păr în Turcia",
+      "keywords": "Clinică Transplant Păr, Transplant de Păr în Turcia, Clinică de Transplant Păr"
+    },
+    "variant": "hair",
+    "wp": {
+      "wp_message": "Bună, aș dori să aflu mai multe despre serviciile și prețurile pentru transplantul de păr!"
+    },
+    "header": {
+      "links": {
+        "about": "Despre",
+        "step": "Pas cu Pas",
+        "beforeAfter": "Înainte & După",
+        "reviews": "Recenzii Pacienți",
+        "faq": "Întrebări Frecvente"
+      }
+    },
+    "hero": {
+      "title": "<span>Transplant de Păr</span> <span>în Turcia</span>",
+      "subtitle": "",
+      "reviews": "Peste 5.000 Recenzii"
+    },
+    "form": {
+      "title": "Obține Părul pe care îl Meriți",
+      "title2": "Programează o Consultație Gratuită",
+      "subtitle": "Completează formularul de mai jos pentru a beneficia de o consultație gratuită.",
+      "privacy": "Ne angajăm să îți protejăm confidențialitatea.",
+      "button": "Fă Următorul Pas",
+      "placeholder_phone": "Telefon",
+      "placeholder_name": "Nume",
+      "placeholder_mail": "Email (opțional)",
+      "placeholder_mail_require": "Email",
+      "form_phone_validation": "Te rugăm să introduci un număr de telefon valid."
+    },
+    "about": {
+      "title": "Clinica de Transplant de Păr Sercan Aslan",
+      "description": "La Clinica de Transplant de Păr Sercan Aslan, punem accent pe excelență în fiecare etapă a călătoriei tale:<br><br>• <b>Rezultate Naturale:</b> Tehnicile noastre de specialitate și abordarea artistică oferă linii ale părului naturale și imposibil de diferențiat de creșterea naturală.<br>• <b>Îngrijire Personalizată:</b> De la prima consultație până la controalele postoperatorii, fiecare pas este adaptat nevoilor și așteptărilor tale.<br>• <b>Prețuri Accesibile:</b> Oferim servicii de transplant de păr de clasă mondială la prețuri competitive – fără a compromite calitatea, siguranța sau rezultatele.<br>• <b>Suport Internațional:</b> Oferim asistență completă pentru pacienții internaționali, inclusiv transfer de la aeroport, cazare la hotel și suport multilingv.",
+      "button": "Mai multe despre Clinica Sercan Aslan",
+      "video": "<span>Programează</span> <br> <b>o consultație video</b> <br> <b>cu Clinica Sercan Aslan</b> <br> <b>și consultantul nostru medical!</b>"
+    },
+    "steps": {
+      "title": "4 Pași către un Nou Tu!",
+      "all_steps": [
+        {
+          "title": "Completează formularul",
+          "description": "Consultanții noștri medicali <br> te vor contacta <br> prin WhatsApp cât mai curând posibil."
+        },
+        {
+          "title": "Așteaptă apelul nostru <br> și primește <br> planul tău personalizat de tratament",
+          "description": "Echipa noastră va analiza <br> fotografiile tale și va pregăti <br> un plan de tratament <br> personalizat."
+        },
+        {
+          "title": "Programează data",
+          "description": "Programează-ți procedura și <br> lasă echipa noastră să te <br> ghideze pe tot parcursul <br> călătoriei tale medicale."
+        },
+        {
+          "title": "Descoperă Noul Tu!",
+          "description": "Pregătește-te să-l cunoști <br> pe noul tu și bucură-te <br> de noul tău look!"
+        }
+      ]
+    },
+    "before_after": {
+      "title": "Transplant de Păr <br> Poze Înainte & După",
+      "subtitle": "Ne place să vedem aceste <br> transformări ale pacienților cu ochii noștri!",
+      "button": "Acesta ai putea fi tu!",
+      "images": [
+        "/images/b1.jpeg",
+        "/images/b2.jpeg",
+        "/images/b3.jpeg",
+        "/images/b4.jpeg",
+        "/images/b5.jpeg",
+        "/images/b6.jpeg",
+        "/images/b7.jpeg",
+        "/images/b8.jpeg"
+      ],
+      "link": "click pentru a vedea pozele",
+      "privacy": "*Din motive de confidențialitate, nu putem arăta pozele înainte și după. Te rugăm să ne contactezi pentru a le vedea."
+    },
+    "reviews": {
+      "title": "Recenzii Pacienți",
+      "subtitle": "Află părerea pacienților noștri mulțumiți despre experiența lor la Clinica Sercan Aslan.",
+      "button": "Obține o Analiză Gratuită a Părului",
+      "all_reviews": [
+        {
+          "country": "de",
+          "name": "Samet Temel",
+          "date": "2021-12-12",
+          "review": "Sunt foarte profesioniști în domeniul lor. Mi-au oferit încredere încă dinaintea intervenției. Au trecut 10 zile și încă sunt în contact cu mine. Cred că voi obține un rezultat bun. Mulțumesc tuturor din clinică, au fost foarte prietenoși."
+        },
+        {
+          "country": "gb",
+          "name": "Emily Carter",
+          "date": "2023-06-22",
+          "review": "Am zburat din Londra pentru transplantul de păr și a meritat cu siguranță. Personalul a fost extrem de prietenos și profesionist. Mi-au explicat totul înainte de procedură, iar îngrijirea postoperatorie a fost excelentă. Recomand cu căldură!"
+        },
+        {
+          "country": "ıt",
+          "name": "Luca Bianchi",
+          "date": "2020-04-06",
+          "review": "Pot spune că experiența a fost excelentă. Personalul este foarte amabil și profesionist. M-au susținut în fiecare etapă, înainte și după intervenție. Recomand cu încredere această clinică!"
+        },
+        {
+          "country": "gb",
+          "name": "James Thompson",
+          "date": "2020-12-24",
+          "review": "De la preluarea de la aeroport până la procedură, totul a fost foarte bine organizat. Traducătorul m-a ajutat enorm și mi-a explicat fiecare pas. Clinica era curată și modernă, m-am simțit în siguranță. O experiență foarte bună!"
+        },
+        {
+          "country": "gb",
+          "name": "Ollie Eli",
+          "date": "2024-08-15",
+          "review": "Mi-am făcut transplantul de păr la această clinică în ianuarie și am stat o săptămână în Istanbul. Mahmud s-a asigurat că ajung din nou la aeroport, chiar dacă mi-am schimbat hotelul. Personalul este minunat. O recomand. Zona donatoare se recuperează cum trebuie, iar cea receptoare e în curs de creștere."
+        }
+      ]
+    },
+    "iconsGroup": {
+      "all_icons": [
+        "Servicii Medicale <br> de Înaltă Calitate",
+        "Prețuri Transparente <br> Fără Costuri Ascunse",
+        "Rată Mare de <br> Satisfacție a Pacienților",
+        "Prețuri <br> Competitive"
+      ]
+    },
+    "services": {
+      "title": "Servicii Exclusive <br> pentru Pacienți Internaționali",
+      "button": "Începe Călătoria Ta",
+      "all_services": [
+        {
+          "title": "Servicii de Traducere",
+          "description": "Interpreții noștri profesioniști, care vorbesc peste 11 limbi, te vor însoți pe tot parcursul șederii tale!"
+        },
+        {
+          "title": "Transport",
+          "description": "La sosirea în Istanbul, echipa noastră grijulie se va ocupa de preluarea ta de la aeroport și de toate transferurile locale, oferindu-ți confort maxim cu minivanuri de lux."
+        },
+        {
+          "title": "Cazare",
+          "description": "Oferim diverse opțiuni de cazare potrivite preferințelor și bugetului tău — de la hoteluri de 5 stele la apartamente confortabile."
+        },
+        {
+          "title": "Îngrijire Postoperatorie",
+          "description": "Ne mândrim cu cea mai înaltă calitate a îngrijirii înainte și după procedură. Echipa noastră te va ghida pas cu pas pentru o recuperare fără probleme."
+        }
+      ]
+    },
+    "hospital": {
+      "title": "Clinica Noastră"
+    },
+    "faq": {
+      "title": "Întrebări Frecvente",
+      "all_questions": [
+        {
+          "question": "Cât durează o procedură de transplant de păr?",
+          "answer": "Un transplant de păr durează în general între 6 și 8 ore, în funcție de numărul de grefe necesare."
+        },
+        {
+          "question": "Procedura este dureroasă?",
+          "answer": "Se face sub anestezie locală, așa că nu vei simți durere în timpul intervenției. Poate apărea un disconfort ușor după, dar este ușor de gestionat cu medicamente."
+        },
+        {
+          "question": "Când voi vedea rezultatul final?",
+          "answer": "Creșterea inițială apare după aproximativ 3-4 luni. Rezultatele finale sunt vizibile după 9-12 luni."
+        },
+        {
+          "question": "Părul transplantat va cădea?",
+          "answer": "Da, părul transplantat cade inițial în primele 2–3 săptămâni — este normal. Părul permanent începe să crească în lunile următoare."
+        },
+        {
+          "question": "Rezultatele sunt permanente?",
+          "answer": "Da, părul transplantat provine din zona donatoare (de obicei spatele capului), care este rezistentă genetic la cădere. Rezultatele sunt permanente."
+        },
+        {
+          "question": "Oferiți cazare și transfer de la aeroport?",
+          "answer": "Da, oferim preluare VIP de la aeroport, cazare și suport complet pentru pacienții noștri internaționali."
+        },
+        {
+          "question": "Pot merge la muncă după procedură?",
+          "answer": "Majoritatea pacienților pot reveni la muncă în 3-5 zile, în funcție de activitatea lor. Vei primi instrucțiuni detaliate pentru recuperare."
+        }
+      ],
+      "button": "Întreabă-ne orice!"
+    },
+    "footer": {
+      "address": "Şükür İş Merkezi, Fulya, Akıncı Bayırı Sk. etaj:2 nr:10, 34394 Şişli / Istanbul",
+      "email": "info@sercanaslanhair.com",
+      "copy": "Toate drepturile rezervate © 2025 - Sercan Aslan Hair"
+    }
+  }
+  
