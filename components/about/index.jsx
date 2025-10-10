@@ -24,7 +24,7 @@ export default function About({ about, phone, wp_message }) {
               />
             </Link>
             <Image src={"/images/d.png"} width={150} height={137.5} style={{ height: "auto" }} alt="doctor"
-            quality={60}
+            quality={60}  <body>{children}</body>
             />
           </article>
        
