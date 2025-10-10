@@ -25,11 +25,13 @@ export default function About({ about, phone, wp_message }) {
             </Link>
             <Image src={"/images/d.png"} width={150} height={137.5} style={{ height: "auto" }} alt="doctor"
             quality={60} 
-
-              <p>Treatment takes place at partner’s clinics which have the hauthorization for a medical tourism.</p>
             />
           </article>
-       
+
+          <p>Treatment takes place at partner’s clinics which have the hauthorization for a medical tourism.</p>
+
+
+          
         </div>
         <div className="about-image">
         </div>
