@@ -27,7 +27,9 @@ export default function About({ about, phone, wp_message }) {
             quality={60} 
             />
             <p>Treatment takes place at partner’s clinics which have the hauthorization for a medical tourism.</p>
+            
           </article>
+          
           
         </div>
         <div className="about-image">
