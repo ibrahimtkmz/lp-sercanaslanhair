@@ -8,11 +8,11 @@ export default function Faq({ faq, phone, wp_message }) {
      const [active, setActive] = useState(0)
      const pathname = usePathname()
 
-     // Sayfa yoluna göre resim belirle
-     const imageSrc =
-          pathname === '/dental-treatment-in-turkey'
-               ? '/images/dental-care2.jpeg'
-               : '/images/f.webp'
+     console.log('Current pathname:', pathname) // test için
+
+     const imageSrc = pathname?.includes('dental-treatment-in-turkey')
+          ? '/images/dental-care2.jpeg'
+          : '/images/f.webp'
 
      return (
           <section className="faq" id="faq">
