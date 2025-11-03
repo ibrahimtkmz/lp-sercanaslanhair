@@ -25,7 +25,6 @@ export default function Page() {
                     icons={data.iconsGroup}
                     hospital={data.hospital}
                     types={data.procedures}
-                    faq={data.faq}
                     footer={data.footer}
                />
           </>
