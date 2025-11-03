@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
 import Header from "./header";
@@ -17,7 +17,8 @@ import Footer from "./footer";
 
 export default function HomeClient(props) {
   const router = useRouter();
-  const pathname = usePathname(); // 👈 aktif sayfanın yolunu alıyoruz
+  const pathname = usePathname();
+  const [isDentalPage, setIsDentalPage] = useState(false);
 
   useEffect(() => {
     if (props.lang === "ar") {
@@ -26,12 +27,22 @@ export default function HomeClient(props) {
     document.documentElement.lang = props.lang;
     const { hash, pathname } = window.location;
 
+    // Hash varsa sayfayı scroll eder
     if (hash) {
       setTimeout(() => {
         router.push(pathname + hash);
       }, 1000);
     }
-  }, [props.lang]);
+
+    // ✅ Route'u normalize edip kontrol et
+    const currentPath = window.location.pathname
+      .toLowerCase()
+      .replace(/\/+$/, ""); // sondaki "/"'yi sil
+
+    if (currentPath.includes("dental-treatment-in-turkey")) {
+      setIsDentalPage(true);
+    }
+  }, [props.lang, router]);
 
   return (
     <>
@@ -67,8 +78,8 @@ export default function HomeClient(props) {
         />
         <Icons icons={props.icons} lang={props.lang} />
 
-        {/* 🟩 Sadece dental-treatment-in-turkey dışındaki sayfalarda göster */}
-        {!pathname.includes("dental-treatment-in-turkey") && (
+        {/* 🟩 Bu iki bölüm sadece dental sayfası dışında gösterilir */}
+        {!isDentalPage && (
           <Service
             services={props.services}
             phone={props.phone}
@@ -79,8 +90,7 @@ export default function HomeClient(props) {
 
         <Hospital hospital={props.hospital} lang={props.lang} />
 
-        {/* 🟩 Aynı koşul FAQ için de */}
-        {!pathname.includes("dental-treatment-in-turkey") && (
+        {!isDentalPage && (
           <Faq
             faq={props.faq}
             phone={props.phone}
@@ -102,4 +112,3 @@ export default function HomeClient(props) {
     </>
   );
 }
- 
