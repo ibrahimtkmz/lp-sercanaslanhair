@@ -1,6 +1,6 @@
-import data from '../../../data/en.json'
-import phone from '../../../data/phone.json'
-import lead from '../../../data/lead/en-lead.json'
+import data from '../../../data/en-dental.json';
+import phone from '../../../data/phone.json';
+import lead from '../../../data/lead/en-dental-lead.json';
 import HomeClient from '../../../components/HomeClient'
 
 export default function Page() {
