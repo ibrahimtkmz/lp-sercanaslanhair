@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import Header from "./header";
 import Hero from "./hero";
@@ -17,8 +17,6 @@ import Footer from "./footer";
 
 export default function HomeClient(props) {
   const router = useRouter();
-  const pathname = usePathname();
-  const [isDentalPage, setIsDentalPage] = useState(false);
 
   useEffect(() => {
     if (props.lang === "ar") {
@@ -27,22 +25,12 @@ export default function HomeClient(props) {
     document.documentElement.lang = props.lang;
     const { hash, pathname } = window.location;
 
-    // Hash varsa sayfayı scroll eder
     if (hash) {
       setTimeout(() => {
         router.push(pathname + hash);
       }, 1000);
     }
-
-    // ✅ Route'u normalize edip kontrol et
-    const currentPath = window.location.pathname
-      .toLowerCase()
-      .replace(/\/+$/, ""); // sondaki "/"'yi sil
-
-    if (currentPath.includes("dental-treatment-in-turkey")) {
-      setIsDentalPage(true);
-    }
-  }, [props.lang, router]);
+  }, [props.lang]);
 
   return (
     <>
@@ -77,27 +65,19 @@ export default function HomeClient(props) {
           lang={props.lang}
         />
         <Icons icons={props.icons} lang={props.lang} />
-
-        {/* 🟩 Bu iki bölüm sadece dental sayfası dışında gösterilir */}
-        {!isDentalPage && (
-          <Service
-            services={props.services}
-            phone={props.phone}
-            wp_message={props.wp_message}
-            lang={props.lang}
-          />
-        )}
-
+        <Service
+          services={props.services}
+          phone={props.phone}
+          wp_message={props.wp_message}
+          lang={props.lang}
+        />
         <Hospital hospital={props.hospital} lang={props.lang} />
-
-        {!isDentalPage && (
-          <Faq
-            faq={props.faq}
-            phone={props.phone}
-            lang={props.lang}
-            wp_message={props.wp_message}
-          />
-        )}
+        <Faq
+          faq={props.faq}
+          phone={props.phone}
+          lang={props.lang}
+          wp_message={props.wp_message}
+        />
       </main>
       <WpSticky
         wp_message={props.wp_message}
