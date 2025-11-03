@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 import Header from "./header";
 import Hero from "./hero";
@@ -17,6 +17,7 @@ import Footer from "./footer";
 
 export default function HomeClient(props) {
   const router = useRouter();
+  const pathname = usePathname(); // 👈 aktif sayfanın yolunu alıyoruz
 
   useEffect(() => {
     if (props.lang === "ar") {
@@ -65,19 +66,28 @@ export default function HomeClient(props) {
           lang={props.lang}
         />
         <Icons icons={props.icons} lang={props.lang} />
-        <Service
-          services={props.services}
-          phone={props.phone}
-          wp_message={props.wp_message}
-          lang={props.lang}
-        />
+
+        {/* 🟩 Sadece dental-treatment-in-turkey dışındaki sayfalarda göster */}
+        {!pathname.includes("dental-treatment-in-turkey") && (
+          <Service
+            services={props.services}
+            phone={props.phone}
+            wp_message={props.wp_message}
+            lang={props.lang}
+          />
+        )}
+
         <Hospital hospital={props.hospital} lang={props.lang} />
-        <Faq
-          faq={props.faq}
-          phone={props.phone}
-          lang={props.lang}
-          wp_message={props.wp_message}
-        />
+
+        {/* 🟩 Aynı koşul FAQ için de */}
+        {!pathname.includes("dental-treatment-in-turkey") && (
+          <Faq
+            faq={props.faq}
+            phone={props.phone}
+            lang={props.lang}
+            wp_message={props.wp_message}
+          />
+        )}
       </main>
       <WpSticky
         wp_message={props.wp_message}
