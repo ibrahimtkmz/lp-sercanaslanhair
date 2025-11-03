@@ -22,7 +22,7 @@ export default function Hero({ hero, form, lead }) {
               className="subtitle"
               dangerouslySetInnerHTML={{ __html: hero.subtitle }}
             />
-          )}{" "}
+          )}
         </article>
         <div className="hero-form">
           <Form country="country1" phone="phone1" form={form} lead={lead} />
