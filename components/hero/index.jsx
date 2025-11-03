@@ -52,3 +52,4 @@ export default function Hero({ hero, form, lead }) {
     </section>
   );
 }
+ 
