@@ -20,11 +20,13 @@ export default function Page() {
                     steps={data.steps}
                     reviews={data.reviews}
                     price={data.price}
+                    services={data.services}
                     before_after={data.before_after}
                     certificates={data.certificates}
                     icons={data.iconsGroup}
                     hospital={data.hospital}
                     types={data.procedures}
+                    faq={data.faq}
                     footer={data.footer}
                />
           </>
