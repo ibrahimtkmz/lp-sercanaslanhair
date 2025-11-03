@@ -1,10 +1,27 @@
+"use client";
 import Form from "../form";
 import "./styles.css";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Hero({ hero, form, lead }) {
+  const pathname = usePathname();
+  const [bgImage, setBgImage] = useState("/images/hero.webp");
+
+  useEffect(() => {
+    if (pathname?.toLowerCase().includes("dental-treatment-in-turkey")) {
+      setBgImage("/images/hero-dental.jpg"); // dental sayfası için resim
+    } else {
+      setBgImage("/images/hero.webp"); // diğer sayfalar
+    }
+  }, [pathname]);
+
   return (
-    <section className="hero">
+    <section
+      className="hero"
+      style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
+    >
       <div className="hero-inner">
         <article>
           <span className="star">
