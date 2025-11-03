@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 
 export default function Hero({ hero, form, lead }) {
   const pathname = usePathname();
-  const [bgImage, setBgImage] = useState("/images/hero.webp");
+  const [bgImage, setBgImage] = useState("/images/hero.webp"); // default
 
   useEffect(() => {
     if (pathname?.toLowerCase().includes("dental-treatment-in-turkey")) {
-      setBgImage("/images/hero-dental.jpg"); // dental sayfası için resim
+      setBgImage("/images/herodiş.webp"); // dental sayfası için
     } else {
       setBgImage("/images/hero.webp"); // diğer sayfalar
     }
@@ -20,7 +20,11 @@ export default function Hero({ hero, form, lead }) {
   return (
     <section
       className="hero"
-      style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
+      style={{
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <div className="hero-inner">
         <article>
