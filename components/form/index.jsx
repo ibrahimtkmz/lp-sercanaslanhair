@@ -139,11 +139,16 @@ export default function Form(props) {
           readOnly
         />
 
-        <button 
-        disabled={!isValidNumber}
-        type="submit" value="Submit" id="formsubmit" title="Submit"
-        className={`submit ${!isValidNumber ? "disabled" : ""}`}
+        
         >
+        <button 
+  type="submit"
+  value="Submit"
+  id="formsubmit"
+  title="Submit"
+  className={`submit ${!isValidNumber ? "disabled" : ""}`}
+>
+     
           <Image
             src={"/images/button-arrow.png"}
             width={52}
