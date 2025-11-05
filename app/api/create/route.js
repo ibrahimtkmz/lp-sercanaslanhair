@@ -40,28 +40,30 @@ export async function POST(request) {
         language: "en",
       };
 
-      // Test verisi ise CRM'e gönderme
+      // 🧪 Test verisi ise CRM'e gönderme, sadece success dön
       if (body.is_test) {
-  return NextResponse.json(
-    {
-      success: true,
-      message: "Google Ads test lead received successfully",
-      status: "success",
-    },
-    { status: 200 }
-  );
-}
+        return NextResponse.json(
+          {
+            success: true,
+            message: "Google Ads test lead received successfully",
+            status: "success",
+          },
+          { status: 200 }
+        );
+      }
 
-
-      // CRM'e gönder
-      const crmResponse = await fetch("https://app.doktor365.com.tr/api/lead/create/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${process.env.CRM}`,
-        },
-        body: JSON.stringify(payload),
-      });
+      // 📤 Gerçek lead'i CRM'e gönder
+      const crmResponse = await fetch(
+        "https://app.doktor365.com.tr/api/lead/create/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.CRM}`,
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const responseData = await crmResponse.json();
 
@@ -72,7 +74,7 @@ export async function POST(request) {
       });
     }
 
-    // Eğer kendi formundan (normal web form) veri geldiyse:
+    // Eğer kendi web formundan veri geldiyse:
     const pageInfo = body.page ? `Sayfa: ${body.page}` : "";
 
     const payload = {
@@ -86,14 +88,17 @@ export async function POST(request) {
       language: body.language,
     };
 
-    const crmResponse = await fetch("https://app.doktor365.com.tr/api/lead/create/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.CRM}`,
-      },
-      body: JSON.stringify(payload),
-    });
+    const crmResponse = await fetch(
+      "https://app.doktor365.com.tr/api/lead/create/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.CRM}`,
+        },
+        body: JSON.stringify(payload),
+      }
+    );
 
     const responseData = await crmResponse.json();
 
@@ -104,6 +109,9 @@ export async function POST(request) {
     });
   } catch (error) {
     console.error("CRM lead error:", error);
-    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
+    return NextResponse.json(
+      { error: "An error occurred", detail: String(error) },
+      { status: 500 }
+    );
   }
 }
