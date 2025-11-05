@@ -42,8 +42,16 @@ export async function POST(request) {
 
       // Test verisi ise CRM'e gönderme
       if (body.is_test) {
-        return NextResponse.json({ success: true, message: "Google Ads test OK" });
-      }
+  return NextResponse.json(
+    {
+      success: true,
+      message: "Google Ads test lead received successfully",
+      status: "success",
+    },
+    { status: 200 }
+  );
+}
+
 
       // CRM'e gönder
       const crmResponse = await fetch("https://app.doktor365.com.tr/api/lead/create/", {
