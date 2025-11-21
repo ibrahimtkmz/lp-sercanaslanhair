@@ -1,0 +1,30 @@
+{
+  "title": "Consulta Gratuita",
+  "subtitle": "Complete el formulario para obtener su plan personalizado.",
+  "name": "Nombre y Apellidos",
+  "phone": "Número de Teléfono",
+  "email": "Correo Electrónico",
+  "message": "Mensaje (Opcional)",
+  "send": "Obtener Oferta Gratuita",
+  "success_title": "¡Gracias!",
+  "success_message": "Hemos recibido su solicitud. Nuestro equipo médico le contactará muy pronto a través de WhatsApp.",
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "email": "Por favor, introduzca un correo válido",
+    "phone": "Por favor, introduzca un teléfono válido"
+  },
+  "steps": {
+    "gender": {
+      "title": "¿Cuál es su género?",
+      "male": "Masculino",
+      "female": "Femenino"
+    },
+    "age": {
+      "title": "¿Cuál es su edad?",
+      "range1": "18-25",
+      "range2": "26-40",
+      "range3": "41-60",
+      "range4": "60+"
+    }
+  }
+}
