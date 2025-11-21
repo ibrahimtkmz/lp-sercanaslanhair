@@ -1,0 +1,191 @@
+{
+  "lang": "es",
+  "meta": {
+    "title": "Clínica de Trasplante Capilar Sercan Aslan en Turquía",
+    "description": "Obtenga el mejor trasplante capilar en Turquía",
+    "keywords": "Clínica de Trasplante Capilar, Clínica de Trasplante Capilar en Turquía, Clínica de Trasplante de Cabello"
+  },
+  "variant": "hair",
+  "wp": {
+    "wp_message": "Hola, me gustaría conocer los servicios y precios ofrecidos para el Trasplante Capilar."
+  },
+  "header": {
+    "links": {
+      "about": "Sobre Nosotros",
+      "step": "Paso a Paso",
+      "beforeAfter": "Antes y Después",
+      "reviews": "Opiniones",
+      "faq": "Preguntas Frecuentes"
+    }
+  },
+  "hero": {
+    "title": "<span>Trasplante Capilar </span> <span>en Turquía</span>",
+    "subtitle": "De 4.000 € en Europa a 2.000 € en Turquía — ¡misma calidad, mejor precio!",
+    "reviews": "+5.000 Reseñas"
+  },
+  "form": {
+    "title": "Consiga el Cabello que Merece",
+    "title2": "Programe una Consulta Gratuita",
+    "subtitle": "Rellene el siguiente formulario para obtener una consulta gratuita.",
+    "privacy": "Estamos comprometidos con proteger su privacidad.",
+    "button": "Dar el Siguiente Paso",
+    "placeholder_phone": "Teléfono",
+    "placeholder_name": "Nombre",
+    "placeholder_mail": "Correo electrónico (opcional)",
+    "placeholder_mail_require": "Correo electrónico",
+    "form_phone_validation": "Por favor, introduzca un número de teléfono válido."
+  },
+  "about": {
+    "title": "Clínica de Trasplante Capilar Sercan Aslan",
+    "description": "En la Clínica de Trasplante Capilar Sercan Aslan, priorizamos la excelencia en cada aspecto de su viaje:<br><br>• <b>Resultados Naturales:</b> Nuestras técnicas expertas y enfoque artístico aseguran líneas de cabello completamente naturales e indetectables del crecimiento real del cabello.<br>• <b>Atención Personalizada:</b> Desde su primera consulta hasta el seguimiento postoperatorio, adaptamos cada paso del proceso a sus necesidades y expectativas individuales.<br>• <b>Precios Asequibles:</b> Ofrecemos servicios de trasplante capilar de clase mundial a precios competitivos, sin comprometer la calidad, la seguridad o los resultados.<br>• <b>Soporte Internacional:</b> Brindamos asistencia completa para pacientes internacionales, incluyendo traslados al aeropuerto, alojamiento en hotel y soporte multilingüe.",
+    "button": "Más sobre la Clínica Sercan Aslan",
+    "video": "<span>Programe</span> <br> <b>una videoconsulta</b> <br> <b>con la Clínica Sercan Aslan</b> <br> <b>y nuestro consultor médico.</b>"
+  },
+  "steps": {
+    "title": "¡4 Pasos para su nueva imagen!",
+    "all_steps": [
+      {
+        "title": "Rellene el formulario",
+        "description": "Nuestros consultores médicos <br> le contactarán vía <br> WhatsApp lo antes posible."
+      },
+      {
+        "title": "Espere nuestra llamada y obtenga <br> su plan de tratamiento <br> personalizado",
+        "description": "Nuestro equipo de expertos analizará sus <br> fotos y preparará un <br> plan de tratamiento <br> personalizado para usted."
+      },
+      {
+        "title": "Reserve su fecha",
+        "description": "Reserve su fecha y deje que <br> nuestro equipo experto le asista <br> durante todo su <br> viaje médico."
+      },
+      {
+        "title": "¡Conozca a su nuevo yo!",
+        "description": "¡Prepárese para conocer a su <br> nueva versión y disfrute de su <br> nueva imagen!"
+      }
+    ]
+  },
+  "before_after": {
+    "title": "Fotos de Antes y Después <br> del Trasplante Capilar",
+    "subtitle": "¡Nos encanta ver estas <br> transformaciones de pacientes ante nuestros ojos!",
+    "button": "¡Este podría ser usted!",
+    "images": [
+      "/images/b1.jpeg",
+      "/images/b2.jpeg",
+      "/images/b3.jpeg",
+      "/images/b4.jpeg",
+      "/images/b5.jpeg",
+      "/images/b6.jpeg",
+      "/images/b7.jpeg",
+      "/images/b8.jpeg"
+    ],
+    "link": "clic para ver fotos",
+    "privacy": "*Debido a la política, no podemos mostrar fotos de antes y después. Por favor contáctenos para ver las fotos."
+  },
+  "reviews": {
+    "title": "Opiniones de Pacientes",
+    "subtitle": "Escuche a nuestros pacientes satisfechos sobre su experiencia en la Clínica Sercan Aslan.",
+    "button": "Obtenga un Análisis Capilar Gratuito",
+    "all_reviews": [
+      {
+        "country": "de",
+        "name": "Samet Temel",
+        "date": "2021-12-12",
+        "review": "Son muy profesionales en su departamento. Me dieron mucha confianza antes de la operación. Han pasado 10 días desde la operación. Se preocupan todo el tiempo. Creo que obtendré buenos resultados. Gracias a todos en la clínica, fueron muy amables."
+      },
+      {
+        "country": "gb",
+        "name": "Emily Carter",
+        "date": "2023-06-22",
+        "review": "Volé desde Londres para mi trasplante capilar y definitivamente valió la pena. El personal de la clínica fue increíblemente acogedor y profesional. Explicaron todo claramente antes de la operación y la atención de seguimiento ha sido increíble. ¡Muy recomendable!"
+      },
+      {
+        "country": "ıt",
+        "name": "Luca Bianchi",
+        "date": "2020-04-06",
+        "review": "Debo decir que la experiencia fue excelente. El personal es muy amable y profesional. Me apoyaron en cada paso, tanto antes como después del procedimiento. ¡Recomiendo encarecidamente esta clínica a cualquiera que esté considerando un trasplante!"
+      },
+      {
+        "country": "gb",
+        "name": "James Thompson",
+        "date": "2020-12-24",
+        "review": "Desde la recogida en el aeropuerto hasta el procedimiento en sí, todo fue fluido y bien organizado. El traductor ayudó mucho y se aseguró de que entendiera cada paso. La clínica estaba limpia y moderna, y me sentí muy seguro. ¡Gran experiencia en general!"
+      },
+      {
+        "country": "gb",
+        "name": "Ollie Eli",
+        "date": "2024-08-15",
+        "review": "Me hice el trasplante capilar en esta clínica en enero y pasé una semana entera en Estambul. Mahmud se aseguró de que tuviera transporte de vuelta al aeropuerto a pesar de que reservé un hotel diferente. El personal de la clínica es genial. Recomiendo este lugar. Mi zona donante se está recuperando como debería y la zona receptora aún espera el crecimiento completo."
+      }
+    ]
+  },
+  "iconsGroup": {
+    "all_icons": [
+      "Servicios Médicos <br>de Alta Calidad",
+      "Precios Transparentes<br> Sin Costes Ocultos",
+      "Altas Tasas de<br> Satisfacción de Pacientes",
+      "Precios <br>Competitivos"
+    ]
+  },
+  "services": {
+    "title": "Servicios Exclusivos <br> para Pacientes Internacionales",
+    "button": "Comience Su Viaje",
+    "all_services": [
+      {
+        "title": "Servicios de Traducción",
+        "description": "Nuestros intérpretes cualificados que hablan más de 11 idiomas le acompañarán durante toda su estancia, ¡haciéndole sentir como en casa!"
+      },
+      {
+        "title": "Transporte",
+        "description": "Una vez llegue a Estambul, nuestro compasivo equipo se encargará de su recogida en el aeropuerto y todos los traslados locales, ofreciendo una flota de lujosas minivans para su confort y comodidad."
+      },
+      {
+        "title": "Alojamiento",
+        "description": "Ofrecemos una gama de opciones de alojamiento para adaptarse a sus preferencias y presupuesto, desde hoteles de 5 estrellas hasta acogedores apartamentos, asegurando que tenga una estancia cómoda durante su tratamiento."
+      },
+      {
+        "title": "Cuidados Postoperatorios",
+        "description": "Nos enorgullecemos de ofrecer los más altos niveles de atención antes y después de su procedimiento. Nuestro equipo de atención dedicado estará con usted en cada paso del camino para asegurar una recuperación sin problemas."
+      }
+    ]
+  },
+  "hospital": {
+    "title": "Nuestro Hospital"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "all_questions": [
+      {
+        "question": "¿Cuánto dura un procedimiento de trasplante capilar?",
+        "answer": "Un trasplante capilar suele durar entre 6 y 8 horas, dependiendo del número de injertos requeridos."
+      },
+      {
+        "question": "¿Es doloroso el procedimiento?",
+        "answer": "El procedimiento se realiza bajo anestesia local, por lo que no sentirá dolor durante el proceso. Puede experimentar una leve molestia después, que es manejable con medicación."
+      },
+      {
+        "question": "¿Cuándo veré los resultados finales?",
+        "answer": "El crecimiento inicial del cabello comienza alrededor de 3 a 4 meses después del procedimiento. Los resultados completos suelen ser visibles entre los 9 y 12 meses."
+      },
+      {
+        "question": "¿Se caerá el cabello trasplantado?",
+        "answer": "El cabello trasplantado se caerá inicialmente después de 2–3 semanas; esto es completamente normal. El nuevo cabello permanente comienza a crecer en los meses siguientes."
+      },
+      {
+        "question": "¿Es permanente el trasplante capilar?",
+        "answer": "Sí, el cabello trasplantado se toma del área donante (generalmente la parte posterior de la cabeza), que es genéticamente resistente a la caída del cabello. Los resultados son permanentes."
+      },
+      {
+        "question": "¿Ofrecen alojamiento y traslados al aeropuerto?",
+        "answer": "Sí, proporcionamos recogida VIP en el aeropuerto, alojamiento en hotel y soporte completo de viaje para nuestros pacientes internacionales."
+      },
+      {
+        "question": "¿Puedo volver al trabajo después del procedimiento?",
+        "answer": "La mayoría de los pacientes pueden volver al trabajo dentro de 3 a 5 días, dependiendo de la naturaleza de su trabajo. Recibirá instrucciones postoperatorias detalladas para una recuperación sin problemas."
+      }
+    ],
+    "button": "¡Pregúntenos Cualquier Cosa!"
+  },
+  "footer": {
+    "address": "Şükür iş merkezi, Fulya, Akıncı Bayırı Sk. kat:2 no:10, 34394 Şişli / İstanbul",
+    "email": "info@sercanaslanhair.com",
+    "copy": "Todos los derechos reservados © 2025 - Sercan Aslan Hair"
+  }
+}
