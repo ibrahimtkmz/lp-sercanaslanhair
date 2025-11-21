@@ -1,24 +1,18 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-
+import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function WpSticky({ wp_message, phone }) {
   return (
-    <a
-      // Burası dinamiktir, numarayı HomeClient'tan gelen "phone" verisinden alır.
-      href={`https://wa.me/${phone}?text=${wp_message}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="wp-sticky-container"
-    >
-      <Image
-        src="/images/whatsapp-logo.png" 
-        width={60}
-        height={60}
-        alt="WhatsApp"
-        unoptimized
-      />
-    </a>
+    <>
+      <Link
+        href={`https://wa.me/${phone}?text=${wp_message}`}
+        id="whatsapp-fab"
+        className="wp-link"
+      >
+        <FaWhatsapp />
+      </Link>
+    </>
   );
 }
