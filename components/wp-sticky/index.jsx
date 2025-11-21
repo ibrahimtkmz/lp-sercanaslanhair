@@ -7,7 +7,7 @@ export default function WpSticky({ wp_message, phone }) {
   return (
     <>
       <Link
-        href={`https://wa.me/${phone}?text=${wp_message}`}
+        href={`https://wa.me/905467372284?text=${wp_message}`}
         id="whatsapp-fab"
         className="wp-link"
       >
