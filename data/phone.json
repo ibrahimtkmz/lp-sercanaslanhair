@@ -1,4 +1,6 @@
 {
      "en": "905467372284",
-     "visible_en": "+90 (546) 737 22 84"
+     "visible_en": "+90 (546) 737 22 84",
+     "es": "905467372284",           // İspanyolca için ham numara
+     "visible_es": "+90 (546) 737 22 84"   // <-- İŞTE BU SATIR GEREKLİ
 }
