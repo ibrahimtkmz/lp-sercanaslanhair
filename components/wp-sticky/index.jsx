@@ -27,7 +27,7 @@ export default function WpSticky({ wp_message, phone }) {
         <Image
           // DİKKAT: Sizin projenizdeki WhatsApp logo görselinin adı neyse onu yazın.
           // Genelde: "/images/whatsapp.png" veya "/images/wp-logo.png" olur.
-          src="/images/whatsapp.png" 
+          src="/whatsapp-logo.png" 
           width={60}
           height={60}
           alt="WhatsApp"
