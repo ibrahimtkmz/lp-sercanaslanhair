@@ -8,11 +8,16 @@ export default function Page() {
            <>
                 <HomeClient
                      lang={data.lang}
-                     phone={phone.es}               // phone.en -> phone.es
+                     phone={phone.es}               // İspanyolca numarayı gönderiyoruz
                      wp_message={data.wp.wp_message}
                      form={data.form}
                      lead={lead}
-                     visible_es={phone.visible_es}  // visible_en -> visible_es (Aşağıdaki nota dikkat edin)
+                     
+                     // DÜZELTME BURADA:
+                     // Bileşen "visible_en" ismini beklediği için,
+                     // İspanyolca ayarını (phone.visible_es) bu isimle gönderiyoruz.
+                     visible_en={phone.visible_es} 
+                     
                      variant={data.variant}
                      header={data.header}
                      about={data.about}
