@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+
 import Header from "./header";
 import Hero from "./hero";
 import WpSticky from "./wp-sticky";
@@ -17,27 +18,19 @@ import Footer from "./footer";
 export default function HomeClient(props) {
   const router = useRouter();
 
-  // --- TELEFON NUMARASI SABİTLEME (Hata Önleyici) ---
-  const FIXED_PHONE = "905467372284";
-  // -------------------------------------------------
-
   useEffect(() => {
-    // Dil ayarları
     if (props.lang === "ar") {
       document.documentElement.setAttribute("dir", "rtl");
-    } else {
-      document.documentElement.setAttribute("dir", "ltr");
     }
-    document.documentElement.lang = props.lang || "en";
-    
-    // Hash yönlendirmesi (örn: #contact)
+    document.documentElement.lang = props.lang;
     const { hash, pathname } = window.location;
+
     if (hash) {
       setTimeout(() => {
         router.push(pathname + hash);
       }, 1000);
     }
-  }, [props.lang, router]);
+  }, [props.lang]);
 
   return (
     <>
@@ -52,7 +45,7 @@ export default function HomeClient(props) {
         />
         <About
           about={props.about}
-          phone={FIXED_PHONE}
+          phone={props.phone}
           wp_message={props.wp_message}
           lang={props.lang}
         />
@@ -61,12 +54,12 @@ export default function HomeClient(props) {
           variant={props.variant}
           before_after={props.before_after}
           lang={props.lang}
-          phone={FIXED_PHONE}
+          phone={props.phone}
           wp_message={props.wp_message}
         />
         <Reviews
           reviews={props.reviews}
-          phone={FIXED_PHONE}
+          phone={props.phone}
           wp_message={props.wp_message}
           variant={props.variant}
           lang={props.lang}
@@ -74,14 +67,14 @@ export default function HomeClient(props) {
         <Icons icons={props.icons} lang={props.lang} />
         <Service
           services={props.services}
-          phone={FIXED_PHONE}
+          phone={props.phone}
           wp_message={props.wp_message}
           lang={props.lang}
         />
         <Hospital hospital={props.hospital} lang={props.lang} />
         <Faq
           faq={props.faq}
-          phone={FIXED_PHONE}
+          phone={props.phone}
           lang={props.lang}
           wp_message={props.wp_message}
         />
@@ -89,12 +82,12 @@ export default function HomeClient(props) {
       <WpSticky
         wp_message={props.wp_message}
         lang={props.lang}
-        phone={FIXED_PHONE}
+        phone={props.phone}
       />
       <Footer
         footer={props.footer}
         lang={props.lang}
-        phone_visible={props.visible_en || "+90 (546) 737 22 84"}
+        phone_visible={props.visible_en}
       />
     </>
   );
