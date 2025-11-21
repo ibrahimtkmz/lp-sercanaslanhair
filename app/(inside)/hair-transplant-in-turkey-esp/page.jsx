@@ -1,25 +1,27 @@
-import data from '../../../data/es.json'          // en.json -> es.json
-import phone from '../../../data/phone.json'
-import lead from '../../../data/lead/es-lead.json' // en-lead.json -> es-lead.json
+import data from '../../../data/es.json'
+import lead from '../../../data/lead/es-lead.json'
 import HomeClient from '../../../components/HomeClient'
 
 export default function Page() {
+      // Telefon numarasını buraya sabitliyoruz, hata şansı kalmıyor.
+      const phoneNumber = "905467372284"; 
+      const visibleNumber = "+90 (546) 737 22 84";
+
       return (
            <>
                 <HomeClient
                      lang={data.lang}
                      
-                     // --- KESİN ÇÖZÜM ---
-                     // JSON'dan çekmek yerine numarayı tırnak içinde buraya yazıyoruz.
-                     // Başında + olmadan, sadece rakamlar.
-                     phone="905467372284"
+                     // KESİN ÇÖZÜM: Numarayı doğrudan string olarak veriyoruz
+                     phone={phoneNumber}               
                      
                      wp_message={data.wp.wp_message}
                      form={data.form}
                      lead={lead}
                      
-                     // Ekranda görünecek yazı (+ işaretli hali)
-                     visible_en="+90 (546) 737 22 84"
+                     // HomeClient kodunda 'phone_visible={props.visible_en}' yazdığı için
+                     // prop ismini mecburen 'visible_en' olarak bırakıyoruz.
+                     visible_en={visibleNumber}
                      
                      variant={data.variant}
                      header={data.header}
