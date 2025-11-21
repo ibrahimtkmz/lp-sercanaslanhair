@@ -18,6 +18,14 @@ import Footer from "./footer";
 export default function HomeClient(props) {
   const router = useRouter();
 
+  // --- KESİN ÇÖZÜM (SİGORTA) ---
+  // Eğer props.phone boş gelirse (undefined), otomatik olarak bu numarayı kullan:
+  const activePhone = props.phone || "905467372284";
+  
+  // Eğer görünür numara boş gelirse bunu kullan:
+  const activeVisiblePhone = props.visible_en || "+90 (546) 737 22 84";
+  // -----------------------------
+
   useEffect(() => {
     if (props.lang === "ar") {
       document.documentElement.setAttribute("dir", "rtl");
@@ -30,7 +38,7 @@ export default function HomeClient(props) {
         router.push(pathname + hash);
       }, 1000);
     }
-  }, [props.lang]);
+  }, [props.lang, router]); // router eklendi, build uyarısı vermemesi için
 
   return (
     <>
@@ -43,9 +51,10 @@ export default function HomeClient(props) {
           variant={props.variant}
           lang={props.lang}
         />
+        {/* Tüm bileşenlere activePhone gönderiyoruz */}
         <About
           about={props.about}
-          phone={props.phone}
+          phone={activePhone}
           wp_message={props.wp_message}
           lang={props.lang}
         />
@@ -54,12 +63,12 @@ export default function HomeClient(props) {
           variant={props.variant}
           before_after={props.before_after}
           lang={props.lang}
-          phone={props.phone}
+          phone={activePhone}
           wp_message={props.wp_message}
         />
         <Reviews
           reviews={props.reviews}
-          phone={props.phone}
+          phone={activePhone}
           wp_message={props.wp_message}
           variant={props.variant}
           lang={props.lang}
@@ -67,27 +76,31 @@ export default function HomeClient(props) {
         <Icons icons={props.icons} lang={props.lang} />
         <Service
           services={props.services}
-          phone={props.phone}
+          phone={activePhone}
           wp_message={props.wp_message}
           lang={props.lang}
         />
         <Hospital hospital={props.hospital} lang={props.lang} />
         <Faq
           faq={props.faq}
-          phone={props.phone}
+          phone={activePhone}
           lang={props.lang}
           wp_message={props.wp_message}
         />
       </main>
+      
+      {/* Sağ alttaki yapışkan buton için düzeltme */}
       <WpSticky
         wp_message={props.wp_message}
         lang={props.lang}
-        phone={props.phone}
+        phone={activePhone}
       />
+      
+      {/* Footer görünür numara düzeltmesi */}
       <Footer
         footer={props.footer}
         lang={props.lang}
-        phone_visible={props.visible_en}
+        phone_visible={activeVisiblePhone}
       />
     </>
   );
