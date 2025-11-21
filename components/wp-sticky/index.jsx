@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 // Eğer CSS dosyanız varsa importu burada kalsın, yoksa silebilirsiniz:
-import "./styles.css"; 
 
 export default function WpSticky({ wp_message, phone }) {
   
