@@ -2,7 +2,9 @@
 import './styles.css'
 import Image from 'next/image'
 
-export default function WpLink({ title, wp_message, phone }) {
+// "phone" yanına eşittir koyarak varsayılan numarayı yazıyoruz.
+// Böylece yukarıdan veri gelmese bile (undefined olsa bile) bu numara devreye girer.
+export default function WpLink({ title, wp_message, phone = "905467372284" }) {
      return (
           <a
                className="wp-link"
