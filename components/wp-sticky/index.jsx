@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import "./styles.css";
+
 
 export default function WpSticky({ wp_message, phone }) {
   return (
