@@ -12,10 +12,7 @@ export default function Page() {
                      wp_message={data.wp.wp_message}
                      form={data.form}
                      lead={lead}
-                     
-                     // DİKKAT: Çalışan kodda görünür numara "phone.visible_en"den geliyor.
                      visible_en={phone.visible_en}
-                     
                      variant={data.variant}
                      header={data.header}
                      about={data.about}
