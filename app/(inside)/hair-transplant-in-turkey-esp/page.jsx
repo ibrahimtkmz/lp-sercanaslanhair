@@ -9,22 +9,22 @@ export default function Page() {
                 <HomeClient
                      lang={data.lang}
                      
-                     // HATA BURADAYDI: phone.es yerine phone.en yapın.
-                     // (Numara aynı olduğu için en garantisi budur)
-                     phone={phone.en}               
+                     // --- KESİN ÇÖZÜM ---
+                     // JSON'dan çekmek yerine numarayı tırnak içinde buraya yazıyoruz.
+                     // Başında + olmadan, sadece rakamlar.
+                     phone="905467372284"
                      
                      wp_message={data.wp.wp_message}
                      form={data.form}
                      lead={lead}
                      
-                     // Görünür metin için visible_en veya visible_es kullanabilirsiniz
-                     visible_en={phone.visible_en} 
+                     // Ekranda görünecek yazı (+ işaretli hali)
+                     visible_en="+90 (546) 737 22 84"
                      
                      variant={data.variant}
                      header={data.header}
                      about={data.about}
                      hero={data.hero}
-                     // ... diğerleri aynı kalsın
                      steps={data.steps}
                      reviews={data.reviews}
                      price={data.price}
