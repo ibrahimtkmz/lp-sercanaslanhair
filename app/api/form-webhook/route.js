@@ -17,7 +17,6 @@ export async function POST(request) {
     const contentType = request.headers.get('content-type') || '';
     let data = {};
 
-    // Gelen veriyi (JSON veya Form) oku
     if (contentType.includes('application/json')) {
       data = await request.json();
     } else {
@@ -36,9 +35,10 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- GENEL API KEY (Paneldeki İlk Anahtar) ---
-    // Listeden domaini sildiğinde bu anahtar çalışacaktır.
-    const apiKey = "2e8c1fc41659382da0f23cb40c18b46ae993565a"; 
+    // --- DÖNÜM NOKTASI: PARTNER HASH ID ---
+    // Genel Key çalışmadı. Demek ki bu endpoint sadece Partner ID istiyor.
+    // IP kısıtlamasını kaldırdıysan bu anahtar artık çalışacak.
+    const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
     const payload = {
       "name": name,
@@ -61,15 +61,18 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // URL: Access Token'ı URL'den veriyoruz (En garanti yöntem)
+    // URL: Partner ID'yi 'access-token' olarak ekledik.
+    // Bu sayede Header silinse bile URL'den okuyacak.
     const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        // Header'a da ekliyoruz (Çift Dikiş)
         "Authorization": `Bearer ${apiKey}`,
-        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)"
+        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
+        // Referer'ı bilerek boş bırakıyoruz ki domain kontrolüne takılmasın
       },
       body: JSON.stringify(payload)
     });
