@@ -17,7 +17,7 @@ export async function POST(request) {
     const contentType = request.headers.get('content-type') || '';
     let data = {};
 
-    // 1. Veriyi Oku (JSON veya Form Data)
+    // 1. Veriyi Oku
     if (contentType.includes('application/json')) {
       data = await request.json();
     } else {
@@ -27,38 +27,27 @@ export async function POST(request) {
       });
     }
 
-    console.log("Elementor Gelen Ham Veri:", data);
+    console.log("Elementor Gelen Veri:", data);
 
-    // 2. Elementor ID'lerini Eşleştir (Loglardan aldığımız ID'ler buraya girildi)
-    // İsim: 'fields[name][value]'
-    // Telefon: 'fields[field_eae3750][value]'
-    // Email: 'fields[field_555e498][value]'
-    // Mesaj: 'fields[message][value]'
-
+    // 2. Verileri Eşleştir
     const name = data['fields[name][value]'] || data.name || "Web Form";
     
-    // Loglarda görülen özel ID'yi buraya ekledik:
     const rawEmail = data['fields[field_555e498][value]'] || data.email || data['fields[email][value]'] || "";
     const email = rawEmail.toString().trim();
 
-    // Loglarda görülen özel ID'yi buraya ekledik:
     const rawPhone = data['fields[field_eae3750][value]'] || data.phone || data['fields[phone][value]'] || "";
-    // Telefon temizliği
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    const apiKey = "2e8c1fc41659382da0f23cb40c18b46ae993565a";
-
-    // Eğer telefon boşsa hata dönmesin ama log düşsün
-    if (!phone) {
-       console.log("HATA: Telefon numarası bulunamadı. Gelen veriyi kontrol et.");
-    }
+    // --- DÜZELTME 1: Hash ID Kullanıyoruz (Partner API Ayarları Ekranından) ---
+    // Önceki kısa kod yerine, "lead form landing" satırındaki Hash ID'yi kullanmalıyız.
+    const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
     // Doktor365 Payload
     const payload = {
       "name": name,
-      "surname": phone || "NoPhone", // Soyad boş gitmesin
+      "surname": phone || "NoPhone",
       "email": email,
       "phone": phone,
       "description": `Web Form Mesajı: ${message}`,
@@ -68,13 +57,22 @@ export async function POST(request) {
       "id_treatment_group": 1,
       "id_referrer": 1,
       "id_staff_sales": 1,
-      "sonitel_agent_id": 1
+      "sonitel_agent_id": 1,
+      "utm_info": {
+        "utm_source": "website",
+        "utm_medium": "form"
+      }
     };
 
-    console.log("CRM'e Giden Paket:", payload);
+    console.log("CRM Paket:", payload);
 
-    // CRM'e Gönder
-    const crmResponse = await fetch("https://app.doktor365.com.tr/api/Lead/create/", {
+    // --- DÜZELTME 2: URL Ayarı ---
+    // Bazı sunucular sondaki slash (/) işaretini veya büyük harfi sevmez.
+    // Garantili olması için küçük harfle ve slash olmadan deniyoruz.
+    // Eğer bu da çalışmazsa "/api/Lead/create/" (büyük L ile) tekrar deneriz.
+    const crmUrl = "https://app.doktor365.com.tr/api/lead/create";
+
+    const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -83,14 +81,13 @@ export async function POST(request) {
       body: JSON.stringify(payload)
     });
 
-    // CRM yanıtını metin olarak alıp kontrol edelim (HTML hatası gelirse parse edemeyiz)
     const responseText = await crmResponse.text();
     let crmResult;
     try {
         crmResult = JSON.parse(responseText);
     } catch (e) {
-        console.error("CRM JSON döndürmedi. HTML Hatası olabilir:", responseText);
-        crmResult = { error: "CRM HTML döndürdü", raw: responseText };
+        console.error("CRM HTML Döndü:", responseText.substring(0, 200)); // HTML'in başını logla
+        crmResult = { error: "CRM HTML döndürdü", raw_head: responseText.substring(0, 100) };
     }
 
     console.log("CRM Sonuç:", crmResult);
@@ -103,7 +100,7 @@ export async function POST(request) {
     return setCorsHeaders(response);
 
   } catch (error) {
-    console.error("Genel Hata:", error);
+    console.error("Hata:", error);
     const errorResponse = NextResponse.json({ status: "error", message: error.message }, { status: 200 });
     return setCorsHeaders(errorResponse);
   }
