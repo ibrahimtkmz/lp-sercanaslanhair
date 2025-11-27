@@ -40,8 +40,7 @@ export async function POST(request) {
     
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- DÜZELTME 1: Hash ID Kullanıyoruz (Partner API Ayarları Ekranından) ---
-    // Önceki kısa kod yerine, "lead form landing" satırındaki Hash ID'yi kullanmalıyız.
+    // Hash ID (Partner API Ayarları)
     const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
     // Doktor365 Payload
@@ -66,11 +65,10 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // --- DÜZELTME 2: URL Ayarı ---
-    // Bazı sunucular sondaki slash (/) işaretini veya büyük harfi sevmez.
-    // Garantili olması için küçük harfle ve slash olmadan deniyoruz.
-    // Eğer bu da çalışmazsa "/api/Lead/create/" (büyük L ile) tekrar deneriz.
-    const crmUrl = "https://app.doktor365.com.tr/api/lead/create";
+    // --- KRİTİK DÜZELTME: URL Birebir Dokümantasyonla Aynı Olmalı ---
+    // 1. "Lead" (Baş harfi büyük L)
+    // 2. Sonda mutlaka "/" (slash) olmalı
+    const crmUrl = "https://app.doktor365.com.tr/api/Lead/create/";
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
@@ -86,12 +84,14 @@ export async function POST(request) {
     try {
         crmResult = JSON.parse(responseText);
     } catch (e) {
-        console.error("CRM HTML Döndü:", responseText.substring(0, 200)); // HTML'in başını logla
+        // Eğer hala HTML dönerse başını görelim
+        console.error("CRM HTML Döndü:", responseText.substring(0, 200)); 
         crmResult = { error: "CRM HTML döndürdü", raw_head: responseText.substring(0, 100) };
     }
 
     console.log("CRM Sonuç:", crmResult);
 
+    // Başarılı veya hatalı olsa da Elementor'a "Tamam" diyelim ki hata göstermesin
     const response = NextResponse.json({ 
       message: 'Processed', 
       crm_id: crmResult?.data?.id 
