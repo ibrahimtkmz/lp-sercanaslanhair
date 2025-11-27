@@ -28,72 +28,113 @@ export async function POST(request) {
 
     console.log("Elementor Gelen Veri:", data);
 
-    const name = data['fields[name][value]'] || data.name || "Web Form";
-    const rawEmail = data['fields[field_555e498][value]'] || data.email || data['fields[email][value]'] || "";
-    const email = rawEmail.toString().trim();
-    const rawPhone = data['fields[field_eae3750][value]'] || data.phone || data['fields[phone][value]'] || "";
-    const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
-    const message = data['fields[message][value]'] || data.message || "Mesaj yok";
+    const name =
+      data['fields[name][value]'] ||
+      data.name ||
+      'Web Form';
 
-    // PARTNER HASH ID (Lead oluşturma yetkisi bunda)
-    const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
+    const rawEmail =
+      data['fields[field_555e498][value]'] ||
+      data.email ||
+      data['fields[email][value]'] ||
+      '';
+
+    const email = rawEmail.toString().trim();
+
+    const rawPhone =
+      data['fields[field_eae3750][value]'] ||
+      data.phone ||
+      data['fields[phone][value]'] ||
+      '';
+
+    const phone = rawPhone.toString().replace(/[^0-9+]/g, '').trim();
+
+    const message =
+      data['fields[message][value]'] ||
+      data.message ||
+      'Mesaj yok';
+
+    // PARTNER HASH ID (Dokümantasyonun verdiği Hash Key)
+    const apiKey = 'efecf646749f211b9e0f98bfaba6215c1e710e125';
+    // Not: Prod'da bunu .env'ye al:
+    // const apiKey = process.env.DOKTOR365_HASH_KEY;
 
     const payload = {
-      "name": name,
-      "surname": phone || "NoPhone",
-      "email": email,
-      "phone": phone,
-      "description": `Web Form Mesajı: ${message}`,
-      "title": "Website Form Lead",
-      "id_source": 1, 
-      "id_country": 1,
-      "id_treatment_group": 1,
-      "id_referrer": 1,
-      "id_staff_sales": 1,
-      "sonitel_agent_id": 1,
-      "utm_info": {
-        "utm_source": "website",
-        "utm_medium": "form"
-      }
+      name: name,
+      surname: 'Website', // Telefon yerine sabit bir şey yollayalım
+      email: email,
+      phone: phone,
+      description: `Web Form Mesajı: ${message}`,
+      title: 'Website Form Lead',
+      id_source: 1,
+      id_country: 1,
+      id_treatment_group: 1,
+      id_referrer: 1,
+      id_staff_sales: 1,
+      sonitel_agent_id: 1,
+      utm_info: {
+        utm_source: 'website',
+        utm_medium: 'form',
+      },
     };
 
-    console.log("CRM Paket:", payload);
+    console.log('CRM Paket:', payload);
 
-    // SADECE URL PARAMETRESİ KULLANIYORUZ
-    // Header karmaşasını önlemek için token'ı sadece buraya koyuyoruz.
-    const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
+    // --- KESİN DENEYECEĞİMİZ KOMBO ---
+    // 1) Lead büyük harfli
+    // 2) Sonda slash yok
+    // 3) Token header'da Bearer olarak
+    const crmUrl = 'https://app.doktor365.com.tr/api/Lead/create';
 
     const crmResponse = await fetch(crmUrl, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        // Authorization Header'ını SİLDİM (Çakışma olmasın)
-        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)"
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+        'X-Auth-Token': apiKey,
+        token: apiKey,
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     });
+
+    console.log('CRM Status:', crmResponse.status);
+    console.log(
+      'CRM Headers:',
+      Object.fromEntries(crmResponse.headers.entries())
+    );
 
     const responseText = await crmResponse.text();
     let crmResult;
+
     try {
-        crmResult = JSON.parse(responseText);
+      crmResult = JSON.parse(responseText);
     } catch (e) {
-        console.error("CRM HTML Döndü:", responseText.substring(0, 200)); 
-        crmResult = { error: "CRM HTML döndürdü", raw_head: responseText.substring(0, 100) };
+      console.error('CRM JSON yerine başka bir şey döndü (muhtemelen HTML):', responseText.substring(0, 200));
+      crmResult = {
+        error: 'CRM JSON dönmedi',
+        raw_head: responseText.substring(0, 200),
+      };
     }
 
-    console.log("CRM Sonuç:", crmResult);
+    console.log('CRM Sonuç:', crmResult);
 
-    const response = NextResponse.json({ 
-      message: 'Processed', 
-      crm_id: crmResult?.data?.id 
-    }, { status: 200 });
+    const response = NextResponse.json(
+      {
+        message: 'Processed',
+        crm_status: crmResponse.status,
+        crm_id: crmResult?.data?.id,
+        crm_raw: crmResult,
+      },
+      { status: 200 }
+    );
 
     return setCorsHeaders(response);
-
   } catch (error) {
-    console.error("Hata:", error);
-    const errorResponse = NextResponse.json({ status: "error", message: error.message }, { status: 200 });
+    console.error('Hata:', error);
+    const errorResponse = NextResponse.json(
+      { status: 'error', message: error.message },
+      { status: 500 }
+    );
     return setCorsHeaders(errorResponse);
   }
 }
