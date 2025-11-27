@@ -2,7 +2,7 @@ import data from '../../../data/es.json'
 import phone from '../../../data/phone.json'    
 import lead from '../../../data/lead/es-lead.json' 
 import HomeClient from '../../../components/HomeClient'
-import NewYearButton from '../../../components/NewYearButton'
+import NewYearButton from '../../../components/espNewYearButton'
 
 export default function Page() {
   return (
