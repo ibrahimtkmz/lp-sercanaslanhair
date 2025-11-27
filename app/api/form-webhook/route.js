@@ -82,7 +82,7 @@ export async function POST(request) {
 
     console.log('CRM Paket:', payload);
 
-    const crmUrl = 'https://app.doktor365.com.tr/api/lead/create';
+    const crmUrl = 'https://app.doktor365.com.tr/api/lead/create/';
 
     let crmStatus = null;
     let crmResult = null;
