@@ -101,22 +101,39 @@ export default function NewYearButton() {
           Chat with our medical team and secure your <strong>30% New Year offer</strong>.
         </p>
 
-        <button
-          onClick={handleWhatsApp}
-          style={{
-            width: "100%",
-            padding: "12px",
-            borderRadius: "999px",
-            background: "#25D366",
-            color: "#fff",
-            border: "none",
-            fontSize: "16px",
-            fontWeight: "600",
-            cursor: "pointer",
-          }}
-        >
-          💬 Chat on WhatsApp
-        </button>
+       <button
+  onClick={handleWhatsApp}
+  style={{
+    width: "100%",
+    padding: "14px 18px",
+    borderRadius: "999px",
+    border: "none",
+    cursor: "pointer",
+    fontSize: "16px",
+    fontWeight: 600,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "8px",
+    background: "#25D366",
+    color: "#ffffff",
+    marginBottom: "10px",
+    transition: "all 0.25s ease",
+    animation: "pulseBtn 1.8s infinite ease-in-out",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = "scale(1.06)";
+    e.currentTarget.style.boxShadow =
+      "0 8px 20px rgba(37, 211, 102, 0.45)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = "scale(1)";
+    e.currentTarget.style.boxShadow = "none";
+  }}
+>
+  💬 Chat on WhatsApp & Claim 30% Off
+</button>
+
 
         <p style={{ marginTop: "8px", fontSize: "11px", color: "#777" }}>
           Your discount message will be sent automatically.
