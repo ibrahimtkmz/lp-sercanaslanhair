@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 
-// CORS Ayarları (WordPress/Elementor erişimi için)
 function setCorsHeaders(response) {
   response.headers.set('Access-Control-Allow-Origin', '*');
   response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
@@ -18,7 +17,6 @@ export async function POST(request) {
     const contentType = request.headers.get('content-type') || '';
     let data = {};
 
-    // 1. Veriyi Oku (JSON veya Form Data)
     if (contentType.includes('application/json')) {
       data = await request.json();
     } else {
@@ -30,7 +28,6 @@ export async function POST(request) {
 
     console.log("Elementor Gelen Veri:", data);
 
-    // 2. Verileri Eşleştir
     const name = data['fields[name][value]'] || data.name || "Web Form";
     const rawEmail = data['fields[field_555e498][value]'] || data.email || data['fields[email][value]'] || "";
     const email = rawEmail.toString().trim();
@@ -38,24 +35,31 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- GENEL API KEY ---
-    // URL düzgünken (slash'lı) GENEL KEY'i deniyoruz.
-    const apiKey = "2e8c1fc41659382da0f23cb40c18b46ae993565a"; 
+    // --- PARTNER HASH ID ---
+    // Bu ID, Partner API tablosundan alındı.
+    const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
-    // Payload
+    // --- STRATEJİ: ANAHTARI GÖVDEYE GÖMMEK ---
+    // Bazı CRM'ler anahtarı header yerine verinin içinde "token" veya "hash" olarak bekler.
     const payload = {
+      "token": apiKey,   // Deneme 1
+      "hash": apiKey,    // Deneme 2
+      "api_key": apiKey, // Deneme 3
       "name": name,
       "surname": phone || "NoPhone",
       "email": email,
       "phone": phone,
       "description": `Web Form Mesajı: ${message}`,
       "title": "Website Form Lead",
+      
+      // ID'leri string olarak da gönderelim, bazen sayı kabul etmezler
       "id_source": 1, 
       "id_country": 1,
       "id_treatment_group": 1,
       "id_referrer": 1,
       "id_staff_sales": 1,
       "sonitel_agent_id": 1,
+      
       "utm_info": {
         "utm_source": "website",
         "utm_medium": "form"
@@ -64,21 +68,21 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // URL: Küçük harf 'lead' ve sonda SLASH '/' 
-    // Parametre: access-token olarak GENEL API KEY'i veriyoruz.
+    // URL'e de eklemeye devam ediyoruz (Çift dikiş)
     const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Header'a da koyuyoruz
+        // Header'da Partner Hash ID
         "Authorization": `Bearer ${apiKey}`,
-        // Bizi gerçek bir tarayıcı gibi göstersin diye ek başlıklar:
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        // Alternatif Başlıklar
+        "X-Partner-Key": apiKey,
+        // Browser Taklidi
+        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
         "Referer": "https://lp.sercanaslanhair.com",
-        "Origin": "https://lp.sercanaslanhair.com",
-        "X-Requested-With": "XMLHttpRequest"
+        "Origin": "https://lp.sercanaslanhair.com"
       },
       body: JSON.stringify(payload)
     });
