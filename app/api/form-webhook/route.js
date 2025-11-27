@@ -37,8 +37,7 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- KRİTİK DEĞİŞİKLİK: HASH ID ---
-    // URL artık doğru olduğu için, Partner API için geçerli olan Hash ID'yi kullanıyoruz.
+    // Partner API Hash ID (Doğru Anahtar)
     const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
     // Doktor365 Payload
@@ -49,7 +48,9 @@ export async function POST(request) {
       "phone": phone,
       "description": `Web Form Mesajı: ${message}`,
       "title": "Website Form Lead",
-      "id_source": 1,
+      // NOT: Eğer yine hata verirse id_source değerini öğrenmemiz gerekebilir.
+      // Şimdilik standart 1 gönderiyoruz.
+      "id_source": 1, 
       "id_country": 1,
       "id_treatment_group": 1,
       "id_referrer": 1,
@@ -63,17 +64,19 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // URL: (Doğru çalışan URL)
-    const crmUrl = "https://app.doktor365.com.tr/api/lead/create/";
+    // --- KESİN ÇÖZÜM HAMLESİ ---
+    // API Anahtarını hem Header'a koyuyoruz, HEM DE URL'e ekliyoruz.
+    // PHP sunucuları genelde URL'dekini ('access-token') daha rahat okur.
+    const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`, // Hash ID burada kullanılıyor
+        // Header'da da kalsın, çift dikiş olsun
+        "Authorization": `Bearer ${apiKey}`,
         "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
         "Referer": "https://lp.sercanaslanhair.com",
-        "Origin": "https://lp.sercanaslanhair.com"
       },
       body: JSON.stringify(payload)
     });
