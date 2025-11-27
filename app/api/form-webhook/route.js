@@ -35,9 +35,12 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- PARTNER HASH ID (Dokümantasyonun istediği Hash Key) ---
-    const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
+    // --- KAZANAN KOMBİNASYON İÇİN ANAHTAR ---
+    // Partner ID (efecf...) çalışmadı.
+    // URL düzgünken GENEL KEY'i (2e8c...) hiç denemedik. Asıl yetki bunda.
+    const apiKey = "2e8c1fc41659382da0f23cb40c18b46ae993565a"; 
 
+    // Payload
     const payload = {
       "name": name,
       "surname": phone || "NoPhone",
@@ -59,49 +62,11 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // --- STRATEJİ: HER YERDEN GÖNDERMEK ---
-    // URL'e standart parametreleri ekliyoruz
-    const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}&hash=${apiKey}`;
+    // URL: Küçük harf 'lead' ve sonda SLASH '/' (Bu kesinlikle doğru)
+    // Parametre: access-token olarak GENEL API KEY'i veriyoruz.
+    const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
-        // 1. Standart Yöntem
-        "Authorization": `Bearer ${apiKey}`,
-        // 2. Bearer'sız Yöntem (Bazı API'ler böyle ister)
-        "X-Auth-Token": apiKey,
-        "Hash-Key": apiKey, // Dokümantasyonda "Hash Key" yazdığı için deniyoruz
-        // Güvenlik Başlıkları
-        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
-        "Referer": "https://lp.sercanaslanhair.com",
-        "Origin": "https://lp.sercanaslanhair.com"
-      },
-      body: JSON.stringify(payload)
-    });
-
-    const responseText = await crmResponse.text();
-    let crmResult;
-    try {
-        crmResult = JSON.parse(responseText);
-    } catch (e) {
-        console.error("CRM HTML Döndü:", responseText.substring(0, 200)); 
-        crmResult = { error: "CRM HTML döndürdü", raw_head: responseText.substring(0, 100) };
-    }
-
-    console.log("CRM Sonuç:", crmResult);
-
-    const response = NextResponse.json({ 
-      message: 'Processed', 
-      crm_id: crmResult?.data?.id 
-    }, { status: 200 });
-
-    return setCorsHeaders(response);
-
-  } catch (error) {
-    console.error("Hata:", error);
-    const errorResponse = NextResponse.json({ status: "error", message: error.message }, { status: 200 });
-    return setCorsHeaders(errorResponse);
-  }
-}
