@@ -110,9 +110,9 @@ export default function NewYearButton() {
           position: "relative",
           background: "#fff",
           borderRadius: "18px",
-          width: "92%",
-          maxWidth: "520px",
-          padding: "20px",
+          width: "94%",
+          maxWidth: "640px", // <-- YATAYDA GENİŞ
+          padding: "20px 24px",
           fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
           boxShadow: "0 10px 35px rgba(0,0,0,0.35)",
         }}
@@ -123,7 +123,7 @@ export default function NewYearButton() {
           style={{
             position: "absolute",
             top: 10,
-            right: 12,
+            right: 14,
             width: 26,
             height: 26,
             borderRadius: "50%",
@@ -153,14 +153,13 @@ export default function NewYearButton() {
           Step {step} of 3
         </div>
 
-        {/* STEP 1 */}
+        {/* STEP 1 (değişmedi) */}
         {step === 1 && (
           <div>
-            {/* Smaller before/after image */}
             <div
               style={{
                 margin: "0 auto 14px",
-                width: "70%",
+                width: "60%",
                 maxWidth: 260,
                 borderRadius: 14,
                 overflow: "hidden",
@@ -174,7 +173,6 @@ export default function NewYearButton() {
               />
             </div>
 
-            {/* Discount badge (not button-like) */}
             <div
               style={{
                 display: "flex",
@@ -243,7 +241,6 @@ export default function NewYearButton() {
               <li>✔ Final discounted price instantly delivered</li>
             </ul>
 
-            {/* CTA button with hover + pulse animation */}
             <button
               onClick={handleNext}
               style={{
@@ -276,7 +273,7 @@ export default function NewYearButton() {
           </div>
         )}
 
-        {/* STEP 2 – bigger, cleaner layout */}
+        {/* STEP 2 – 3 sütunlu, daha yatay layout */}
         {step === 2 && (
           <div>
             <h3
@@ -298,16 +295,16 @@ export default function NewYearButton() {
                 lineHeight: 1.5,
               }}
             >
-              Select your <strong>hair loss type</strong> and then enter your{" "}
+              Select your <strong>hair loss type</strong>, then enter your{" "}
               <strong>age</strong> and <strong>country</strong>.
             </p>
 
-            {/* 2-column grid, larger cards */}
+            {/* 3 columns → daha kısa yükseklik */}
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-                gap: 12,
+                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                gap: 10,
                 marginBottom: 10,
               }}
             >
@@ -319,7 +316,7 @@ export default function NewYearButton() {
                     type="button"
                     onClick={() => updateField("hairLossType", o.label)}
                     style={{
-                      padding: "10px 10px 12px",
+                      padding: "8px 8px 10px",
                       borderRadius: 14,
                       border: active ? "2px solid #0f766e" : "1px solid #e5e7eb",
                       background: active ? "#ecfdf5" : "#ffffff",
@@ -334,15 +331,15 @@ export default function NewYearButton() {
                       src={o.img}
                       alt={o.label}
                       style={{
-                        width: 76,
-                        height: 76,
+                        width: 68,
+                        height: 68,
                         objectFit: "contain",
-                        marginBottom: 6,
+                        marginBottom: 4,
                       }}
                     />
                     <div
                       style={{
-                        fontSize: 13,
+                        fontSize: 12,
                         fontWeight: 700,
                         color: "#111827",
                         marginBottom: 2,
@@ -350,7 +347,7 @@ export default function NewYearButton() {
                     >
                       {o.label}
                     </div>
-                    <div style={{ fontSize: 12, color: "#6b7280" }}>{o.desc}</div>
+                    <div style={{ fontSize: 11, color: "#6b7280" }}>{o.desc}</div>
                   </button>
                 );
               })}
@@ -368,7 +365,7 @@ export default function NewYearButton() {
               </div>
             )}
 
-            {/* Age + Country row, bigger inputs */}
+            {/* Age + Country row */}
             <div
               style={{
                 display: "flex",
@@ -377,7 +374,7 @@ export default function NewYearButton() {
                 marginTop: 4,
               }}
             >
-              <div style={{ flex: 1 }}>
+              <div style={{ flex: 0.8 }}>
                 <label
                   style={{
                     fontSize: 12,
@@ -408,7 +405,7 @@ export default function NewYearButton() {
                 )}
               </div>
 
-              <div style={{ flex: 1.5 }}>
+              <div style={{ flex: 1.4 }}>
                 <label
                   style={{
                     fontSize: 12,
@@ -442,7 +439,6 @@ export default function NewYearButton() {
               </div>
             </div>
 
-            {/* Navigation buttons */}
             <div style={{ display: "flex", gap: 10, marginTop: 6 }}>
               <button
                 type="button"
