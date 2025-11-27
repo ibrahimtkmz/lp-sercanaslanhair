@@ -37,7 +37,7 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // Hash ID (Partner API Ayarları)
+    // Hash ID
     const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
     // Doktor365 Payload
@@ -62,17 +62,16 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // --- SON ŞANS DÜZELTMESİ ---
-    // 1. URL: Büyük 'L' ama sonda SLASH YOK. (Genelde redirect sorununu bu çözer)
-    const crmUrl = "https://app.doktor365.com.tr/api/Lead/create";
+    // --- FİNAL URL ---
+    // Küçük harfle 'lead' ve sonda SLASH '/' var.
+    const crmUrl = "https://app.doktor365.com.tr/api/lead/create/";
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${apiKey}`,
-        // Sunucu bizi robot sanmasın diye tarayıcı taklidi yapıyoruz:
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)"
       },
       body: JSON.stringify(payload)
     });
