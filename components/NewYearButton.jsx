@@ -37,7 +37,7 @@ export default function NewYearButton() {
     };
   }, []);
 
-  // Norwood ikon seçenekleri
+  // Norwood ikon seçenekleri (unisex)
   const hairLossOptions = [
     {
       id: 1,
@@ -95,7 +95,11 @@ export default function NewYearButton() {
     }
     if (!form.age) {
       newErrors.age = "Please enter your age.";
-    } else if (isNaN(Number(form.age)) || Number(form.age) < 18 || Number(form.age) > 75) {
+    } else if (
+      isNaN(Number(form.age)) ||
+      Number(form.age) < 18 ||
+      Number(form.age) > 75
+    ) {
       newErrors.age = "Please enter a valid age (18–75).";
     }
     if (!form.country.trim()) {
@@ -165,7 +169,8 @@ export default function NewYearButton() {
           width: "92%",
           boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
           padding: "18px 18px 16px",
-          fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+          fontFamily:
+            "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
         }}
       >
         {/* Close */}
@@ -189,7 +194,7 @@ export default function NewYearButton() {
           ×
         </button>
 
-        {/* Step indicator */}
+        {/* Step badge */}
         <div
           style={{
             fontSize: "11px",
@@ -207,9 +212,28 @@ export default function NewYearButton() {
           Step {step} of 3
         </div>
 
-        {/* STEP 1 */}
+        {/* STEP 1: Before/after + “fiyatı kaçırma” */}
         {step === 1 && (
           <div>
+            {/* Before / After görseli */}
+            <div
+              style={{
+                margin: "0 -4px 10px",
+                borderRadius: "14px",
+                overflow: "hidden",
+                boxShadow: "0 6px 18px rgba(0,0,0,0.18)",
+              }}
+            >
+              <img
+                src="/popup-agent.png"
+                alt="Hair transplant before and after"
+                style={{
+                  width: "100%",
+                  display: "block",
+                }}
+              />
+            </div>
+
             <h3
               style={{
                 fontSize: "20px",
@@ -217,20 +241,22 @@ export default function NewYearButton() {
                 marginBottom: "6px",
               }}
             >
-              Free Suitability Check & Exact Price
+              Don&apos;t miss this transformation
             </h3>
+
             <p
               style={{
                 fontSize: "13px",
                 color: "#444",
-                marginBottom: "12px",
+                marginBottom: "10px",
                 lineHeight: 1.5,
               }}
             >
-              Answer a few quick questions and get your{" "}
-              <strong>donor area suitability</strong> and{" "}
-              <strong>exact hair transplant price</strong> with{" "}
-              <strong>30% New Year discount</strong> directly on WhatsApp.
+              See real <strong>Before &amp; After</strong> results like this and
+              check if you are a good candidate for hair transplant in Turkey.
+              At the end of this quick analysis, you&apos;ll receive your{" "}
+              <strong>exact price with 30% New Year discount</strong>. Don&apos;t
+              miss it.
             </p>
 
             <ul
@@ -241,9 +267,11 @@ export default function NewYearButton() {
                 paddingLeft: "18px",
               }}
             >
-              <li>✔ Personalised medical opinion from our team</li>
-              <li>✔ Clear graft estimation & recommended technique</li>
-              <li>✔ Final price with 30% New Year discount</li>
+              <li>✔ Personalised donor area suitability check</li>
+              <li>✔ Estimated graft number & recommended technique</li>
+              <li>
+                ✔ Final price with <strong>30% New Year discount</strong>
+              </li>
             </ul>
 
             <button
@@ -265,7 +293,7 @@ export default function NewYearButton() {
           </div>
         )}
 
-        {/* STEP 2 – Norwood ikonları + age/country */}
+        {/* STEP 2: Norwood iconları + Age & Country */}
         {step === 2 && (
           <div>
             <h3
@@ -285,7 +313,7 @@ export default function NewYearButton() {
                 lineHeight: 1.5,
               }}
             >
-              Select the <strong>Norwood stage</strong> that best matches your{" "}
+              Select the <strong>Norwood stage</strong> that best matches your
               current hair loss, then enter your <strong>age</strong> and{" "}
               <strong>country</strong>.
             </p>
@@ -488,7 +516,7 @@ export default function NewYearButton() {
           </div>
         )}
 
-        {/* STEP 3 – Phone + WhatsApp */}
+        {/* STEP 3: Phone + WhatsApp */}
         {step === 3 && (
           <form onSubmit={handleSubmit}>
             <h3
@@ -508,8 +536,8 @@ export default function NewYearButton() {
                 lineHeight: 1.5,
               }}
             >
-              Enter your <strong>WhatsApp number with country code</strong>.
-              We will send your <strong>suitability result</strong> and{" "}
+              Enter your <strong>WhatsApp number with country code</strong>. We
+              will send your <strong>suitability result</strong> and{" "}
               <strong>30% New Year discount price</strong> in a private message.
             </p>
 
