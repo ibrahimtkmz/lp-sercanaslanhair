@@ -11,7 +11,7 @@ export default function NewYearButton() {
       clearTimeout(inactivityTimer);
       inactivityTimer = setTimeout(() => {
         setShow(true);
-      }, 1500); // 5 seconds inactivity
+      }, 2500); // 5 seconds inactivity
     };
 
     // Kullanıcının aktivitesini takip et
