@@ -4,143 +4,104 @@ import { useEffect, useRef, useState } from "react";
 
 export default function NewYearButton() {
   const [show, setShow] = useState(false);
-  const timerRef = useRef(null);
-
   const [step, setStep] = useState(1);
+  const [errors, setErrors] = useState({});
+
   const [form, setForm] = useState({
     hairLossType: "",
     age: "",
     country: "",
     phone: "",
   });
-  const [errors, setErrors] = useState({});
 
-  // Inactivity -> open popup
+  const timerRef = useRef(null);
+
+  // ───────────────────────────────────────────────
+  // INACTIVITY → OPEN POPUP (1.5 SN)
+  // ───────────────────────────────────────────────
   useEffect(() => {
     const resetTimer = () => {
       if (timerRef.current) clearTimeout(timerRef.current);
-
-      // 1.5 seconds inactivity
-      timerRef.current = setTimeout(() => {
-        setShow(true);
-      }, 1500);
+      timerRef.current = setTimeout(() => setShow(true), 1500);
     };
 
     resetTimer();
-
-    const events = ["mousemove", "keydown", "scroll", "touchstart"];
-    events.forEach((ev) => window.addEventListener(ev, resetTimer));
+    const events = ["mousemove", "scroll", "touchstart", "keydown"];
+    events.forEach((e) => window.addEventListener(e, resetTimer));
 
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
-      events.forEach((ev) => window.removeEventListener(ev, resetTimer));
+      events.forEach((e) => window.removeEventListener(e, resetTimer));
     };
   }, []);
 
-  // Norwood ikon seçenekleri (unisex)
+  // ───────────────────────────────────────────────
+  // NORWOOD ICON OPTIONS
+  // ───────────────────────────────────────────────
   const hairLossOptions = [
-    {
-      id: 1,
-      label: "Norwood 1",
-      desc: "Minimal recession",
-      img: "/norwood-1.png",
-    },
-    {
-      id: 2,
-      label: "Norwood 2",
-      desc: "Early hairline recession",
-      img: "/norwood-2.png",
-    },
-    {
-      id: 3,
-      label: "Norwood 3",
-      desc: "Deeper front loss",
-      img: "/norwood-3.png",
-    },
-    {
-      id: 4,
-      label: "Norwood 4",
-      desc: "Front + small crown",
-      img: "/norwood-4.png",
-    },
-    {
-      id: 5,
-      label: "Norwood 5",
-      desc: "Front + larger crown",
-      img: "/norwood-5.png",
-    },
-    {
-      id: 6,
-      label: "Norwood 6",
-      desc: "Full top thinning",
-      img: "/norwood-6.png",
-    },
-    {
-      id: 7,
-      label: "Norwood 7",
-      desc: "Advanced baldness",
-      img: "/norwood-7.png",
-    },
+    { id: 1, label: "Norwood 1", desc: "Minimal recession", img: "/norwood-1.png" },
+    { id: 2, label: "Norwood 2", desc: "Early recession", img: "/norwood-2.png" },
+    { id: 3, label: "Norwood 3", desc: "Front loss", img: "/norwood-3.png" },
+    { id: 4, label: "Norwood 4", desc: "Front + crown", img: "/norwood-4.png" },
+    { id: 5, label: "Norwood 5", desc: "Front + larger crown", img: "/norwood-5.png" },
+    { id: 6, label: "Norwood 6", desc: "Full top thinning", img: "/norwood-6.png" },
+    { id: 7, label: "Norwood 7", desc: "Advanced baldness", img: "/norwood-7.png" },
   ];
 
   const updateField = (name, value) => {
-    setForm((prev) => ({ ...prev, [name]: value }));
-    setErrors((prev) => ({ ...prev, [name]: "" }));
+    setForm((p) => ({ ...p, [name]: value }));
+    setErrors((p) => ({ ...p, [name]: "" }));
   };
 
+  // ───────────────────────────────────────────────
+  // VALIDATION
+  // ───────────────────────────────────────────────
   const validateStep2 = () => {
     const newErrors = {};
-    if (!form.hairLossType) {
-      newErrors.hairLossType = "Please select your hair loss type.";
-    }
-    if (!form.age) {
-      newErrors.age = "Please enter your age.";
-    } else if (
-      isNaN(Number(form.age)) ||
-      Number(form.age) < 18 ||
-      Number(form.age) > 75
-    ) {
-      newErrors.age = "Please enter a valid age (18–75).";
-    }
-    if (!form.country.trim()) {
-      newErrors.country = "Please enter your country.";
-    }
+    if (!form.hairLossType) newErrors.hairLossType = "Please select your hair loss type.";
+    if (!form.age) newErrors.age = "Please enter your age.";
+    if (!form.country.trim()) newErrors.country = "Please enter your country.";
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const validateStep3 = () => {
     const newErrors = {};
-    if (!form.phone.trim()) {
+    if (!form.phone.trim())
       newErrors.phone = "WhatsApp number with country code is required.";
-    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
+  // ───────────────────────────────────────────────
+  // NAVIGATION
+  // ───────────────────────────────────────────────
   const handleNext = () => {
-    if (step === 2) {
-      if (!validateStep2()) return;
-    }
-    setStep((s) => Math.min(3, s + 1));
+    if (step === 2 && !validateStep2()) return;
+    setStep((s) => s + 1);
   };
 
   const handleBack = () => {
     setErrors({});
-    setStep((s) => Math.max(1, s - 1));
+    setStep((s) => s - 1);
   };
 
+  // ───────────────────────────────────────────────
+  // FINAL SUBMIT → WhatsApp
+  // ───────────────────────────────────────────────
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validateStep3()) return;
 
     const message = encodeURIComponent(
-      `Hi! I just completed the hair transplant donor analysis form.\n\n` +
-        `Hair loss type: ${form.hairLossType || "-"}\n` +
-        `Age: ${form.age || "-"}\n` +
-        `Country: ${form.country || "-"}\n` +
-        `WhatsApp number (with country code): ${form.phone}\n\n` +
-        `Please check my suitability and send me my 30% New Year discount and exact price on WhatsApp.`
+      `Hi! I completed the donor analysis form.\n\n` +
+        `Hair loss type: ${form.hairLossType}\n` +
+        `Age: ${form.age}\n` +
+        `Country: ${form.country}\n` +
+        `Phone (with country code): ${form.phone}\n\n` +
+        `Please send me my suitability results and my 30% New Year discounted price.`
     );
 
     window.open(`https://wa.me/905467372284?text=${message}`, "_blank");
@@ -148,129 +109,149 @@ export default function NewYearButton() {
 
   if (!show) return null;
 
+  // ───────────────────────────────────────────────
+  // POPUP LAYOUT
+  // ───────────────────────────────────────────────
   return (
     <div
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(0, 0, 0, 0.55)",
+        background: "rgba(0,0,0,0.55)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        zIndex: 9998,
+        zIndex: 999999,
       }}
     >
       <div
         style={{
           position: "relative",
-          background: "#ffffff",
+          background: "#fff",
           borderRadius: "18px",
-          maxWidth: "480px",
           width: "92%",
-          boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
-          padding: "18px 18px 16px",
-          fontFamily:
-            "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+          maxWidth: "480px",
+          padding: "20px",
+          fontFamily: "system-ui",
+          boxShadow: "0 10px 35px rgba(0,0,0,0.35)",
         }}
       >
-        {/* Close */}
+        {/* CLOSE BUTTON */}
         <button
           onClick={() => setShow(false)}
-          aria-label="Close"
           style={{
             position: "absolute",
-            top: "8px",
-            right: "10px",
+            top: "10px",
+            right: "12px",
             border: "none",
             background: "rgba(0,0,0,0.35)",
             color: "#fff",
-            width: "24px",
-            height: "24px",
-            borderRadius: "999px",
-            fontSize: "16px",
+            width: "26px",
+            height: "26px",
+            borderRadius: "50%",
             cursor: "pointer",
+            fontSize: "16px",
           }}
         >
           ×
         </button>
 
-        {/* Step badge */}
+        {/* STEP BADGE */}
         <div
           style={{
             fontSize: "11px",
-            textTransform: "uppercase",
-            letterSpacing: "0.08em",
-            fontWeight: 600,
-            color: "#0f766e",
             background: "#ecfdf5",
+            color: "#0f766e",
             padding: "4px 10px",
-            borderRadius: "999px",
+            borderRadius: "20px",
+            fontWeight: "600",
+            marginBottom: "12px",
             display: "inline-block",
-            marginBottom: "8px",
           }}
         >
           Step {step} of 3
         </div>
 
-        {/* STEP 1: Before/after + “fiyatı kaçırma” */}
+        {/* ───────────────────────────────────────────────
+            STEP 1 — BEFORE/AFTER + ÇARPI CI %30 İNDİRİM
+        ─────────────────────────────────────────────── */}
         {step === 1 && (
           <div>
-            {/* Before / After görseli */}
+            {/* Küçük görsel */}
             <div
               style={{
-                margin: "0 -4px 10px",
+                margin: "0 auto 14px",
+                width: "70%",
+                maxWidth: "260px",
                 borderRadius: "14px",
                 overflow: "hidden",
-                boxShadow: "0 6px 18px rgba(0,0,0,0.18)",
+                boxShadow: "0 5px 18px rgba(0,0,0,0.18)",
               }}
             >
               <img
                 src="/popup-agent.png"
-                alt="Hair transplant before and after"
-                style={{
-                  width: "100%",
-                  display: "block",
-                }}
+                style={{ width: "100%", display: "block" }}
               />
+            </div>
+
+            {/* Büyük & Çarpıcı %30 İndirim Banner */}
+            <div
+              style={{
+                background: "linear-gradient(135deg,#0f766e,#059669)",
+                color: "#fff",
+                fontSize: "18px",
+                fontWeight: "800",
+                padding: "10px 16px",
+                borderRadius: "12px",
+                textAlign: "center",
+                marginBottom: "14px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.18)",
+              }}
+            >
+              🎁 Get <span style={{ fontSize: "22px" }}>30% New Year Discount</span>
             </div>
 
             <h3
               style={{
-                fontSize: "20px",
-                fontWeight: 700,
-                marginBottom: "6px",
+                fontSize: "22px",
+                fontWeight: "700",
+                textAlign: "center",
+                marginBottom: "10px",
               }}
             >
-              Don&apos;t miss this transformation
+              Don’t Miss Your Hair Transformation
             </h3>
 
             <p
               style={{
-                fontSize: "13px",
+                fontSize: "15px",
+                textAlign: "center",
                 color: "#444",
-                marginBottom: "10px",
-                lineHeight: 1.5,
+                marginBottom: "16px",
+                lineHeight: "1.55",
               }}
             >
-              See real <strong>Before &amp; After</strong> results like this and
-              check if you are a good candidate for hair transplant in Turkey.
-              At the end of this quick analysis, you&apos;ll receive your{" "}
-              <strong>exact price with 30% New Year discount</strong>. Don&apos;t
-              miss it.
+              Get a quick <strong>donor suitability check</strong> and receive your{" "}
+              <strong style={{ color: "#0f766e" }}>
+                exact price with a 30% New Year discount
+              </strong>
+              .
             </p>
 
             <ul
               style={{
-                fontSize: "12px",
+                fontSize: "14px",
                 color: "#374151",
-                marginBottom: "14px",
-                paddingLeft: "18px",
+                paddingLeft: "20px",
+                marginBottom: "18px",
+                lineHeight: "1.5",
               }}
             >
-              <li>✔ Personalised donor area suitability check</li>
-              <li>✔ Estimated graft number & recommended technique</li>
+              <li>✔ Donor area suitability check</li>
+              <li>✔ Estimated graft requirement</li>
+              <li>✔ Recommended technique</li>
               <li>
-                ✔ Final price with <strong>30% New Year discount</strong>
+                ✔ <strong>Final discounted price</strong> instantly delivered
               </li>
             </ul>
 
@@ -278,47 +259,35 @@ export default function NewYearButton() {
               onClick={handleNext}
               style={{
                 width: "100%",
-                padding: "11px 14px",
+                padding: "12px",
+                background: "#0f766e",
+                color: "#fff",
                 borderRadius: "999px",
                 border: "none",
+                fontSize: "16px",
+                fontWeight: "700",
                 cursor: "pointer",
-                fontSize: "15px",
-                fontWeight: 600,
-                background: "#0f766e",
-                color: "#ffffff",
               }}
             >
-              Start my free analysis
+              Start My Free Analysis
             </button>
           </div>
         )}
 
-        {/* STEP 2: Norwood iconları + Age & Country */}
+        {/* ───────────────────────────────────────────────
+            STEP 2 — NORWOOD TYPES + AGE + COUNTRY
+        ─────────────────────────────────────────────── */}
         {step === 2 && (
           <div>
-            <h3
-              style={{
-                fontSize: "19px",
-                fontWeight: 700,
-                marginBottom: "6px",
-              }}
-            >
+            <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "8px" }}>
               Tell us about your hair loss
             </h3>
-            <p
-              style={{
-                fontSize: "13px",
-                color: "#444",
-                marginBottom: "10px",
-                lineHeight: 1.5,
-              }}
-            >
-              Select the <strong>Norwood stage</strong> that best matches your
-              current hair loss, then enter your <strong>age</strong> and{" "}
-              <strong>country</strong>.
+
+            <p style={{ fontSize: "14px", color: "#444", marginBottom: "12px" }}>
+              Select your <strong>hair loss type</strong>, then enter your{" "}
+              <strong>age</strong> and <strong>country</strong>.
             </p>
 
-            {/* Norwood grid */}
             <div
               style={{
                 display: "grid",
@@ -327,30 +296,24 @@ export default function NewYearButton() {
                 marginBottom: "6px",
               }}
             >
-              {hairLossOptions.map((opt) => {
-                const active = form.hairLossType === opt.label;
+              {hairLossOptions.map((o) => {
+                const active = form.hairLossType === o.label;
                 return (
                   <button
-                    key={opt.id}
+                    key={o.id}
+                    onClick={() => updateField("hairLossType", o.label)}
                     type="button"
-                    onClick={() => updateField("hairLossType", opt.label)}
                     style={{
-                      padding: "6px 6px 8px",
                       borderRadius: "12px",
-                      border: active
-                        ? "1px solid #0f766e"
-                        : "1px solid #e5e7eb",
-                      background: active ? "#ecfdf5" : "#ffffff",
+                      border: active ? "2px solid #0f766e" : "1px solid #ddd",
+                      padding: "8px 6px",
+                      background: active ? "#ecfdf5" : "#fff",
                       cursor: "pointer",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      fontSize: "11px",
+                      textAlign: "center",
                     }}
                   >
                     <img
-                      src={opt.img}
-                      alt={opt.label}
+                      src={o.img}
                       style={{
                         width: "60px",
                         height: "60px",
@@ -358,156 +321,88 @@ export default function NewYearButton() {
                         marginBottom: "4px",
                       }}
                     />
-                    <span style={{ fontWeight: 600 }}>{opt.label}</span>
-                    <span style={{ fontSize: "10px", color: "#6b7280" }}>
-                      {opt.desc}
-                    </span>
+                    <div style={{ fontSize: "12px", fontWeight: 600 }}>{o.label}</div>
+                    <div style={{ fontSize: "10px", color: "#666" }}>{o.desc}</div>
                   </button>
                 );
               })}
             </div>
+
             {errors.hairLossType && (
-              <div
-                style={{
-                  marginBottom: "6px",
-                  fontSize: "11px",
-                  color: "#dc2626",
-                }}
-              >
+              <div style={{ color: "#dc2626", fontSize: "11px", marginBottom: "6px" }}>
                 {errors.hairLossType}
               </div>
             )}
 
-            {/* Age + Country */}
-            <div
-              style={{
-                display: "flex",
-                gap: "8px",
-                marginTop: "6px",
-                marginBottom: "6px",
-              }}
-            >
-              <div style={{ flex: "0 0 30%", textAlign: "left" }}>
-                <label
-                  htmlFor="age"
-                  style={{
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    display: "block",
-                    marginBottom: "3px",
-                  }}
-                >
-                  Age
-                </label>
+            {/* AGE + COUNTRY */}
+            <div style={{ display: "flex", gap: "8px", marginBottom: "8px" }}>
+              <div style={{ flex: 1 }}>
+                <label style={{ fontSize: "12px", fontWeight: 600 }}>Age</label>
                 <input
-                  id="age"
-                  name="age"
                   type="number"
                   value={form.age}
                   onChange={(e) => updateField("age", e.target.value)}
                   placeholder="35"
                   style={{
                     width: "100%",
-                    padding: "8px 8px",
+                    padding: "8px",
                     borderRadius: "10px",
-                    border: `1px solid ${
-                      errors.age ? "#dc2626" : "#d4d4d4"
-                    }`,
-                    fontSize: "12px",
+                    border: errors.age ? "1px solid #dc2626" : "1px solid #ccc",
+                    fontSize: "13px",
                   }}
                 />
                 {errors.age && (
-                  <div
-                    style={{
-                      marginTop: "2px",
-                      fontSize: "10px",
-                      color: "#dc2626",
-                    }}
-                  >
-                    {errors.age}
-                  </div>
+                  <div style={{ fontSize: "11px", color: "#dc2626" }}>{errors.age}</div>
                 )}
               </div>
 
-              <div style={{ flex: 1, textAlign: "left" }}>
-                <label
-                  htmlFor="country"
-                  style={{
-                    fontSize: "12px",
-                    fontWeight: 500,
-                    display: "block",
-                    marginBottom: "3px",
-                  }}
-                >
-                  Country
-                </label>
+              <div style={{ flex: 2 }}>
+                <label style={{ fontSize: "12px", fontWeight: 600 }}>Country</label>
                 <input
-                  id="country"
-                  name="country"
                   type="text"
                   value={form.country}
                   onChange={(e) => updateField("country", e.target.value)}
-                  placeholder="Germany, UK, USA, Spain..."
+                  placeholder="Germany, UK, USA..."
                   style={{
                     width: "100%",
-                    padding: "8px 8px",
+                    padding: "8px",
                     borderRadius: "10px",
-                    border: `1px solid ${
-                      errors.country ? "#dc2626" : "#d4d4d4"
-                    }`,
-                    fontSize: "12px",
+                    border: errors.country ? "1px solid #dc2626" : "1px solid #ccc",
+                    fontSize: "13px",
                   }}
                 />
                 {errors.country && (
-                  <div
-                    style={{
-                      marginTop: "2px",
-                      fontSize: "10px",
-                      color: "#dc2626",
-                    }}
-                  >
+                  <div style={{ fontSize: "11px", color: "#dc2626" }}>
                     {errors.country}
                   </div>
                 )}
               </div>
             </div>
 
-            {/* Nav buttons */}
-            <div
-              style={{
-                display: "flex",
-                gap: "8px",
-                marginTop: "10px",
-              }}
-            >
+            {/* BUTTONS */}
+            <div style={{ display: "flex", gap: "10px" }}>
               <button
-                type="button"
                 onClick={handleBack}
                 style={{
                   flex: 1,
-                  padding: "9px 10px",
+                  padding: "10px",
                   borderRadius: "999px",
-                  border: "1px solid #e5e7eb",
-                  background: "#ffffff",
-                  cursor: "pointer",
-                  fontSize: "13px",
+                  border: "1px solid #ddd",
+                  background: "#fff",
                 }}
               >
                 Back
               </button>
               <button
-                type="button"
                 onClick={handleNext}
                 style={{
-                  flex: 1.2,
-                  padding: "9px 10px",
+                  flex: 1.3,
+                  padding: "10px",
                   borderRadius: "999px",
-                  border: "none",
                   background: "#0f766e",
-                  color: "#ffffff",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                  fontWeight: 600,
+                  border: "none",
+                  color: "#fff",
+                  fontWeight: 700,
                 }}
               >
                 Continue
@@ -516,93 +411,54 @@ export default function NewYearButton() {
           </div>
         )}
 
-        {/* STEP 3: Phone + WhatsApp */}
+        {/* ───────────────────────────────────────────────
+            STEP 3 — PHONE → WHATSAPP
+        ─────────────────────────────────────────────── */}
         {step === 3 && (
           <form onSubmit={handleSubmit}>
-            <h3
-              style={{
-                fontSize: "19px",
-                fontWeight: 700,
-                marginBottom: "6px",
-              }}
-            >
+            <h3 style={{ fontSize: "20px", fontWeight: "700", marginBottom: "8px" }}>
               Receive your results on WhatsApp
             </h3>
-            <p
-              style={{
-                fontSize: "13px",
-                color: "#444",
-                marginBottom: "12px",
-                lineHeight: 1.5,
-              }}
-            >
-              Enter your <strong>WhatsApp number with country code</strong>. We
-              will send your <strong>suitability result</strong> and{" "}
-              <strong>30% New Year discount price</strong> in a private message.
+
+            <p style={{ fontSize: "14px", color: "#444", marginBottom: "14px" }}>
+              Enter your <strong>WhatsApp number with country code</strong> to get
+              your suitability result and your{" "}
+              <strong>30% New Year discounted price</strong>.
             </p>
 
-            <div style={{ marginBottom: "10px", textAlign: "left" }}>
-              <label
-                htmlFor="phone"
-                style={{
-                  fontSize: "13px",
-                  fontWeight: 500,
-                  display: "block",
-                  marginBottom: "4px",
-                }}
-              >
-                WhatsApp number (with country code){" "}
-                <span style={{ color: "#dc2626" }}>*</span>
-              </label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                value={form.phone}
-                onChange={(e) => updateField("phone", e.target.value)}
-                placeholder="+90 5XX XXX XX XX"
-                style={{
-                  width: "100%",
-                  padding: "9px 11px",
-                  borderRadius: "10px",
-                  border: `1px solid ${
-                    errors.phone ? "#dc2626" : "#d4d4d4"
-                  }`,
-                  fontSize: "13px",
-                }}
-              />
-              {errors.phone && (
-                <div
-                  style={{
-                    marginTop: "3px",
-                    fontSize: "11px",
-                    color: "#dc2626",
-                  }}
-                >
-                  {errors.phone}
-                </div>
-              )}
-            </div>
-
-            <div
+            {/* PHONE FIELD */}
+            <label style={{ fontSize: "13px", fontWeight: 600 }}>
+              WhatsApp number (with country code)
+            </label>
+            <input
+              type="tel"
+              value={form.phone}
+              onChange={(e) => updateField("phone", e.target.value)}
+              placeholder="+90 5XX XXX XX XX"
               style={{
-                display: "flex",
-                gap: "8px",
-                marginTop: "8px",
-                marginBottom: "4px",
+                width: "100%",
+                padding: "10px",
+                marginTop: "4px",
+                borderRadius: "10px",
+                border: errors.phone ? "1px solid #dc2626" : "1px solid #ccc",
+                fontSize: "14px",
+                marginBottom: "6px",
               }}
-            >
+            />
+            {errors.phone && (
+              <div style={{ fontSize: "11px", color: "#dc2626" }}>{errors.phone}</div>
+            )}
+
+            {/* BUTTONS */}
+            <div style={{ display: "flex", gap: "10px", marginTop: "12px" }}>
               <button
-                type="button"
                 onClick={handleBack}
+                type="button"
                 style={{
                   flex: 1,
-                  padding: "9px 10px",
+                  padding: "10px",
                   borderRadius: "999px",
-                  border: "1px solid #e5e7eb",
-                  background: "#ffffff",
-                  cursor: "pointer",
-                  fontSize: "13px",
+                  border: "1px solid #ddd",
                 }}
               >
                 Back
@@ -612,34 +468,28 @@ export default function NewYearButton() {
                 type="submit"
                 style={{
                   flex: 1.4,
-                  padding: "11px 12px",
+                  padding: "12px",
                   borderRadius: "999px",
-                  border: "none",
                   background: "#25D366",
-                  color: "#ffffff",
-                  cursor: "pointer",
+                  border: "none",
+                  color: "#fff",
+                  fontWeight: 700,
                   fontSize: "15px",
-                  fontWeight: 600,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "6px",
                 }}
               >
-                💬 Send my results on WhatsApp
+                💬 Send My Results
               </button>
             </div>
 
             <p
               style={{
-                marginTop: "2px",
+                marginTop: "8px",
                 fontSize: "11px",
                 color: "#777",
                 textAlign: "center",
               }}
             >
-              When you tap the WhatsApp button, we will send all your answers to
-              our team and reply with your suitability and exact price.
+              We will send your complete analysis & discounted price via WhatsApp.
             </p>
           </form>
         )}
