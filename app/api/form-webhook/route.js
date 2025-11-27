@@ -17,6 +17,7 @@ export async function POST(request) {
     const contentType = request.headers.get('content-type') || '';
     let data = {};
 
+    // JSON veya form-data yakala
     if (contentType.includes('application/json')) {
       data = await request.json();
     } else {
@@ -26,8 +27,9 @@ export async function POST(request) {
       });
     }
 
-    console.log("Elementor Gelen Veri:", data);
+    console.log('Elementor Gelen Veri:', data);
 
+    // Elementor alanlarını toparla
     const name =
       data['fields[name][value]'] ||
       data.name ||
@@ -54,10 +56,12 @@ export async function POST(request) {
       data.message ||
       'Mesaj yok';
 
-    // PARTNER HASH ID
-    const apiKey = 'efecf646749f211b9e0f98bfaba6215c1e710e125';
-    // Prod'da: const apiKey = process.env.DOKTOR365_HASH_KEY;
+    // 🔑 DOĞRU API KEY (üstteki "Api Key")
+    const apiKey = '2e8c1fc41659382ad0df23cb40c18b4aea993565a';
+    // Tavsiye: prod'da .env'e al
+    // const apiKey = process.env.DOKTOR365_API_KEY;
 
+    // Doktor365'e gidecek paket
     const payload = {
       name: name,
       surname: 'Website',
@@ -79,28 +83,20 @@ export async function POST(request) {
 
     console.log('CRM Paket:', payload);
 
-    // ✅ DOĞRU KAPI: "lead" küçük harf
-    // İstersen access-token query'sini de bırakabiliriz:
-    // const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
-    const crmUrl = 'https://app.doktor365.com.tr/api/lead/create/';
+    // Doğru endpoint (lead küçük harf)
+    const crmUrl = 'https://app.doktor365.com.tr/api/lead/create';
 
     const crmResponse = await fetch(crmUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        // Yeni yöntem: Bearer token
         Authorization: `Bearer ${apiKey}`,
-        'X-Auth-Token': apiKey,
-        token: apiKey,
+        Accept: 'application/json',
       },
       body: JSON.stringify(payload),
     });
 
     console.log('CRM Status:', crmResponse.status);
-    console.log(
-      'CRM Headers:',
-      Object.fromEntries(crmResponse.headers.entries())
-    );
 
     const responseText = await crmResponse.text();
     let crmResult;
@@ -109,7 +105,7 @@ export async function POST(request) {
       crmResult = JSON.parse(responseText);
     } catch (e) {
       console.error(
-        'CRM JSON yerine başka bir şey döndü (muhtemelen HTML):',
+        'CRM JSON yerine başka bir şey döndü:',
         responseText.substring(0, 200)
       );
       crmResult = {
