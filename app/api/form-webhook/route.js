@@ -35,12 +35,9 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- PARTNER HASH ID'ye GERİ DÖNÜYORUZ ---
-    // Çünkü dokümantasyonda "Lead/create" için "Hash Key" kullanın diyor.
-    // Genel Key çalışmadı.
+    // --- PARTNER HASH ID (Dokümantasyonun istediği Hash Key) ---
     const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
-    // Payload
     const payload = {
       "name": name,
       "surname": phone || "NoPhone",
@@ -62,19 +59,24 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // --- KİLİT NOKTA ---
-    // 1. URL'de 'lead' küçük harf ve sonda '/' var (URL Sorunu Çözümü)
-    // 2. URL'e 'access-token' parametresiyle PARTNER HASH ID ekliyoruz (Auth Sorunu Çözümü)
-    const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
+    // --- STRATEJİ: HER YERDEN GÖNDERMEK ---
+    // URL'e standart parametreleri ekliyoruz
+    const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}&hash=${apiKey}`;
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Header'a da koyuyoruz (Authorization: Bearer HASH_ID)
+        "Accept": "application/json",
+        // 1. Standart Yöntem
         "Authorization": `Bearer ${apiKey}`,
+        // 2. Bearer'sız Yöntem (Bazı API'ler böyle ister)
+        "X-Auth-Token": apiKey,
+        "Hash-Key": apiKey, // Dokümantasyonda "Hash Key" yazdığı için deniyoruz
+        // Güvenlik Başlıkları
         "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
         "Referer": "https://lp.sercanaslanhair.com",
+        "Origin": "https://lp.sercanaslanhair.com"
       },
       body: JSON.stringify(payload)
     });
