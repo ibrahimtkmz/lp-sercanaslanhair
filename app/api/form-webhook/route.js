@@ -35,9 +35,7 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- DÖNÜM NOKTASI: PARTNER HASH ID ---
-    // Genel Key çalışmadı. Demek ki bu endpoint sadece Partner ID istiyor.
-    // IP kısıtlamasını kaldırdıysan bu anahtar artık çalışacak.
+    // PARTNER HASH ID (Lead oluşturma yetkisi bunda)
     const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
     const payload = {
@@ -61,18 +59,16 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // URL: Partner ID'yi 'access-token' olarak ekledik.
-    // Bu sayede Header silinse bile URL'den okuyacak.
+    // SADECE URL PARAMETRESİ KULLANIYORUZ
+    // Header karmaşasını önlemek için token'ı sadece buraya koyuyoruz.
     const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Header'a da ekliyoruz (Çift Dikiş)
-        "Authorization": `Bearer ${apiKey}`,
-        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
-        // Referer'ı bilerek boş bırakıyoruz ki domain kontrolüne takılmasın
+        // Authorization Header'ını SİLDİM (Çakışma olmasın)
+        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)"
       },
       body: JSON.stringify(payload)
     });
