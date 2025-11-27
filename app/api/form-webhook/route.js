@@ -54,14 +54,13 @@ export async function POST(request) {
       data.message ||
       'Mesaj yok';
 
-    // PARTNER HASH ID (Dokümantasyonun verdiği Hash Key)
+    // PARTNER HASH ID
     const apiKey = 'efecf646749f211b9e0f98bfaba6215c1e710e125';
-    // Not: Prod'da bunu .env'ye al:
-    // const apiKey = process.env.DOKTOR365_HASH_KEY;
+    // Prod'da: const apiKey = process.env.DOKTOR365_HASH_KEY;
 
     const payload = {
       name: name,
-      surname: 'Website', // Telefon yerine sabit bir şey yollayalım
+      surname: 'Website',
       email: email,
       phone: phone,
       description: `Web Form Mesajı: ${message}`,
@@ -80,16 +79,16 @@ export async function POST(request) {
 
     console.log('CRM Paket:', payload);
 
-    // --- KESİN DENEYECEĞİMİZ KOMBO ---
-    // 1) Lead büyük harfli
-    // 2) Sonda slash yok
-    // 3) Token header'da Bearer olarak
-    const crmUrl = 'https://app.doktor365.com.tr/api/Lead/create';
+    // ✅ DOĞRU KAPI: "lead" küçük harf
+    // İstersen access-token query'sini de bırakabiliriz:
+    // const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
+    const crmUrl = 'https://app.doktor365.com.tr/api/lead/create/';
 
     const crmResponse = await fetch(crmUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        // Yeni yöntem: Bearer token
         Authorization: `Bearer ${apiKey}`,
         'X-Auth-Token': apiKey,
         token: apiKey,
@@ -109,7 +108,10 @@ export async function POST(request) {
     try {
       crmResult = JSON.parse(responseText);
     } catch (e) {
-      console.error('CRM JSON yerine başka bir şey döndü (muhtemelen HTML):', responseText.substring(0, 200));
+      console.error(
+        'CRM JSON yerine başka bir şey döndü (muhtemelen HTML):',
+        responseText.substring(0, 200)
+      );
       crmResult = {
         error: 'CRM JSON dönmedi',
         raw_head: responseText.substring(0, 200),
