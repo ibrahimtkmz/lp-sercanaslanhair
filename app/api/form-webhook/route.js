@@ -17,7 +17,6 @@ export async function POST(request) {
     const contentType = request.headers.get('content-type') || '';
     let data = {};
 
-    // 1. Veriyi Oku
     if (contentType.includes('application/json')) {
       data = await request.json();
     } else {
@@ -29,7 +28,6 @@ export async function POST(request) {
 
     console.log("Elementor Gelen Veri:", data);
 
-    // 2. Verileri Eşleştir
     const name = data['fields[name][value]'] || data.name || "Web Form";
     const rawEmail = data['fields[field_555e498][value]'] || data.email || data['fields[email][value]'] || "";
     const email = rawEmail.toString().trim();
@@ -37,10 +35,12 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // Partner API Hash ID (Doğru Anahtar)
-    const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
+    // --- KESİN DÜZELTME: GENEL API KEY ---
+    // Partner Hash ID (efecf...) çalışmadı.
+    // İlk ekran görüntüsündeki "Genel API Key"i kullanıyoruz.
+    const apiKey = "2e8c1fc41659382da0f23cb40c18b46ae993565a"; 
 
-    // Doktor365 Payload
+    // Payload
     const payload = {
       "name": name,
       "surname": phone || "NoPhone",
@@ -48,8 +48,6 @@ export async function POST(request) {
       "phone": phone,
       "description": `Web Form Mesajı: ${message}`,
       "title": "Website Form Lead",
-      // NOT: Eğer yine hata verirse id_source değerini öğrenmemiz gerekebilir.
-      // Şimdilik standart 1 gönderiyoruz.
       "id_source": 1, 
       "id_country": 1,
       "id_treatment_group": 1,
@@ -64,16 +62,14 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // --- KESİN ÇÖZÜM HAMLESİ ---
-    // API Anahtarını hem Header'a koyuyoruz, HEM DE URL'e ekliyoruz.
-    // PHP sunucuları genelde URL'dekini ('access-token') daha rahat okur.
+    // URL'e "access-token" parametresi ekliyoruz.
+    // Bu sayede sunucu Header'ı silse bile anahtarı URL'den okuyacak.
     const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Header'da da kalsın, çift dikiş olsun
         "Authorization": `Bearer ${apiKey}`,
         "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
         "Referer": "https://lp.sercanaslanhair.com",
