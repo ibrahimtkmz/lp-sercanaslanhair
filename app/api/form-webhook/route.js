@@ -35,10 +35,10 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- KESİN DÜZELTME: GENEL API KEY ---
-    // Partner Hash ID (efecf...) çalışmadı.
-    // İlk ekran görüntüsündeki "Genel API Key"i kullanıyoruz.
-    const apiKey = "2e8c1fc41659382da0f23cb40c18b46ae993565a"; 
+    // --- PARTNER HASH ID'ye GERİ DÖNÜYORUZ ---
+    // Çünkü dokümantasyonda "Lead/create" için "Hash Key" kullanın diyor.
+    // Genel Key çalışmadı.
+    const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
     // Payload
     const payload = {
@@ -62,14 +62,16 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // URL'e "access-token" parametresi ekliyoruz.
-    // Bu sayede sunucu Header'ı silse bile anahtarı URL'den okuyacak.
+    // --- KİLİT NOKTA ---
+    // 1. URL'de 'lead' küçük harf ve sonda '/' var (URL Sorunu Çözümü)
+    // 2. URL'e 'access-token' parametresiyle PARTNER HASH ID ekliyoruz (Auth Sorunu Çözümü)
     const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        // Header'a da koyuyoruz (Authorization: Bearer HASH_ID)
         "Authorization": `Bearer ${apiKey}`,
         "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
         "Referer": "https://lp.sercanaslanhair.com",
