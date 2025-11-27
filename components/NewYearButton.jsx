@@ -4,13 +4,32 @@ import { useEffect, useState } from "react";
 
 export default function NewYearButton() {
   const [show, setShow] = useState(false);
+  let inactivityTimer;
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShow(true);
-    }, 5000); // 5 seconds
+    const resetTimer = () => {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(() => {
+        setShow(true);
+      }, 5000); // 5 seconds inactivity
+    };
 
-    return () => clearTimeout(timer);
+    // Kullanıcının aktivitesini takip et
+    window.addEventListener("mousemove", resetTimer);
+    window.addEventListener("keydown", resetTimer);
+    window.addEventListener("scroll", resetTimer);
+    window.addEventListener("touchstart", resetTimer);
+
+    // Başlangıçta timer başlasın
+    resetTimer();
+
+    return () => {
+      clearTimeout(inactivityTimer);
+      window.removeEventListener("mousemove", resetTimer);
+      window.removeEventListener("keydown", resetTimer);
+      window.removeEventListener("scroll", resetTimer);
+      window.removeEventListener("touchstart", resetTimer);
+    };
   }, []);
 
   if (!show) return null;
@@ -28,7 +47,7 @@ export default function NewYearButton() {
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(0, 0, 0, 0.55)",
+        background: "rgba(0,0,0,0.55)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -38,20 +57,18 @@ export default function NewYearButton() {
       <div
         style={{
           position: "relative",
-          background: "#ffffff",
+          background: "#fff",
           borderRadius: "18px",
           padding: "20px",
           maxWidth: "420px",
           width: "90%",
           boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
           textAlign: "center",
-          fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
         }}
       >
-        {/* Kapatma butonu */}
+        {/* Kapatma */}
         <button
           onClick={() => setShow(false)}
-          aria-label="Close"
           style={{
             position: "absolute",
             top: "10px",
@@ -68,68 +85,40 @@ export default function NewYearButton() {
         {/* Resim */}
         <img
           src="/popup-agent.png"
-          alt="Patient coordinator"
+          alt="Hair Transplant Before After"
           style={{
-            width: "90px",
-            height: "90px",
-            borderRadius: "999px",
-            objectFit: "cover",
+            width: "100%",
+            borderRadius: "12px",
             marginBottom: "12px",
           }}
         />
 
-        {/* Başlık & metin (İngilizce) */}
-        <h3
-          style={{
-            fontSize: "22px",
-            marginBottom: "6px",
-            fontWeight: 700,
-          }}
-        >
+        <h3 style={{ fontSize: "22px", fontWeight: 700, marginBottom: "6px" }}>
           🎁 Get 30% New Year Discount
         </h3>
-        <p
-          style={{
-            fontSize: "14px",
-            lineHeight: 1.5,
-            marginBottom: "16px",
-            color: "#333",
-          }}
-        >
-          Chat with our medical team on WhatsApp and secure your{" "}
-          <strong>30% New Year offer</strong> for your hair transplant in
-          Turkey.
+
+        <p style={{ fontSize: "14px", marginBottom: "16px", color: "#333" }}>
+          Chat with our medical team and secure your <strong>30% New Year offer</strong>.
         </p>
 
-        {/* WhatsApp CTA */}
         <button
           onClick={handleWhatsApp}
           style={{
             width: "100%",
-            padding: "12px 16px",
+            padding: "12px",
             borderRadius: "999px",
-            border: "none",
-            cursor: "pointer",
-            fontSize: "16px",
-            fontWeight: 600,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "8px",
             background: "#25D366",
-            color: "#ffffff",
+            color: "#fff",
+            border: "none",
+            fontSize: "16px",
+            fontWeight: "600",
+            cursor: "pointer",
           }}
         >
-          <span>💬 Chat on WhatsApp</span>
+          💬 Chat on WhatsApp
         </button>
 
-        <p
-          style={{
-            marginTop: "8px",
-            fontSize: "11px",
-            color: "#777",
-          }}
-        >
+        <p style={{ marginTop: "8px", fontSize: "11px", color: "#777" }}>
           Your discount message will be sent automatically.
         </p>
       </div>
