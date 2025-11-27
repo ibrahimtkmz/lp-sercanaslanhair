@@ -17,6 +17,7 @@ export async function POST(request) {
     const contentType = request.headers.get('content-type') || '';
     let data = {};
 
+    // Gelen veriyi (JSON veya Form) oku
     if (contentType.includes('application/json')) {
       data = await request.json();
     } else {
@@ -35,31 +36,23 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- PARTNER HASH ID ---
-    // Bu ID, Partner API tablosundan alındı.
-    const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
+    // --- GENEL API KEY (Paneldeki İlk Anahtar) ---
+    // Listeden domaini sildiğinde bu anahtar çalışacaktır.
+    const apiKey = "2e8c1fc41659382da0f23cb40c18b46ae993565a"; 
 
-    // --- STRATEJİ: ANAHTARI GÖVDEYE GÖMMEK ---
-    // Bazı CRM'ler anahtarı header yerine verinin içinde "token" veya "hash" olarak bekler.
     const payload = {
-      "token": apiKey,   // Deneme 1
-      "hash": apiKey,    // Deneme 2
-      "api_key": apiKey, // Deneme 3
       "name": name,
       "surname": phone || "NoPhone",
       "email": email,
       "phone": phone,
       "description": `Web Form Mesajı: ${message}`,
       "title": "Website Form Lead",
-      
-      // ID'leri string olarak da gönderelim, bazen sayı kabul etmezler
       "id_source": 1, 
       "id_country": 1,
       "id_treatment_group": 1,
       "id_referrer": 1,
       "id_staff_sales": 1,
       "sonitel_agent_id": 1,
-      
       "utm_info": {
         "utm_source": "website",
         "utm_medium": "form"
@@ -68,21 +61,15 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // URL'e de eklemeye devam ediyoruz (Çift dikiş)
+    // URL: Access Token'ı URL'den veriyoruz (En garanti yöntem)
     const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        // Header'da Partner Hash ID
         "Authorization": `Bearer ${apiKey}`,
-        // Alternatif Başlıklar
-        "X-Partner-Key": apiKey,
-        // Browser Taklidi
-        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
-        "Referer": "https://lp.sercanaslanhair.com",
-        "Origin": "https://lp.sercanaslanhair.com"
+        "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)"
       },
       body: JSON.stringify(payload)
     });
