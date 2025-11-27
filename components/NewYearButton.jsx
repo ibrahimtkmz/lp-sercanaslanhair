@@ -37,30 +37,49 @@ export default function NewYearButton() {
     };
   }, []);
 
+  // Norwood ikon seçenekleri
   const hairLossOptions = [
     {
-      id: "front",
-      label: "Receding hairline",
-      desc: "Front / temples",
-      icon: "🧑‍🦲",
+      id: 1,
+      label: "Norwood 1",
+      desc: "Minimal recession",
+      img: "/norwood-1.png",
     },
     {
-      id: "crown",
-      label: "Crown / vertex",
-      desc: "Bald spot on top",
-      icon: "🎯",
+      id: 2,
+      label: "Norwood 2",
+      desc: "Early hairline recession",
+      img: "/norwood-2.png",
     },
     {
-      id: "diffuse",
-      label: "Diffuse thinning",
-      desc: "Overall thinning",
-      icon: "💨",
+      id: 3,
+      label: "Norwood 3",
+      desc: "Deeper front loss",
+      img: "/norwood-3.png",
     },
     {
-      id: "fulltop",
-      label: "Advanced hair loss",
-      desc: "Full top / Norwood 5+",
-      icon: "⚠️",
+      id: 4,
+      label: "Norwood 4",
+      desc: "Front + small crown",
+      img: "/norwood-4.png",
+    },
+    {
+      id: 5,
+      label: "Norwood 5",
+      desc: "Front + larger crown",
+      img: "/norwood-5.png",
+    },
+    {
+      id: 6,
+      label: "Norwood 6",
+      desc: "Full top thinning",
+      img: "/norwood-6.png",
+    },
+    {
+      id: 7,
+      label: "Norwood 7",
+      desc: "Advanced baldness",
+      img: "/norwood-7.png",
     },
   ];
 
@@ -142,7 +161,7 @@ export default function NewYearButton() {
           position: "relative",
           background: "#ffffff",
           borderRadius: "18px",
-          maxWidth: "460px",
+          maxWidth: "480px",
           width: "92%",
           boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
           padding: "18px 18px 16px",
@@ -188,6 +207,7 @@ export default function NewYearButton() {
           Step {step} of 3
         </div>
 
+        {/* STEP 1 */}
         {step === 1 && (
           <div>
             <h3
@@ -245,6 +265,7 @@ export default function NewYearButton() {
           </div>
         )}
 
+        {/* STEP 2 – Norwood ikonları + age/country */}
         {step === 2 && (
           <div>
             <h3
@@ -264,16 +285,16 @@ export default function NewYearButton() {
                 lineHeight: 1.5,
               }}
             >
-              Choose the option that best matches your{" "}
-              <strong>current hair loss</strong>, then enter your{" "}
-              <strong>age</strong> and <strong>country</strong>.
+              Select the <strong>Norwood stage</strong> that best matches your{" "}
+              current hair loss, then enter your <strong>age</strong> and{" "}
+              <strong>country</strong>.
             </p>
 
-            {/* Hair loss icons */}
+            {/* Norwood grid */}
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
+                gridTemplateColumns: "repeat(3, 1fr)",
                 gap: "8px",
                 marginBottom: "6px",
               }}
@@ -286,7 +307,7 @@ export default function NewYearButton() {
                     type="button"
                     onClick={() => updateField("hairLossType", opt.label)}
                     style={{
-                      padding: "8px 8px",
+                      padding: "6px 6px 8px",
                       borderRadius: "12px",
                       border: active
                         ? "1px solid #0f766e"
@@ -295,15 +316,22 @@ export default function NewYearButton() {
                       cursor: "pointer",
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "flex-start",
-                      fontSize: "12px",
+                      alignItems: "center",
+                      fontSize: "11px",
                     }}
                   >
-                    <span style={{ fontSize: "20px", marginBottom: "2px" }}>
-                      {opt.icon}
-                    </span>
+                    <img
+                      src={opt.img}
+                      alt={opt.label}
+                      style={{
+                        width: "60px",
+                        height: "60px",
+                        objectFit: "contain",
+                        marginBottom: "4px",
+                      }}
+                    />
                     <span style={{ fontWeight: 600 }}>{opt.label}</span>
-                    <span style={{ fontSize: "11px", color: "#6b7280" }}>
+                    <span style={{ fontSize: "10px", color: "#6b7280" }}>
                       {opt.desc}
                     </span>
                   </button>
@@ -460,6 +488,7 @@ export default function NewYearButton() {
           </div>
         )}
 
+        {/* STEP 3 – Phone + WhatsApp */}
         {step === 3 && (
           <form onSubmit={handleSubmit}>
             <h3
@@ -479,8 +508,8 @@ export default function NewYearButton() {
                 lineHeight: 1.5,
               }}
             >
-              Enter your <strong>WhatsApp number with country code</strong>. We
-              will send your <strong>suitability result</strong> and{" "}
+              Enter your <strong>WhatsApp number with country code</strong>.
+              We will send your <strong>suitability result</strong> and{" "}
               <strong>30% New Year discount price</strong> in a private message.
             </p>
 
@@ -527,7 +556,6 @@ export default function NewYearButton() {
               )}
             </div>
 
-            {/* Nav + WhatsApp */}
             <div
               style={{
                 display: "flex",
