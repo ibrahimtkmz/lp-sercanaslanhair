@@ -1,34 +1,34 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function NewYearButton() {
   const [show, setShow] = useState(false);
-  const timerRef = useRef(null);
+  let inactivityTimer;
 
   useEffect(() => {
     const resetTimer = () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-
-      // Kullanıcı 5 saniye hareketsiz kalırsa popup aç
-      timerRef.current = setTimeout(() => {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(() => {
         setShow(true);
-      }, 5000);
+      }, 5000); // 5 seconds inactivity
     };
 
-    // Sayfa açıldığında ilk timer başlasın
+    // Kullanıcının aktivitesini takip et
+    window.addEventListener("mousemove", resetTimer);
+    window.addEventListener("keydown", resetTimer);
+    window.addEventListener("scroll", resetTimer);
+    window.addEventListener("touchstart", resetTimer);
+
+    // Başlangıçta timer başlasın
     resetTimer();
 
-    const events = ["mousemove", "keydown", "scroll", "touchstart"];
-    events.forEach((ev) => window.addEventListener(ev, resetTimer));
-
     return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-      events.forEach((ev) => window.removeEventListener(ev, resetTimer));
+      clearTimeout(inactivityTimer);
+      window.removeEventListener("mousemove", resetTimer);
+      window.removeEventListener("keydown", resetTimer);
+      window.removeEventListener("scroll", resetTimer);
+      window.removeEventListener("touchstart", resetTimer);
     };
   }, []);
 
@@ -36,7 +36,7 @@ export default function NewYearButton() {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
-      "Hi! I saw your 30% New Year discount. I would like to get more information about the hair transplant offer and your before/after results."
+      "Hi! I saw your 30% New Year discount. I would like to get more information about the hair transplant offer."
     );
 
     window.open(`https://wa.me/905467372284?text=${message}`, "_blank");
@@ -47,7 +47,7 @@ export default function NewYearButton() {
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(0, 0, 0, 0.55)",
+        background: "rgba(0,0,0,0.55)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -57,109 +57,70 @@ export default function NewYearButton() {
       <div
         style={{
           position: "relative",
-          background: "#ffffff",
-          borderRadius: "20px",
-          maxWidth: "480px",
+          background: "#fff",
+          borderRadius: "18px",
+          padding: "20px",
+          maxWidth: "420px",
           width: "90%",
-          boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
-          overflow: "hidden",
-          fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+          textAlign: "center",
         }}
       >
-        {/* Kapatma butonu */}
+        {/* Kapatma */}
         <button
           onClick={() => setShow(false)}
-          aria-label="Close"
           style={{
             position: "absolute",
             top: "10px",
             right: "12px",
             border: "none",
-            background: "rgba(0,0,0,0.35)",
-            color: "#fff",
-            width: "26px",
-            height: "26px",
-            borderRadius: "999px",
-            fontSize: "18px",
+            background: "transparent",
+            fontSize: "20px",
             cursor: "pointer",
-            zIndex: 1,
           }}
         >
           ×
         </button>
 
-        {/* Before–After görseli */}
+        {/* Resim */}
         <img
           src="/popup-agent.png"
-          alt="Hair transplant before and after"
+          alt="Hair Transplant Before After"
           style={{
             width: "100%",
-            display: "block",
+            borderRadius: "12px",
+            marginBottom: "12px",
           }}
         />
 
-        {/* Metin ve CTA */}
-        <div
+        <h3 style={{ fontSize: "22px", fontWeight: 700, marginBottom: "6px" }}>
+          🎁 Get 30% New Year Discount
+        </h3>
+
+        <p style={{ fontSize: "14px", marginBottom: "16px", color: "#333" }}>
+          Chat with our medical team and secure your <strong>30% New Year offer</strong>.
+        </p>
+
+        <button
+          onClick={handleWhatsApp}
           style={{
-            padding: "18px 20px 20px",
-            textAlign: "center",
+            width: "100%",
+            padding: "12px",
+            borderRadius: "999px",
+            background: "#25D366",
+            color: "#fff",
+            border: "none",
+            fontSize: "16px",
+            fontWeight: "600",
+            cursor: "pointer",
           }}
         >
-          <h3
-            style={{
-              fontSize: "22px",
-              marginBottom: "6px",
-              fontWeight: 700,
-            }}
-          >
-            🎁 Don&apos;t Miss This Transformation!
-          </h3>
+          💬 Chat on WhatsApp
+        </button>
 
-          <p
-            style={{
-              fontSize: "14px",
-              lineHeight: 1.5,
-              marginBottom: "16px",
-              color: "#333",
-            }}
-          >
-            See the real{" "}
-            <strong>Before &amp; After</strong> results and secure your{" "}
-            <strong>30% New Year discount</strong> on hair transplant in Turkey.
-          </p>
-
-          <button
-            onClick={handleWhatsApp}
-            style={{
-              width: "100%",
-              padding: "12px 16px",
-              borderRadius: "999px",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "16px",
-              fontWeight: 600,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "8px",
-              background: "#25D366",
-              color: "#ffffff",
-              marginBottom: "6px",
-            }}
-          >
-            💬 Chat on WhatsApp &amp; Claim 30% Off
-          </button>
-
-          <p
-            style={{
-              marginTop: "2px",
-              fontSize: "11px",
-              color: "#777",
-            }}
-          >
-            Your discount message will be sent automatically.
-          </p>
-        </div>
+        <p style={{ marginTop: "8px", fontSize: "11px", color: "#777" }}>
+          Your discount message will be sent automatically.
+        </p>
       </div>
     </div>
   );
