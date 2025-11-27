@@ -13,11 +13,13 @@ export async function OPTIONS() {
 }
 
 export async function POST(request) {
+  // Elementor'a HER durumda 200 döndüreceğiz,
+  // hataları sadece loglayacağız.
   try {
     const contentType = request.headers.get('content-type') || '';
     let data = {};
 
-    // JSON veya form-data yakala
+    // JSON veya form-data
     if (contentType.includes('application/json')) {
       data = await request.json();
     } else {
@@ -29,7 +31,6 @@ export async function POST(request) {
 
     console.log('Elementor Gelen Veri:', data);
 
-    // Elementor alanlarını toparla
     const name =
       data['fields[name][value]'] ||
       data.name ||
@@ -56,12 +57,10 @@ export async function POST(request) {
       data.message ||
       'Mesaj yok';
 
-    // 🔑 DOĞRU API KEY (üstteki "Api Key")
+    // 🔑 Üstteki "Api Key"
     const apiKey = '2e8c1fc41659382ad0df23cb40c18b4aea993565a';
-    // Tavsiye: prod'da .env'e al
-    // const apiKey = process.env.DOKTOR365_API_KEY;
+    // Prod'da: const apiKey = process.env.DOKTOR365_API_KEY;
 
-    // Doktor365'e gidecek paket
     const payload = {
       name: name,
       surname: 'Website',
@@ -83,56 +82,70 @@ export async function POST(request) {
 
     console.log('CRM Paket:', payload);
 
-    // Doğru endpoint (lead küçük harf)
     const crmUrl = 'https://app.doktor365.com.tr/api/lead/create';
 
-    const crmResponse = await fetch(crmUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-        Accept: 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
-
-    console.log('CRM Status:', crmResponse.status);
-
-    const responseText = await crmResponse.text();
-    let crmResult;
+    let crmStatus = null;
+    let crmResult = null;
 
     try {
-      crmResult = JSON.parse(responseText);
+      const crmResponse = await fetch(crmUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`,
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      crmStatus = crmResponse.status;
+      const responseText = await crmResponse.text();
+
+      try {
+        crmResult = JSON.parse(responseText);
+      } catch (e) {
+        console.error(
+          'CRM JSON yerine başka bir şey döndü:',
+          responseText.substring(0, 200)
+        );
+        crmResult = {
+          error: 'CRM JSON dönmedi',
+          raw_head: responseText.substring(0, 200),
+        };
+      }
     } catch (e) {
-      console.error(
-        'CRM JSON yerine başka bir şey döndü:',
-        responseText.substring(0, 200)
-      );
-      crmResult = {
-        error: 'CRM JSON dönmedi',
-        raw_head: responseText.substring(0, 200),
-      };
+      console.error('CRM isteği sırasında hata:', e);
+      crmStatus = 'fetch_error';
+      crmResult = { error: e.message };
     }
 
+    console.log('CRM Status:', crmStatus);
     console.log('CRM Sonuç:', crmResult);
 
+    // Elementor için basit bir success cevabı
     const response = NextResponse.json(
       {
-        message: 'Processed',
-        crm_status: crmResponse.status,
-        crm_id: crmResult?.data?.id,
+        ok: true,
+        message: 'Webhook processed',
+        crm_status: crmStatus,
         crm_raw: crmResult,
       },
-      { status: 200 }
+      { status: 200 } // 🔴 Elementor mutlaka 200 görecek
     );
 
     return setCorsHeaders(response);
   } catch (error) {
-    console.error('Hata:', error);
-    const errorResponse = NextResponse.json(
-      { status: 'error', message: error.message },
-      { status: 500 }
+    console.error('route.js GENEL HATA:', error);
+
+    // Yine de Elementor'a 200 dönelim ki "Webhook error" görmesin
+    const fallbackResponse = NextResponse.json(
+      {
+        ok: false,
+        message: 'Webhook internal error',
+        error: error.message,
+      },
+      { status: 200 }
     );
-    return setCorsHeaders(errorResponse);
+    return setCorsHeaders(fallbackResponse);
   }
 }
