@@ -13,8 +13,6 @@ export async function OPTIONS() {
 }
 
 export async function POST(request) {
-  // Elementor'a HER durumda 200 döndüreceğiz,
-  // hataları sadece loglayacağız.
   try {
     const contentType = request.headers.get('content-type') || '';
     let data = {};
@@ -82,7 +80,8 @@ export async function POST(request) {
 
     console.log('CRM Paket:', payload);
 
-    const crmUrl = 'https://app.doktor365.com.tr/api/lead/create/';
+    // ✅ Doğru endpoint + access-token query param
+    const crmUrl = `https://app.doktor365.com.tr/api/lead/create/?access-token=${apiKey}`;
 
     let crmStatus = null;
     let crmResult = null;
@@ -92,8 +91,8 @@ export async function POST(request) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
           Accept: 'application/json',
+          // DİKKAT: Authorization header YOK
         },
         body: JSON.stringify(payload),
       });
@@ -122,7 +121,6 @@ export async function POST(request) {
     console.log('CRM Status:', crmStatus);
     console.log('CRM Sonuç:', crmResult);
 
-    // Elementor için basit bir success cevabı
     const response = NextResponse.json(
       {
         ok: true,
@@ -130,14 +128,13 @@ export async function POST(request) {
         crm_status: crmStatus,
         crm_raw: crmResult,
       },
-      { status: 200 } // 🔴 Elementor mutlaka 200 görecek
+      { status: 200 }
     );
 
     return setCorsHeaders(response);
   } catch (error) {
     console.error('route.js GENEL HATA:', error);
 
-    // Yine de Elementor'a 200 dönelim ki "Webhook error" görmesin
     const fallbackResponse = NextResponse.json(
       {
         ok: false,
