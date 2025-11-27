@@ -37,10 +37,9 @@ export async function POST(request) {
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
-    // --- DÜZELTME: ANA API KEY ---
-    // Partner Hash ID (efecf...) çalışmadı (401 verdi).
-    // İlk ekran görüntüsündeki "Özel API Ayarları" anahtarını kullanıyoruz.
-    const apiKey = "2e8c1fc41659382da0f23cb40c18b46ae993565a"; 
+    // --- KRİTİK DEĞİŞİKLİK: HASH ID ---
+    // URL artık doğru olduğu için, Partner API için geçerli olan Hash ID'yi kullanıyoruz.
+    const apiKey = "efecf646749f211b9e0f98bfaba6215c1e710e125"; 
 
     // Doktor365 Payload
     const payload = {
@@ -64,17 +63,16 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // URL: Küçük harf 'lead' ve sonda SLASH '/' (Bu doğruydu, değiştirmiyoruz)
+    // URL: (Doğru çalışan URL)
     const crmUrl = "https://app.doktor365.com.tr/api/lead/create/";
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`,
-        // Güvenlik Duvarını Aşmak İçin Ek Başlıklar:
+        "Authorization": `Bearer ${apiKey}`, // Hash ID burada kullanılıyor
         "User-Agent": "Mozilla/5.0 (Compatible; FormWebhook/1.0)",
-        "Referer": "https://lp.sercanaslanhair.com", // Sitenin izinli listede olduğunu kanıtlamak için
+        "Referer": "https://lp.sercanaslanhair.com",
         "Origin": "https://lp.sercanaslanhair.com"
       },
       body: JSON.stringify(payload)
