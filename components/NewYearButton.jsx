@@ -18,7 +18,9 @@ export default function NewYearButton() {
   return (
     <button
       onClick={() => {
-        // Change to your desired target location
+        // Kullanıcı nereye gitsin istiyorsan burayı değiştir
+        // Örnek: form id'si #lead-form ise:
+        // window.location.href = "#lead-form";
         window.location.href = "#pricing";
       }}
       style={{
@@ -28,11 +30,12 @@ export default function NewYearButton() {
         background: "#e60023",
         color: "#fff",
         padding: "14px 22px",
-        borderRadius: "8px",
-        fontSize: "18px",
-        fontWeight: "bold",
+        borderRadius: "10px",
+        fontSize: "17px",
+        fontWeight: "600",
         cursor: "pointer",
         zIndex: 9999,
+        boxShadow: "0 4px 12px rgba(0,0,0,0.25)",
       }}
     >
       🎁 Get 30% New Year Discount!
