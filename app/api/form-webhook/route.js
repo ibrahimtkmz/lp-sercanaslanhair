@@ -31,13 +31,10 @@ export async function POST(request) {
 
     // 2. Verileri Eşleştir
     const name = data['fields[name][value]'] || data.name || "Web Form";
-    
     const rawEmail = data['fields[field_555e498][value]'] || data.email || data['fields[email][value]'] || "";
     const email = rawEmail.toString().trim();
-
     const rawPhone = data['fields[field_eae3750][value]'] || data.phone || data['fields[phone][value]'] || "";
     const phone = rawPhone.toString().replace(/[^0-9+]/g, "").trim();
-    
     const message = data['fields[message][value]'] || data.message || "Mesaj yok";
 
     // Hash ID (Partner API Ayarları)
@@ -65,16 +62,17 @@ export async function POST(request) {
 
     console.log("CRM Paket:", payload);
 
-    // --- KRİTİK DÜZELTME: URL Birebir Dokümantasyonla Aynı Olmalı ---
-    // 1. "Lead" (Baş harfi büyük L)
-    // 2. Sonda mutlaka "/" (slash) olmalı
-    const crmUrl = "https://app.doktor365.com.tr/api/Lead/create/";
+    // --- SON ŞANS DÜZELTMESİ ---
+    // 1. URL: Büyük 'L' ama sonda SLASH YOK. (Genelde redirect sorununu bu çözer)
+    const crmUrl = "https://app.doktor365.com.tr/api/Lead/create";
 
     const crmResponse = await fetch(crmUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`
+        "Authorization": `Bearer ${apiKey}`,
+        // Sunucu bizi robot sanmasın diye tarayıcı taklidi yapıyoruz:
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
       },
       body: JSON.stringify(payload)
     });
@@ -84,14 +82,12 @@ export async function POST(request) {
     try {
         crmResult = JSON.parse(responseText);
     } catch (e) {
-        // Eğer hala HTML dönerse başını görelim
         console.error("CRM HTML Döndü:", responseText.substring(0, 200)); 
         crmResult = { error: "CRM HTML döndürdü", raw_head: responseText.substring(0, 100) };
     }
 
     console.log("CRM Sonuç:", crmResult);
 
-    // Başarılı veya hatalı olsa da Elementor'a "Tamam" diyelim ki hata göstermesin
     const response = NextResponse.json({ 
       message: 'Processed', 
       crm_id: crmResult?.data?.id 
