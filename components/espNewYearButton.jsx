@@ -15,7 +15,7 @@ export default function NewYearButtonEs() {
 
   const timerRef = useRef(null);
 
-  // Popup después de 1.5s sin actividad
+  // Popup después de 2.5s sin actividad
   useEffect(() => {
     const resetTimer = () => {
       if (timerRef.current) clearTimeout(timerRef.current);
